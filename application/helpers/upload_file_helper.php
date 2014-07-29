@@ -39,7 +39,7 @@ if (!function_exists ('transposed_all_files_array')) {
 }
 
 if (!function_exists ('transposed_files_array')) {
-  function transposed_files_array($files) {
+  function transposed_files_array ($files) {
     $filter_size = true;
     $new_array   = array ();
     $files_count = count ($files['name']);

@@ -5,17 +5,17 @@
  * @copyright   Copyright (c) 2014 OA Wu Design
  */
 
-$search_config['is_use'] = true;
-$search_config['ip']     = "54.250.187.141";
-$search_config['port']   = "9200";
-$search_config['index']  = "style_2";
+$config['is_use'] = true;
+$config['ip']     = "54.250.187.141";
+$config['port']   = "9200";
+$config['index']  = array ();
 
-$search_config['types']['share']         = 'style_2_shares';
-$search_config['types']['share_keyword'] = 'style_2_share_keywords';
-$search_config['types']['user']          = 'style_2_users';
-$search_config['types']['page_view']     = 'style_2_page_view';
+$config['types']['share']         = 'style_shares';
+$config['types']['share_keyword'] = 'style_share_keywords';
+$config['types']['user']          = 'style_users';
+$config['types']['page_view']     = 'style_page_view';
 
-$search_config['mappings'][$search_config['types']['share']] = array (
+$config['mappings'][$config['types']['share']] = array (
     'id'                => array ('type' => 'integer', 'index' => 'not_analyzed'),
     'user_id'           => array ('type' => 'integer'),
     'text'              => array ('type' => 'string'),
@@ -30,12 +30,12 @@ $search_config['mappings'][$search_config['types']['share']] = array (
     'user_name'         => array ('type' => 'string')
   );
 
-$search_config['mappings'][$search_config['types']['share_keyword']] = array (
+$config['mappings'][$config['types']['share_keyword']] = array (
     'id'   => array ('type' => 'string'),
     'name' => array ('type' => 'string')
   );
 
-$search_config['mappings'][$search_config['types']['user']] = array (
+$config['mappings'][$config['types']['user']] = array (
     'id'           => array ('type' => 'integer'),
     'name'         => array ('type' => 'string'),
     'email'        => array ('type' => 'string'),
@@ -53,7 +53,7 @@ $search_config['mappings'][$search_config['types']['user']] = array (
     'share_average_pv'   => array ('type' => 'float'),
   );
 
-$search_config['mappings'][$search_config['types']['page_view']] = array (
+$config['mappings'][$config['types']['page_view']] = array (
     'id'        => array ('type' => 'string'),
     'object'    => array ('type' => 'string'),
     'object_id' => array ('type' => 'integer'),

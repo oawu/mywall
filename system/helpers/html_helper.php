@@ -486,6 +486,39 @@ if ( ! function_exists('script_tag')) {
     }
 }
 
+// ------------------------------------------------------------------------
+
+/**
+ * OA's Hidden Input Field
+ *
+ * @access	public
+ * @param	mixed
+ * @return	string
+ */
+if ( ! function_exists('oa_hidden'))
+{
+	function oa_hidden($attributes = array ())
+	{
+		return $attributes ? '<input type="hidden" ' . implode (' ', array_map (function ($attribute, $value) { return $attribute . '="' . $value . '"'; }, array_keys ($attributes), $attributes)) . ' />' : '';
+	}
+}
+
+// ------------------------------------------------------------------------
+
+/**
+ * OA's Meta Element
+ *
+ * @access	public
+ * @param	mixed
+ * @return	string
+ */
+if ( ! function_exists('oa_meta'))
+{
+	function oa_meta($attributes = array ())
+	{
+		return $attributes ? '<meta ' . implode (' ', array_map (function ($attribute, $value) { return $attribute . '="' . $value . '"'; }, array_keys ($attributes), $attributes)) . ' />' : '';
+	}
+}
 
 /* End of file html_helper.php */
 /* Location: ./system/helpers/html_helper.php */
