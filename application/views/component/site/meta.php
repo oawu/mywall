@@ -4,6 +4,6 @@
  * @author      OA Wu <comdan66@gmail.com>
  * @copyright   Copyright (c) 2014 OA Wu Design
  */
-if (verifyArray ($meta_list))
+if ($meta_list)
   foreach ($meta_list as $meta) 
-    echo meta ($meta['name'], $meta['content'], $meta['type'], $meta['newline'] ? "\n": "");
+    echo oa_meta ($meta);

@@ -54,7 +54,7 @@ class OaModel extends ActiveRecordModel {
     if (!(class_exists ($ori_model = get_called_class ()) && class_exists ($delete_model = 'Delete' . $ori_model))) showError ('The origin model or delete mode error!');
     if (!(count ($delete_columns = array_keys ($delete_model::table ()->columns)) && count ($ori_columns = array_keys ($ori_model::table ()->columns)) && (count ($ori_columns) == (count ($delete_columns) - 1)) && (($i = array_search ('id', $delete_columns)) !== false))) showError ('The origin model or delete mode columns error!');
 
-    if (!verifyItemInArray ($mode, array ('one', 'all'))) showError ('The mode type error!');
+    if (!in_array ($mode, array ('one', 'all'))) showError ('The mode type error!');
     $origin_id = config ('model_config', 'recycle', 'origin_id');
 
     $conditions['select'] = implode (',', array_map (function ($delete_column) { return '`' . $delete_column . '`'; }, $delete_columns));

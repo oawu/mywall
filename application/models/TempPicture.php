@@ -11,6 +11,6 @@ class TempPicture extends OaModel {
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {
     parent::__construct ($attributes, $guard_attributes, $instantiating_via_find, $new_record);
 
-    ModelUploader::bind ('file_name', 'TempPictureUpload');
+    OrmImageUploader::bind ('file_name');
   }
 }

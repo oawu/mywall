@@ -6,9 +6,9 @@
  */
 
 
-  $header_list = verifyArray ($topbar_list) && isset ($topbar_list['header']) ? $topbar_list['header'] : array ();
-  $left_list = verifyArray ($topbar_list) && isset ($topbar_list['left']) ? $topbar_list['left'] : array ();
-  $right_list = verifyArray ($topbar_list) && isset ($topbar_list['right']) ? $topbar_list['right'] : array ();
+  $header_list = $topbar_list && isset ($topbar_list['header']) ? $topbar_list['header'] : array ();
+  $left_list = $topbar_list && isset ($topbar_list['left']) ? $topbar_list['left'] : array ();
+  $right_list = $topbar_list && isset ($topbar_list['right']) ? $topbar_list['right'] : array ();
 
   function print_dropdowns ($navitem_list, $level = 0) {
     if (count ($navitem_list)) {

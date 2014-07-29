@@ -1,115 +1,136 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require_once 'TypeVerify.php';
-
-class ImageBaseUtility extends TypeVerify {
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2014 OA Wu Design
+ */
+class ImageBaseUtility {
   private $fileName = null;
+  protected $mime = null;
+  protected $format = null;
+  protected $image = null;
+  protected $dimension = null;
 
-  public function __construct ($fileName = null) {
-    if ($this->verifyArrayFormat ($fileName, array ('fileName'))) $fileName = $fileName['fileName'];
+  public function __construct ($fileName) {
+    if (!is_readable ($fileName))
+      return show_error ("The image file : " . $fileName . " not found or not readable!<br/>Please confirm your program again.");
+    $this->setFileName ($fileName);
+  }
 
-    if ($this->verifyFileReadable ($fileName)) {
-      $this->fileName = $fileName;
+  protected function setFileName ($fileName) {
+    $this->fileName = $fileName;
+    return $this;
+  }
+
+  public function getFileName () {
+    return $this->fileName;
+  }
+
+  public function getMime () {
+    return $this->mime;
+  }
+
+  public function getFormat () {
+    return $this->format;
+  }
+
+  public function getImage () {
+    return $this->image;
+  }
+
+
+  public function colorHex2Rgb ($hex) {
+    if (($hex = str_replace ('#', '', $hex)) && ((strlen ($hex) == 3) || (strlen ($hex) == 6))) {
+      if(strlen ($hex) == 3) {
+        $r = hexdec (substr ($hex, 0, 1) . substr ($hex, 0, 1));
+        $g = hexdec (substr ($hex, 1, 1) . substr ($hex, 1, 1));
+        $b = hexdec (substr ($hex, 2, 1) . substr ($hex, 2, 1));
+      } else {
+        $r = hexdec (substr ($hex, 0, 2));
+        $g = hexdec (substr ($hex, 2, 2));
+        $b = hexdec (substr ($hex, 4, 2));
+      }
+      return array ($r, $g, $b);
     } else {
-      $this->showError("<fr>Error!</fr> The image file : " . $fileName . " not found or not readable!\nPlease confirm your program again.");
+      return array ();
     }
   }
 
-  protected function getFileName () { return $this->fileName; }
+  protected function verifyColor ($color) {
+    return ($color = is_string ($color) ? $this->colorHex2Rgb ($color) : $color) && is_array ($color) && (count ($color) == 3) && ($color[0] >= 0) && ($color[0] <= 255) && ($color[1] >= 0) && ($color[1] <= 255) && ($color[2] >= 0) && ($color[2] <= 255) ? $color : false;
+  }
 
   protected function createDimension ($width, $height) {
-    return ($this->verifyNumber ($width, 1) && $this->verifyNumber ($height, 1)) ? array (
+    return ($width > 0) && ($height > 0) ? array (
       'width'  => intval ($width),
       'height' => intval ($height)
-    ) : $this->showError ("<fr>Error!</fr> Create dimension Error!\nPlease confirm your program again.");
+    ) : show_error ("Create dimension Error!<br/>Please confirm your program again.");
   }
 
-  protected function verifyDegree ($degree) {
-    return $this->verifyNumber ($degree);
-  }
-
-  protected function verifyColor ($color, $type = null) {
-    if (!$this->verifyItemInArray ($type, array ('Array', 'String'))) return ($this->verifyArray ($color, 3) && $this->verifyNumber ($color[0], 0, 255) && $this->verifyNumber ($color[1], 0, 255) && $this->verifyNumber ($color[2], 0, 255)) || ($this->verifyString ($color));
-    else return $type == 'Array' ? ($this->verifyArray ($color, 3) && $this->verifyNumber ($color[0], 0, 255) && $this->verifyNumber ($color[1], 0, 255) && $this->verifyNumber ($color[2], 0, 255)) : ($type == 'String' ? ($this->verifyString ($color)) : false);
-  }
-
-  protected function verifyStartXY ($startX, $startY, $min = 0) {
-    return $this->verifyNumber ($startX, $min) && $this->verifyNumber ($startY, $min);
-  }
-
-  protected function verifyPercent ($percent, $min = 1, $max = 100) {
-    return $this->verifyNumber ($percent, $min, $max);
-  }
-
-  protected function calcWidth ($dimension, $newDimension) {
-    $newWidthPercentage = (100 * $newDimension['width']) / $dimension['width'];
-    $height             = ($dimension['height'] * $newWidthPercentage) / 100;
+  protected function calcWidth ($oldDimension, $newDimension) {
+    $newWidthPercentage = 100 * $newDimension['width'] / $oldDimension['width'];
+    $height             = $oldDimension['height'] * $newWidthPercentage / 100;
     return $this->createDimension ($newDimension['width'], $height);
   }
 
-  protected function calcHeight ($dimension, $newDimension) {
-    $newHeightPercentage  = (100 * $newDimension['height']) / $dimension['height'];
-    $width                = ($dimension['width'] * $newHeightPercentage) / 100;
+  protected function calcHeight ($oldDimension, $newDimension) {
+    $newHeightPercentage  = 100 * $newDimension['height'] / $oldDimension['height'];
+    $width                = $oldDimension['width'] * $newHeightPercentage / 100;
     return $this->createDimension ($width, $newDimension['height']);
   }
 
-  protected function calcImageSize ($dimension, $newDimension) {
-    $newSize = $this->createDimension ($dimension['width'], $dimension['height']);
+  protected function calcImageSize ($oldDimension, $newDimension) {
+    $newSize = $this->createDimension ($oldDimension['width'], $oldDimension['height']);
 
     if ($newDimension['width'] > 0) {
-      $newSize = $this->calcWidth ($dimension, $newDimension);
+      $newSize = $this->calcWidth ($oldDimension, $newDimension);
       if (($newDimension['height'] > 0) && ($newSize['height'] > $newDimension['height']))
-        $newSize = $this->calcHeight($dimension, $newDimension);
+        $newSize = $this->calcHeight($oldDimension, $newDimension);
     }
-    
     if ($newDimension['height'] > 0) {
-      $newSize = $this->calcHeight ($dimension, $newDimension);
+      $newSize = $this->calcHeight ($oldDimension, $newDimension);
       if (($newDimension['width'] > 0) && ($newSize['width'] > $newDimension['width']))
-        $newSize = $this->calcWidth ($dimension, $newDimension);
+        $newSize = $this->calcWidth ($oldDimension, $newDimension);
     }
+    return $newSize;
+  }
+
+  protected function calcImageSizeStrict ($oldDimension, $newDimension) {
+    $newSize = $this->createDimension ($newDimension['width'], $newDimension['height']);
     
+    if ($newDimension['width'] >= $newDimension['height']) {
+      if ($oldDimension['width'] > $oldDimension['height'])  {
+        $newSize = $this->calcHeight ($oldDimension, $newDimension);
+        
+        if ($newSize['width'] < $newDimension['width']) {
+          $newSize = $this->calcWidth ($oldDimension, $newDimension);
+        }
+      } else if ($oldDimension['height'] >= $oldDimension['width']) {
+        $newSize = $this->calcWidth ($oldDimension, $newDimension);
+        
+        if ($newSize['height'] < $newDimension['height']) {
+          $newSize = $this->calcHeight ($oldDimension, $newDimension);
+        }
+      }
+    } else if ($newDimension['height'] > $newDimension['width']) {
+      if ($oldDimension['width'] >= $oldDimension['height']) {
+        $newSize = $this->calcWidth ($oldDimension, $newDimension);
+        
+        if ($newSize['height'] < $newDimension['height']) {
+          $newSize = $this->calcHeight ($oldDimension, $newDimension);
+        }
+      } else if ($oldDimension['height'] > $oldDimension['width']) {
+        $newSize = $this->calcHeight ($oldDimension, $newDimension);
+        
+        if ($newSize['width'] < $newDimension['width']) {
+          $newSize = $this->calcWidth ($oldDimension, $newDimension);
+        }
+      }
+    }
     return $newSize;
   }
 
   protected function calcImageSizePercent ($percent, $dimension) {
-    $width  = ceil (($dimension['width'] * $percent) / 100);
-    $height = ceil (($dimension['height'] * $percent) / 100);
-    
-    return $this->createDimension ($width, $height);
-  }
-
-  protected function calcImageSizeStrict ($dimension, $newDimension) {
-    $newSize = $this->createDimension ($newDimension['width'], $newDimension['height']);
-    
-    if ($newDimension['width'] >= $newDimension['height']) {
-      if ($dimension['width'] > $dimension['height'])  {
-        $newSize = $this->calcHeight ($dimension, $newDimension);
-        
-        if ($newSize['width'] < $newDimension['width']) {
-          $newSize = $this->calcWidth ($dimension, $newDimension);
-        }
-      } else if ($dimension['height'] >= $dimension['width']) {
-        $newSize = $this->calcWidth ($dimension, $newDimension);
-        
-        if ($newSize['height'] < $newDimension['height']) {
-          $newSize = $this->calcHeight ($dimension, $newDimension);
-        }
-      }
-    } else if ($newDimension['height'] > $newDimension['width']) {
-      if ($dimension['width'] >= $dimension['height']) {
-        $newSize = $this->calcWidth ($dimension, $newDimension);
-        
-        if ($newSize['height'] < $newDimension['height']) {
-          $newSize = $this->calcHeight ($dimension, $newDimension);
-        }
-      } else if ($dimension['height'] > $dimension['width']) {
-        $newSize = $this->calcHeight ($dimension, $newDimension);
-        
-        if ($newSize['width'] < $newDimension['width']) {
-          $newSize = $this->calcWidth ($dimension, $newDimension);
-        }
-      }
-    }
-    return $newSize;
+    return $this->createDimension (ceil ($dimension['width'] * $percent / 100), ceil ($dimension['height'] * $percent / 100));
   }
 }

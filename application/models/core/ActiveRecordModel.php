@@ -12,12 +12,7 @@ class ActiveRecordModel extends ActiveRecord\Model {
 
     $this->CI =& get_instance ();
 
-    $this->CI->load->helper ('type');
-    $this->CI->load->helper ('error');
-    $this->CI->load->helper ('php_active');
-    $this->CI->load->helper ('config');
-    $this->CI->load->library ('identity');
-    $this->CI->load->library ('JsonBind');
-    $this->CI->load->library ('ModelUploader');
+    $this->CI->load->helper ('oa');
+    $this->CI->load->library ('OrmImageUploader');
   }
 }

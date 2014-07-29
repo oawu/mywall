@@ -70,7 +70,7 @@ class WebStreamUtility extends TypeVerify {
       }
     }
 
-    return $temp_file;    
+    return $temp_file; 
   }
 
   public function isExist ($cainfo = null) {
@@ -98,11 +98,12 @@ class WebStreamUtility extends TypeVerify {
 
   private function _initD4Variable () {
     if ($this->verifyObject ($CI =& get_instance ())) {
-      $this->d4_options = array ( 'time_limit'    => $CI->get_config ('d4_config', 'web_stream_utility', 'time_limit'),
-                                  'temp_folder'   => $CI->get_config ('d4_config', 'web_stream_utility', 'temp_folder'),
-                                  'temp_prefix'   => $CI->get_config ('d4_config', 'web_stream_utility', 'temp_prefix'),
-                                  'save_path'     => $CI->get_config ('d4_config', 'web_stream_utility', 'save_path'),
-                                  'absolute_path' => $CI->get_config ('d4_config', 'web_stream_utility', 'absolute_path'));
+      $CI->load->helper ('config');
+      $this->d4_options = array ( 'time_limit'    => config ('d4_config', 'web_stream_utility', 'time_limit'),
+                                  'temp_folder'   => config ('d4_config', 'web_stream_utility', 'temp_folder'),
+                                  'temp_prefix'   => config ('d4_config', 'web_stream_utility', 'temp_prefix'),
+                                  'save_path'     => config ('d4_config', 'web_stream_utility', 'save_path'),
+                                  'absolute_path' => config ('d4_config', 'web_stream_utility', 'absolute_path'));
     } else {
       $this->d4_options = array ( 'time_limit'    => 30,
                                   'temp_folder'   => sys_get_temp_dir (),

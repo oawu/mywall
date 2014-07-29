@@ -46,9 +46,7 @@ class JsonBind extends stdClass {
   }
 
   public function __toString () {
-    $active_object = $this->active_object;
-    $column_name = $this->column_name;
-    return isset ($this->column_value) && is_string ($this->column_value) ? $this->column_value : (string)$active_object->$column_name;
+    return (string)$this->column_value;
   }
 
   // $user->memo->reset_column (array ('ids' => $array, .....));
@@ -81,7 +79,7 @@ class JsonBind extends stdClass {
           $data[$key] = $active_object->$column_name->$key;
         } else if (is_object ($active_object->$column_name->$key)) {
           $data[$key] = (array)$active_object->$column_name->$key;
-        } else if (is_string ($active_object->$column_name->$key)) {
+        } else if (is_string ($active_object->$column_name->$key) || is_numeric ($active_object->$column_name->$key)) {
           $data[$key] = $active_object->$column_name->$key;
         }
       }
@@ -104,11 +102,11 @@ class JsonBind extends stdClass {
 
   // CI =& get_instance ();
   // CI->jsonbind->bind ('memo');
-  public function bind ($column_name) {
+  public static function bind ($column_name) {
     $trace = debug_backtrace (DEBUG_BACKTRACE_PROVIDE_OBJECT);
     if (isset ($trace) && count ($trace) > 1 && isset ($trace[1]) && isset ($trace[1]['object']) && is_object ($trace[1]['object']) && isset ($column_name) && is_string ($column_name) && ($column_name != '')) {
       $active_object = $trace[1]['object'];
-      $json_object = new self (array ('active_object' => $active_object, 'column_name' => $column_name));
+      $json_object = new JsonBind (array ('active_object' => $active_object, 'column_name' => $column_name));
     }
   }
 }

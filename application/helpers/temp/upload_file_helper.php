@@ -1,5 +1,10 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2014 OA Wu Design
+ */
+
 if (!function_exists ('get_upload_file')) {
   function get_upload_file ($tag_name, $type = 'all') {
     $files_list = transposed_all_files_array ($_FILES);

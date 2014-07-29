@@ -106,7 +106,7 @@ class CI_Loader {
 	 * @var array
 	 * @access protected
 	 */
-	protected $_ci_helpers			= array();
+	public $_ci_helpers			= array();
 	/**
 	 * List of class name mappings
 	 *
@@ -862,6 +862,7 @@ class CI_Loader {
 			$_ci_CI->output->append_output(ob_get_contents());
 			@ob_end_clean();
 		}
+		return $_ci_CI->output;
 	}
 
 	// --------------------------------------------------------------------

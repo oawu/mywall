@@ -38,8 +38,8 @@
 |
 */
 
-$route['default_controller'] = "main_index";
-$route['admin'] = "admin/main_index";
+$route['default_controller'] = "main";
+$route['admin'] = "admin/main";
 $route['404_override'] = '';
 
 // $route['units/map'] = "units/map";

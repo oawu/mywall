@@ -25,7 +25,7 @@ class ModelUploader extends TypeVerify {
     }
   }
   
-  public function put_url ($url) {
+  public function put_url ($url, $cainfo = null) {
     if ($this->isError) $this->showError ("<fr>Error!</fr> This object not yet fully initialized!\nPlease confirm your program again.");
     
     $savePath = $this->utilityPath ($this->getSavePath ());
@@ -34,7 +34,7 @@ class ModelUploader extends TypeVerify {
     if ($this->options['auto_create_save_path']) $this->_createSavePath ($savePath);
     if (!$this->verifyFolderWriteable ($savePath)) $this->showError ("<fr>Error!</fr> The save folder path can not be <fr>write</fr>!\nFolder path : " . $savePath . "\nPlease confirm your program again.");
     
-    $ws_file = WebStreamUtility::create ($url)->download ($this->getFileName () . ($this->verifyString ($file_format = WebStreamUtility::getUrlFileInfo ($url, PATHINFO_EXTENSION)) ? ('.' . $file_format) : ''), false, true, dirname(__FILE__) . DIRECTORY_SEPARATOR . 'fb_ca_chain_bundle.crt');
+    $ws_file = WebStreamUtility::create ($url)->download ($this->getFileName () . ($this->verifyString ($file_format = WebStreamUtility::getUrlFileInfo ($url, PATHINFO_EXTENSION)) ? ('.' . $file_format) : ''), false, true, $cainfo);
  
     if ($is_success = $this->verifyFileWriteable ($ws_file)) {
 
@@ -75,12 +75,12 @@ class ModelUploader extends TypeVerify {
     return $is_success;
   }
 
-  public function put ($temp_file_info) {
+  public function put ($temp_file_info, $is_use_move_uploaded_file = false) {
     if ($this->isError) $this->showError ("<fr>Error!</fr> This object not yet fully initialized!\nPlease confirm your program again.");
     if (!$this->verifyArrayFormat ($temp_file_info, array ('name', 'type', 'tmp_name', 'error', 'size'))) $this->showError ("<fr>Error!</fr> This file array format is error!\nIt must has 'name', 'type', 'tmp_name', 'error', 'size'!\nPlease confirm your program again.");
     
     $this->deleteOldFiles ();
-    return $this->_createNewFiles ($temp_file_info);
+    return $this->_createNewFiles ($temp_file_info, $is_use_move_uploaded_file);
   }
 
   public function getDbTableName () {return $this->isError?'':$this->ar_obj->table()->table;}
@@ -91,7 +91,8 @@ class ModelUploader extends TypeVerify {
 
   public function getFileName () { return date ('Y-m-d_H_i_s'); }
   public function getVarsions () { return $this->d4_versions; }
-  public function getSavePath () { return $this->getDbTableName () . '/' . $this->getDbColumnName () . '/' .floor ($this->getOtherColumnValue ('id') / 100) . '/' . ($this->getOtherColumnValue ('id') % 100); }
+  public function getSavePath () { $id = $this->getOtherColumnValue ('id'); return $this->getDbTableName () . '/' . $this->getDbColumnName () . '/' .floor ($id / 1000000) . '/' . floor (($id % 1000000) / 10000) . '/' . floor ((($id % 1000000) % 10000) / 100) . '/' . ($id % 100); }
+  // public function getSavePath () { return $this->getDbTableName () . '/' . $this->getDbColumnName () . '/' .floor ($this->getOtherColumnValue ('id') / 100) . '/' . ($this->getOtherColumnValue ('id') % 100); }
 
   private function _getFile ($key) {
     if ($this->isError) $this->showError ("<fr>Error!</fr> This object not yet fully initialized!\nPlease confirm your program again.");
@@ -148,7 +149,7 @@ class ModelUploader extends TypeVerify {
     }
   }
 
-  private function _createNewFiles ($temp_file_info) {
+  private function _createNewFiles ($temp_file_info, $is_use_move_uploaded_file = false) {
     if ($this->isError) $this->showError ("<fr>Error!</fr> This object not yet fully initialized!\nPlease confirm your program again.");
     
     $savePath = $this->utilityPath ($this->getSavePath ());
@@ -164,8 +165,8 @@ class ModelUploader extends TypeVerify {
     $column_value = $this->getFileName () . ($this->options['auto_add_file_format'] ? ('.' . strtolower (pathinfo ($temp_file_info['name'], PATHINFO_EXTENSION))):'');
 
     $original_filePath = $savePath . $column_value;
-    $is_success = @move_uploaded_file ($temp_file_info['tmp_name'], $original_filePath);
-    
+    $is_success = $is_use_move_uploaded_file ? @rename ($temp_file_info['tmp_name'], $original_filePath) : @move_uploaded_file ($temp_file_info['tmp_name'], $original_filePath);
+
     if ($is_success && $this->verifyFileExist ($original_filePath)) {
       $varsions = array_merge ($this->d4_versions, $this->getVarsions ());
       if (count ($varsions)) {
@@ -258,14 +259,15 @@ class ModelUploader extends TypeVerify {
     $this->d4_versions  = array ("" => array ());
 
     if ($this->verifyObject ($CI =& get_instance ())) {
-      $this->d4_options = array ( 'absolute_path'         => $CI->get_config ('d4_config', 'model_uploader', 'absolute_path'),
-                                  'base_path'             => $CI->get_config ('d4_config', 'model_uploader', 'base_path'),
-                                  'separate_symbol'       => $CI->get_config ('d4_config', 'model_uploader', 'separate_symbol'),
-                                  'save_original'         => $CI->get_config ('d4_config', 'model_uploader', 'save_original'),
-                                  'auto_create_save_path' => $CI->get_config ('d4_config', 'model_uploader', 'auto_create_save_path'),
-                                  'auto_add_file_format'  => $CI->get_config ('d4_config', 'model_uploader', 'auto_add_file_format'),
-                                  'base_url'              => $CI->get_config ('d4_config', 'model_uploader', 'base_url'),
-                                  'image_utility_class'   => $CI->get_config ('d4_config', 'model_uploader', 'image_utility_class'));
+      $CI->load->helper ('config');
+      $this->d4_options = array ( 'absolute_path'         => config ('d4_config', 'model_uploader', 'absolute_path'),
+                                  'base_path'             => config ('d4_config', 'model_uploader', 'base_path'),
+                                  'separate_symbol'       => config ('d4_config', 'model_uploader', 'separate_symbol'),
+                                  'save_original'         => config ('d4_config', 'model_uploader', 'save_original'),
+                                  'auto_create_save_path' => config ('d4_config', 'model_uploader', 'auto_create_save_path'),
+                                  'auto_add_file_format'  => config ('d4_config', 'model_uploader', 'auto_add_file_format'),
+                                  'base_url'              => config ('d4_config', 'model_uploader', 'base_url'),
+                                  'image_utility_class'   => config ('d4_config', 'model_uploader', 'image_utility_class'));
     } else {
       $this->d4_options = array ( 'absolute_path'         => FCPATH,
                                   'base_path'             =>  'upload',
@@ -278,10 +280,13 @@ class ModelUploader extends TypeVerify {
     }
   }
 
-  public static function bind ($ar_obj, $column_name, $part_class_name = null, $options = array ()) {
-    $_muu = new _ModelUploaderUtility (array ('ar_obj' => $ar_obj, 'column_name' => $column_name, 'part_class_name' => $part_class_name, 'options' => $options));
-    if (TypeVerify::verifyObject ($obj = $_muu->getObj ())) return $obj;
-    else TypeVerify::showError ("<fr>Error!</fr> The create ModelUploader object happen unknown error...\nPlease confirm your program again.");
+  public static function bind ($column_name, $part_class_name = null, $options = array ()) {
+    $trace = debug_backtrace (DEBUG_BACKTRACE_PROVIDE_OBJECT);
+    if (isset ($trace) && count ($trace) > 1 && isset ($trace[1]) && isset ($trace[1]['object']) && is_object ($trace[1]['object']) && isset ($column_name) && is_string ($column_name) && ($column_name != '')) {
+      $_muu = new _ModelUploaderUtility (array ('ar_obj' => $trace[1]['object'], 'column_name' => $column_name, 'part_class_name' => $part_class_name, 'options' => $options));
+      if (verifyObject ($obj = $_muu->getObj ())) return $obj;
+      else showError ("The create ModelUploader object happen unknown error... Please confirm your program again.");
+    } else { showError ('錯誤！ debug_backtrace 找不到上層物件。'); }
   }
   public function __toString () {
     return (!$this->isError && $this->verifyString ($this->column_value)) ? $this->column_value : '';

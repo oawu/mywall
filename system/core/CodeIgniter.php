@@ -233,10 +233,18 @@
 		return CI_Controller::get_instance();
 	}
 
+	require_once BASEPATH.'helpers/file_helper.php';
 
-	if (file_exists(APPPATH.'core/'.$CFG->config['subclass_prefix'].'Controller.php'))
-	{
-		require APPPATH.'core/'.$CFG->config['subclass_prefix'].'Controller.php';
+	if ($controllers = get_filenames (APPPATH.'core/controllers/')) {
+		foreach ($controllers as $controller) {
+			if ((('.' . pathinfo ($controller, PATHINFO_EXTENSION)) == EXT) && file_exists (APPPATH . 'core/controllers/' . $controller)) {
+				require APPPATH . 'core/controllers/' . $controller;
+			}
+		}
+	} else {
+		if (file_exists(APPPATH.'core/'.$CFG->config['subclass_prefix'].'Controller.php')) {
+			require APPPATH.'core/'.$CFG->config['subclass_prefix'].'Controller.php';
+		}
 	}
 
 	// Load the local application controller

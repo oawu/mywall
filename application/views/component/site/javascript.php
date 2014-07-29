@@ -5,6 +5,6 @@
  * @copyright   Copyright (c) 2014 OA Wu Design
  */
 
-if (verifyArray ($javascript_list))
+if ($javascript_list)
   foreach ($javascript_list as $javascript)
-    echo $javascript['exist'] ? (script_tag ($javascript['src']) . "\n") : ("<!-- not exist! " . script_tag ($javascript['src']) . " -->\n");
+    echo script_tag ($javascript);

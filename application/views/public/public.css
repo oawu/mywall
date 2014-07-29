@@ -1,18 +1,17 @@
 html, body {
-    height: 100%;
+  height: 100%;
 }
 body{
   position: relative;
   overflow-y: visible;
-  font: 15px/20px normal Helvetica, Arial, sans-serif;
+  margin: 0px;
 
+  font: 15px/20px normal Helvetica, Arial, sans-serif;
   color: #000;
   background-color: rgba(233, 234, 237, 1);
-  /*background-color: rgba(245, 245, 245, 1.0000);*/
+
   font-family: 微軟正黑體 !important;
   -webkit-font-smoothing: antialiased;
-
-  /*background-color: #e9f0f5;*/
 }
 
 body:before { 
@@ -23,9 +22,9 @@ body:before {
   width: 100%;
   height: 10px;
   z-index: 100;
-  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
-  box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+     -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
 }
 
 ::selection {
