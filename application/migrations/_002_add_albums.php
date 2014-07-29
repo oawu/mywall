@@ -8,9 +8,9 @@ class Migration_Add_albums extends CI_Migration {
   public function up () {
     $sql = "CREATE TABLE `albums` (
               `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-              `title` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+              `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `cover` int(11) NOT NULL DEFAULT '0',
-              `description` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+              `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `sort` int(11) NOT NULL,
               `is_enabled` int(11) NOT NULL DEFAULT '1',
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',

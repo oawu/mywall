@@ -71,7 +71,7 @@ class Unit extends OaModel {
   }
 
   public function user_score ($user_id, $select = 'id') {
-    return ($user_id !== 0) && verifyObject ($unit_score = UnitScore::find ('one', array ('select' => $select, 'conditions' => array ('user_id = ? AND unit_id = ?', verifyNumber ($user_id) ? $user_id : (verifyObject ($user_id) ? $user_id->id : 0), $this->id)))) ? $unit_score : null;
+    return verifyNumber ($user_id, 1) && verifyObject ($unit_score = UnitScore::find ('one', array ('select' => $select, 'conditions' => array ('user_id = ? AND unit_id = ?', $user_id, $this->id)))) ? $unit_score : null;
   }
   
 

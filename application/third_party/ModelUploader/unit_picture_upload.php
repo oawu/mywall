@@ -13,6 +13,7 @@ class UnitPictureUpload extends ModelUploader {
             '100x100C' => array ('adaptiveResizeQuadrant', 100, 100, 'C'),
             '250x100C' => array ('adaptiveResizeQuadrant', 250, 100, 'C'),
             '190x135C' => array ('adaptiveResizeQuadrant', 190, 135, 'C'),
+            '190x190W' => array ('resize', 190, 190, 'width'),
             '500x300C' => array ('adaptiveResizeQuadrant', 500, 300, 'C'),
           );
   }

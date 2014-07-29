@@ -5,6 +5,8 @@
  * @copyright   Copyright (c) 2014 OA Wu Design
  */
 
+include_once ('path_helper.php');
+
 if (!function_exists ('render_cell')) {
   function render_cell () {
     if (count ($params = func_get_args ()) > 1) {
@@ -16,7 +18,6 @@ if (!function_exists ('render_cell')) {
     } else { showError ('The render_cell params error!'); }
   }
 }
-
 if (!function_exists ('clear_cell')) {
   function clear_cell ($class, $method, $key = null) {
     $CI =& get_instance ();
@@ -25,11 +26,12 @@ if (!function_exists ('clear_cell')) {
   }
 }
 
+
 if (!function_exists ('clean_cell')) {
-  function clean_cell () {
+  function clean_cell ($class = null, $method = null, $key = null) {
     $CI =& get_instance ();
     if (!isset ($CI->cell)) $CI->load->library ('cell');
-    return $CI->cell->clean_cell ();  
+    return $CI->cell->clean_cell ($class, $method, $key);  
   }
 }
 

@@ -119,9 +119,9 @@ class CI_Cache_file extends CI_Driver {
 	 *
 	 * @return 	boolean		false on failure/true on success
 	 */	
-	public function clean($path = null)
+	public function clean($path = null, $is_dir = false)
 	{
-		return delete_files($path ? $path : $this->_cache_path);
+		return delete_files($path ? $path : $this->_cache_path, $is_dir);
 	}
 
 	// ------------------------------------------------------------------------

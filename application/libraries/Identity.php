@@ -64,12 +64,10 @@ class Identity {
     return $this;
   }
 
-
   public function set_session ($key, $value, $is_flashdata = false) {
     if (!$is_flashdata) $this->session->set_userdata ($key, $value); else $this->session->set_flashdata ($key, $value);
     return $this;
   }
-
   public function get_session ($key, $is_flashdata = false) {
     $value = !$is_flashdata ? $this->session->userdata ($key) : $this->session->flashdata ($key);
     return verifyNotNull ($value) ? $value : null;

@@ -19,22 +19,15 @@ class Cell {
     $this->controller_folder = utilitySameLevelPath (FCPATH . config ('cell_config', 'controller_folder'));
     $this->cache_folder = utilitySameLevelPath (config ('cell_config', 'cache_folder'));
 
+    if (!verifyFolderWriteable ($temp_path = utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR . $this->cache_folder . DIRECTORY_SEPARATOR))) {
+      $oldmask = umask (0);
+      @mkdir ($temp_path, 0777, true);
+      umask ($oldmask);
+    }
+
     $this->cache_prefix = strlen ($cache_prefix = config ('cell_config', 'method_prefix')) ? $cache_prefix : null;
   }
 
-  private function get_cache_options ($class, $method, $params = array ()) {
-    if ($this->is_enabled && strlen ($cache_prefix)) {
-      if (verifyFileReadable ($file = utilitySameLevelPath ($this->controller_folder . DIRECTORY_SEPARATOR . ($class = strtolower ($class)) . EXT))) {
-        require_once ($file);
-        $class = ucfirst ($class);
-        $object = new $class ();
-        $method = $cache_prefix . $method;
-
-        if (method_exists ($object, $method)) return $data = call_user_func_array (array ($object, $method), $params);
-        return null;
-      } else { showError ("The Cell's controllers is not exist or can't read! File: " . $file); }
-    } else { return null; }
-  }
 
   public function render_cell ($class, $method, $params = array ()) {
     if (preg_match_all ('/(' . config ('cell_config', 'class_suffix') . ')$/', $class) == 1) {
@@ -43,17 +36,39 @@ class Cell {
         $class = ucfirst ($class);
         $object = new $class ();
         
-        if (method_exists ($object, $method)) {
+        if (is_callable (array ($object, $method))) {
           $option = array ();
-          if ($this->is_enabled && ($this->cache_prefix !== null) && method_exists ($object, $cache_method = $this->cache_prefix . $method) && verifyArrayFormat ($option = call_user_func_array (array ($object, $cache_method), $params), array ('time', 'key'))) {
+
+          if ($this->is_enabled && ($this->cache_prefix !== null) && is_callable (array ($object, $cache_method = $this->cache_prefix . $method)) && verifyArrayFormat ($option = call_user_func_array (array ($object, $cache_method), $params), array ('time', 'key'))) {
             if (!verifyNumber ($option['time'], 1)) $option['time'] = config ('cell_config', 'd4_time');
-            $option['key'] = config ('cell_config', 'file_prefix') . '_|_' . $class . '_|_' . $method . (isset ($option['key']) ? '_|_' . $option['key'] : '');
-            $option['key'] = strtolower ($option['key']);
+
+            if (isset ($option['key']) && count ($option['key'] = array_filter (explode ('/', $option['key'])))) {
+              $option['path'] = utilitySameLevelPath ($this->cache_folder . DIRECTORY_SEPARATOR . strtolower ($class) . '_|_' . strtolower ($method) . DIRECTORY_SEPARATOR);
+              
+              if (count ($option['key']) == 1) {
+                $option['key'] = $option['key'][0];
+              } else {
+                $key = array_pop ($option['key']);
+                $option['path'] = utilitySameLevelPath ($option['path'] . DIRECTORY_SEPARATOR . implode (DIRECTORY_SEPARATOR, $option['key']) . DIRECTORY_SEPARATOR);
+                $option['key'] = $key;
+              }
+
+              $option['key'] = config ('cell_config', 'file_prefix') . '_|_' . $option['key'];
+            } else {
+              $option['path'] = $this->cache_folder;
+              $option['key'] = config ('cell_config', 'file_prefix') . '_|_' . strtolower ($class) . '_|_' . strtolower ($method);
+            }
+            if (!verifyFolderWriteable ($temp_path = utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR . $option['path']))) {
+              $oldmask = umask (0);
+              @mkdir ($temp_path, 0777, true);
+              umask ($oldmask);
+            }
           }
-          if (!count ($option) || !($view = $this->CI->cache->file->get ($option['key'], $this->cache_folder))) {
+
+          if (!count ($option) || (($view = $this->CI->cache->file->get ($option['key'], $option['path'])) === false)) {
             $view = call_user_func_array (array ($object, $method), $params);
             if (count ($option))
-            $res = $this->CI->cache->file->save ($option['key'], $view, $option['time'], $this->cache_folder);
+            $res = $this->CI->cache->file->save ($option['key'], $view, $option['time'], $option['path']);
           }
           return $view;
         } else showError ("The class: " . $file . " not exist method: " . $method);
@@ -62,12 +77,48 @@ class Cell {
   }
 
   public function clear_cell ($class, $method, $key = null) {
-    $key = config ('cell_config', 'file_prefix') . '_|_' . $class . '_|_' . $method . (isset ($key) ? '_|_' . $key : '');
-    @$this->CI->cache->file->delete ($key, $this->cache_folder);
+    if (isset ($key) && count ($key = array_filter (explode ('/', $key)))) {
+      $path = utilitySameLevelPath ($this->cache_folder . DIRECTORY_SEPARATOR . strtolower ($class) . '_|_' . strtolower ($method) . DIRECTORY_SEPARATOR);
+      
+      if (count ($key) == 1) {
+        $key = $key[0];
+      } else {
+        $temp_key = array_pop ($key);
+        $path = utilitySameLevelPath ($path . DIRECTORY_SEPARATOR . implode (DIRECTORY_SEPARATOR, $key) . DIRECTORY_SEPARATOR);
+        $key = $temp_key;
+      }
+
+      $key = config ('cell_config', 'file_prefix') . '_|_' . $key;
+    } else {
+      $path = $this->cache_folder;
+      $key = config ('cell_config', 'file_prefix') . '_|_' . strtolower ($class) . '_|_' . strtolower ($method);
+    }
+    if (!verifyFolderWriteable ($temp_path = utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR . $path))) {
+      $oldmask = umask (0);
+      @mkdir ($temp_path, 0777, true);
+      umask ($oldmask);
+    }
+
+    @$this->CI->cache->file->delete ($key, $path);
   }
 
-  public function clean_cell () {
-    @$this->CI->cache->file->clean ($this->cache_folder);
+  public function clean_cell ($class = null, $method = null, $key = null) {
+    if (!isset ($class) && !isset ($method) && !isset ($key)) {
+      @$this->CI->cache->file->clean ($this->cache_folder, true);
+    } else if (isset ($class) && isset ($method)) {
+      $path = utilitySameLevelPath ($this->cache_folder . DIRECTORY_SEPARATOR . strtolower ($class) . '_|_' . strtolower ($method) . DIRECTORY_SEPARATOR);
+      if (isset ($key) && (count ($key = array_filter (explode ('/', $key))) > 1)) {
+        array_pop ($key);
+        $path = utilitySameLevelPath ($path . DIRECTORY_SEPARATOR . implode (DIRECTORY_SEPARATOR, $key) . DIRECTORY_SEPARATOR);
+      }
+      if (!verifyFolderWriteable ($temp_path = utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR . $path))) {
+        $oldmask = umask (0);
+        @mkdir ($temp_path, 0777, true);
+        umask ($oldmask);
+      } else {          
+        @$this->CI->cache->file->clean ($path, true);
+      }
+    }
   }
 }
 
@@ -85,16 +136,13 @@ class Cell_Controller {
         extract ($data);
         ob_start();
 
-        if (((bool)@ini_get('short_open_tag') === FALSE) && (config_item('rewrite_short_tags') == TRUE)) {
-          echo eval('?>'.preg_replace("/;*\s*\?>/", "; ?>", str_replace('<?=', '<?php echo ', file_get_contents($_ci_path))));
-        } else {
-          include ($_ci_path);
-        }
+        if (((bool)@ini_get('short_open_tag') === FALSE) && (config_item('rewrite_short_tags') == TRUE)) echo eval('?>'.preg_replace("/;*\s*\?>/", "; ?>", str_replace('<?=', '<?php echo ', file_get_contents($_ci_path))));
+        else include ($_ci_path);
 
         $buffer = ob_get_contents ();
         @ob_end_clean ();
         return $buffer;
-      } else { showError ("The Cell's controllers is not exist or can't read! File: " . $file); }
+      } else { showError ("The Cell's controllers is not exist or can't read! File: " . $_ci_path); }
     } else { showError ('The debug_backtrace Error!'); }
   }
 }

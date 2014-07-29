@@ -5,11 +5,6 @@
 	date_default_timezone_set('Asia/Taipei');
 
 /*
- * 測試機 與 server 差別的相關設定，不被 git 給同步！
- */
-  require_once 'config.php';
-
-/*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
  *---------------------------------------------------------------

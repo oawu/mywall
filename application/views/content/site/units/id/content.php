@@ -78,32 +78,15 @@
                 <div class='unit_head_panel'>
                   <div class='unit_head'>
                     <div class='row name_panel'>
-                      <div class="col-md-8 name">
+                      <div class="col-md-9 name">
                         <?php echo $unit->name;?>
                       </div>
-                      <div class="col-md-4 score">
-                        <?php if (count ($stars = $unit->score_star (5))) {
-                          foreach ($stars as $star) { ?>
-                            <span class='icon-star<?php echo $star + 4;?>'></span>
-                  <?php   }
-                        } ?>
+                      <div class="col-md-3 score" id='set_score' data-unit_id='<?php echo $unit->id; ?>' data-is_sign_in='<?php echo identity ()->get_identity ('sign_in') ? 1 : 0; ?>' data-is_set_scored='<?php echo verifyObject ($user_score = $unit->user_score (identity ()->get_session ('user_id'))) ? 1 : 0; ?>'>
+                  <?php echo render_cell ('unit_cells', 'score_star', $unit); ?>
                       </div>
                     </div>
-                    <div class='row address_panel'>
-                      <div class="col-md-9 address">
-                        <?php echo $unit->address;?>
-                      </div>
-                      <div class="col-md-3 set_score" data-unit_id='<?php echo $unit->id; ?>'>
-                  <?php if (identity ()->get_identity ('sign_in') && !verifyObject ($user_score = $unit->user_score ($this->identity->get_session ('user_id')))) { ?>
-                          <button type="button" class='btn btn-info btn-sm' id='set_score' name='set_score' data-loading-text="請稍候.." data-user_id='<?php echo identity ()->get_session ('user_id'); ?>'>我也要打分數!</button>
-                  <?php } else if (!identity ()->get_identity ('sign_in')) { ?>
-                          <a href='<?php echo $fb_sing_in_url;?>'>
-                            <button type="button" class='btn btn-info btn-sm' data-loading-text="請稍候..">我也要打分數!</button>
-                          </a>
-                  <?php } else { ?>
-                          （你已打過分數）
-                  <?php } ?>
-                      </div>
+                    <div class='address'>
+                      <?php echo $unit->address;?>
                     </div>
                   </div>
                 </div>
@@ -169,49 +152,27 @@
                 <div class='alert comment_result_message' id='comment_result_message'></div>            
         <?php } else { ?>
                 <div class='create_comment'>
-                  <a href='<?php echo $fb_sing_in_url;?>'>
-                    <button type="button" id='create_comment' name='create_comment' class="btn btn-primary btn-sm" data-loading-text="請稍候.." data-url='<?php echo $fb_sing_in_url;?>'>我要留言!</button>
-                  </a>
+                  <button type="button" id='create_comment' name='create_comment' class="btn btn-primary btn-sm" data-loading-text="請稍候..">我要留言!</button>
                 </div>
         <?php } ?>
             </div>
 
-            <div class='comment_list' id='comment_list'><?php echo $comment_list; ?></div>
+            <div class='comment_list' id='comment_list'>
+              <?php echo $comment_list; ?>
+            </div>
 
             <div class='read_more_comment'>
-        <?php if (isset ($next_unit_comment_id) && $next_unit_comment_id > 0) { ?>
-                <button type="button" id='read_more_comment' name='read_more_comment' class="btn btn-info" data-loading-text="請稍候.." data-next_id='<?php echo $next_unit_comment_id; ?>' data-unit_id='<?php echo $unit->id; ?>'>看更多留言</button>
+        <?php if (isset ($next_id) && $next_id > 0) { ?>
+                <button type="button" id='read_more_comment' name='read_more_comment' class="btn btn-info" data-loading-text="請稍候.." data-next_id='<?php echo $next_id; ?>' data-unit_id='<?php echo $unit->id; ?>'>看更多留言</button>
         <?php } ?>
             </div>
+
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class='other_panel'>
-    <?php if (count ($star_details = $unit->star_details ()) && ($all_count = array_sum (array_map (function ($star_detail) { return $star_detail['count'];}, $star_details)))) { ?>
-            <div class='star_details row'>
-              <div class='col-md-4 big_score_area'>
-                <div class='big_score'>
-                  <?php echo number_format ($unit->score, 1, '.', ',');?>
-                </div>
-                <div class='score_count'>
-                  <?php echo number_format ($all_count, 0, '.', ',');?> 個公開評分的平均分數
-                </div>
-              </div>
-              <div class='col-md-8 counts_area'>
-          <?php foreach ($star_details as $star_detail) { ?>
-                  <div class='star_count row'>
-                    <div class='col-md-3'><?php echo $star_detail['score'];?> 顆星
-                    </div>
-                    <div class='col-md-9'>
-                      <div class='score_bar' style='width:<?php echo 100 * $star_detail['percent'];?>px;'></div><span class='score_value' title='<?php echo number_format ($star_detail['count'], 0, '.', ',');?>'><?php echo number_format ($star_detail['count'], 0, '.', ',');?><span>
-                    </div>
-                  </div>
-          <?php } ?>
-
-              </div>
-            </div>
-    <?php }
+    <?php echo render_cell ('unit_cells', 'star_details', $unit);
           echo render_cell ('unit_cells', 'more_tags', $more_tags, $unit); ?>
         </div>
       </div>

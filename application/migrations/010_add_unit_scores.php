@@ -10,7 +10,7 @@ class Migration_Add_unit_scores extends CI_Migration {
               `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
               `unit_id` int(11) NOT NULL,
               `user_id` int(11) NOT NULL,
-              `value` varchar(256) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+              `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`)
@@ -22,7 +22,7 @@ class Migration_Add_unit_scores extends CI_Migration {
               `origin_id` int(11) NOT NULL,
               `unit_id` int(11) NOT NULL,
               `user_id` int(11) NOT NULL,
-              `value` varchar(256) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+              `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`)

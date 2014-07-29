@@ -8,8 +8,8 @@ class Migration_Add_temp_pictures extends CI_Migration {
   public function up () {
     $sql = "CREATE TABLE `temp_pictures` (
               `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-              `file_name` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-              `for_object` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+              `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+              `for_object` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`)
@@ -19,8 +19,8 @@ class Migration_Add_temp_pictures extends CI_Migration {
     $sql = "CREATE TABLE `delete_temp_pictures` (
               `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
               `origin_id` int(11) NOT NULL,
-              `file_name` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-              `for_object` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+              `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+              `for_object` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`)

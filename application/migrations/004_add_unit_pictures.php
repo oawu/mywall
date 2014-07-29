@@ -9,7 +9,7 @@ class Migration_Add_unit_pictures extends CI_Migration {
     $sql = "CREATE TABLE `unit_pictures` (
               `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
               `unit_id` int(11) NOT NULL,
-              `file_name` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+              `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`)
@@ -20,7 +20,7 @@ class Migration_Add_unit_pictures extends CI_Migration {
               `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
               `origin_id` int(11) NOT NULL,
               `unit_id` int(11) NOT NULL,
-              `file_name` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+              `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`)

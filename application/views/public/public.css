@@ -11,6 +11,8 @@ body{
   /*background-color: rgba(245, 245, 245, 1.0000);*/
   font-family: 微軟正黑體 !important;
   -webkit-font-smoothing: antialiased;
+
+  /*background-color: #e9f0f5;*/
 }
 
 body:before { 
@@ -159,7 +161,7 @@ div.ui-tooltip {
 }
 
 div.jGrowl div.j_growl {
-  width: 200px !important;
+  width: 250px !important;
   text-align: center;
   border-radius: 0px;
   border: 1px solid #edeff4 !important;
@@ -173,9 +175,10 @@ div.jGrowl div.j_growl {
           box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
 }
 .jGrowl-closer {
-  width: 200px !important;
+  width: 250px !important;
   border: 1px solid #edeff4 !important;
   background: rgba(66, 90, 147, 1) !important;
+  border-radius: 0px !important;
   font-size: 16px;
   -webkit-box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
      -moz-box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
@@ -184,6 +187,11 @@ div.jGrowl div.j_growl {
 }
 .jGrowl-closer:hover {
   background: rgba(46, 70, 127, 1) !important;
+}
+.jGrowl.center {
+  top: 50%;
+  width: 50%;
+  left: 40%;
 }
 
 .popover {
@@ -291,6 +299,11 @@ div.jGrowl div.j_growl {
 .navbar span[class*="icon-"] {
   font-size: 18px;
   vertical-align: -10%;
+/*
+  color: rgba(79, 98, 141, 1.0000);
+  -webkit-text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+     -moz-text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+          text-shadow: 0 1px 1px rgba(255,255,255,0.3);*/
 }
 .navbar * {
   font-size: 13px;
@@ -338,38 +351,55 @@ div.jGrowl div.j_growl {
 } 
 
 .navbar .navbar-nav > li > a { 
-  color: rgba(225, 229, 237, 1.0000);
+  
+  
   
   padding: 4px 6px;
   line-height: 25px;
-  -webkit-text-shadow: 0px 0px 5px rgba(93, 100, 138, 1);
-     -moz-text-shadow: 0px 0px 5px rgba(93, 100, 138, 1);
-          text-shadow: 0px 0px 5px rgba(93, 100, 138, 1);
+  font-weight: bolder;
+
+    color: rgba(225, 229, 237, 1.0000);  
+    -webkit-text-shadow: 0px 0px 5px rgba(93, 100, 138, 1);
+       -moz-text-shadow: 0px 0px 5px rgba(93, 100, 138, 1);
+            text-shadow: 0px 0px 5px rgba(93, 100, 138, 1);
+/*
+  color: rgba(59, 78, 121, 1.0000);
+  -webkit-text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+     -moz-text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+          text-shadow: 0 1px 1px rgba(255,255,255,0.3);*/
 }
 
 .navbar .navbar-nav > li.divider {
   /*color: rgba(225, 229, 237, 1.0000);*/
   display: inline-block;
-  background: #fff ;
+  background: rgba(119, 138, 181, 1.0000);
+
+  /*color: rgba(59, 78, 121, 1.0000);*//*
+  -webkit-text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+     -moz-text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+          text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+          */
   /*url(data:image/gif;base64,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) repeat-y left top;*/
   /*background-color: rgba(255, 255, 255, 1.000);*/
 
   /*box-shadow: */
-  -webkit-box-shadow: 0px 0px 0px rgba(73, 80, 118, 1), inset 0px 0px 1px rgba(0, 0, 0, 0.5);
-     -moz-box-shadow: 0px 0px 0px rgba(73, 80, 118, 1), inset 0px 0px 1px rgba(0, 0, 0, 0.5);
-          box-shadow: 0px 0px 0px rgba(73, 80, 118, 1), inset 0px 0px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 1px rgba(255,255,255,0.3), inset 1px 1px 2px rgba(0, 0, 0,0.5);
+     -moz-box-shadow: 1px 1px 1px rgba(255,255,255,0.3), inset 1px 1px 2px rgba(0, 0, 0,0.5);
+          box-shadow: 1px 1px 1px rgba(255,255,255,0.3), inset 1px 1px 2px rgba(0, 0, 0,0.5);
 
   /*background-color: rgba(93, 120, 127, 1.0000);*/
   width: 1px;
-  border: 0px;
+  border-radius: 2px;
   /*height: 13px;*/
   vertical-align: middle;
   margin: 4px 0px;
   padding: 12px 0px;
+
+
 }
 
 .navbar .navbar-nav > li > a:hover {
-  color: #fff;
+  color: #eee;
   -webkit-text-shadow: 0px 0px 10px rgba(73, 80, 118, 1);
      -moz-text-shadow: 0px 0px 10px rgba(73, 80, 118, 1);
           text-shadow: 0px 0px 10px rgba(73, 80, 118, 1);

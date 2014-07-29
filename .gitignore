@@ -1,6 +1,6 @@
 .DS_Store
 
-application/cell/cell_cache/*
+application/cell/cache/*
 
 application/cache/*
 !application/cache/index.html
@@ -14,6 +14,3 @@ application/config/database.php
 
 upload/*
 !upload/index.html
-
-temp/*
-!temp/index.html

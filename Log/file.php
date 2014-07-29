@@ -224,7 +224,7 @@ class Log_file extends Log
             }
         }
         
-        @fwrite($this->_fp, "\r\n\r\n---| " . time () . " |---" . (function_exists ('current_url') && ($url = current_url ()) ? ("| " . $url . " |---") : "-----------------------------------------------------------") . "\r\n\r\n");
+        @fwrite($this->_fp, "\r\n\r\n---| " . time () . " |---" . (function_exists ('current_url') && ($url = current_url ()) ? ("| " . rawurldecode ($url) . " |---") : "-----------------------------------------------------------") . "\r\n\r\n");
         
         return $this->_opened;
     }
@@ -293,7 +293,7 @@ class Log_file extends Log
 
         /* Build the string containing the complete log line. */
         $line = $this->_format($this->_lineFormat,
-                               '【' . uri_string () . '】 ' . strftime($this->_timeFormat),
+                               '【' . rawurldecode (uri_string ()) . '】 ' . strftime($this->_timeFormat),
                                $priority, $message) . $this->_eol;
 
         /* If locking is enabled, acquire an exclusive lock on the file. */

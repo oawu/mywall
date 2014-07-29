@@ -10,7 +10,7 @@ if (isset ($sidebar_list) && count ($sidebar_list)) { ?>
 <?php } ?>
   <?php if (count ($sidebars)) {
           foreach ($sidebars as $sidebar) { ?>
-            <li class="list-group-item<?php echo $sidebar['src'] ? ' pointer' : ''; ?>" data-url='<?php echo $sidebar['src'] ? $sidebar['src'] : '';?>'><?php echo $sidebar['name']; ?></li>
+            <li class="list-group-item<?php echo verifyNotNull ($sidebar['src']) ? ' pointer':'';?>" data-url='<?php echo verifyNotNull ($sidebar['src']) ? $sidebar['src']:'';?>'><?php echo $sidebar['name']; ?></li>
     <?php }
         } ?>
     </ul>
