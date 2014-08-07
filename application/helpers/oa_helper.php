@@ -97,65 +97,49 @@ if (!function_exists ('download_web_file')) {
   }
 }
 
+if ( !function_exists ('send_post')) {
+  function send_post ($url, $params = array (), $is_wait = false, $port = 80, $timeout = 30) {
+    if (!(($url = parse_url ($url)) && isset ($url['scheme']) && isset ($url['host']) && isset ($url['path']) ))
+      return false;
 
-// if (!function_exists ('utilityPath')) {
-//   function utilityPath ($obj) {
-//     return trim (utilitySameLevelPath ($obj), '/');
-//   }
-// }
+    if ($fp = fsockopen ($url['host'], $port, $errno, $errstr, $timeout)) {
+      $postdata_str = $params ? http_build_query ($params) : '';
+      $request = "POST " . $url['path'] . " HTTP/1.1\r\n" . "Host: " . $url['host'] . "\r\n" . "Content-Type: application/x-www-form-urlencoded\r\n" . "Content-Length: " . strlen ($postdata_str) . "\r\n" . "Connection: close\r\n\r\n" . $postdata_str . "\r\n\r\n";
 
-// if (!function_exists ('verifyExist')) {
-//   function verifyExist ($filePath) {
-//     return verifyString ($filePath) && file_exists ($filePath);
-//   }
-// }
+      fwrite ($fp, $request);
+      if ($is_wait) {
+        $log_fp = fopen (config ('delay_job_config', 'log_name'), 'a');
+        if (flock ($log_fp, LOCK_EX)) {
+          @fwrite ($log_fp, sprintf ("\r\n\r\n\r\n==| %20s |" . str_repeat ('=', 84) . "\r\n", date ('Y-m-d H:m:s')) . sprintf ("  | %20s | %s\r\n", 'Path', mb_strimwidth ((string)$url['path'], 0, 65, '…','UTF-8') . "\r\n" . str_repeat ('-', 110)));
+          if ($params)
+            foreach ($params as $key => $param)
+              @fwrite ($log_fp, sprintf ("  | %20s | %s\r\n", $key, mb_strimwidth ((string)$param, 0, 83, '…','UTF-8')));
+          @fwrite ($log_fp, str_repeat ('-', 110) . "\r\n");
+          while (!feof ($fp))
+            @fwrite ($log_fp, fgets ($fp, 128));
+        }
+        flock ($log_fp,LOCK_UN);
+        fclose ($log_fp);
+      }
+      fclose ($fp);
+    }
+    return true;
+  }
+}
 
-// if (!function_exists ('verifyFolderExist')) {
-//   function verifyFolderExist ($folderPath) {
-//     return verifyExist ($folderPath) && is_dir ($folderPath);
-//   }
-// }
-  
-// if (!function_exists ('verifyFileExist')) {
-//   function verifyFileExist ($folderPath) {
-//     return verifyExist ($folderPath) && is_file ($folderPath);
-//   }
-// }
+if ( !function_exists ('delay_request')) {
+  function delay_job ($class, $method, $params = array ()) {
+    if (!($class && $method))
+      return false;
 
-// if (!function_exists ('verifyFolderReadable')) {
-//   function verifyFolderReadable ($folderPath) {
-//     return verifyFolderExist ($folderPath) && is_readable ($folderPath);
-//   }
-// }
+    $params = config ('delay_job_config', 'is_check') ? array_merge ($params, array (config ('delay_job_config', 'key') => md5 (config ('delay_job_config', 'value')))) : $params;
+    return send_post (base_url (array_merge (config ('delay_job_config', 'controller_directory'), array ($class, $method))), $params);
+  }
+}
 
-// if (!function_exists ('verifyFolderWriteable')) {
-//   function verifyFolderWriteable ($folderPath) {
-//     return verifyFolderExist ($folderPath) && is_writeable ($folderPath);
-//   }
-// }
-
-// if (!function_exists ('verifyFileReadable')) {
-//   function verifyFileReadable ($folderPath) {
-//     return verifyFileExist ($folderPath) && is_readable ($folderPath);
-//   }
-// }
-
-// if (!function_exists ('verifyFileWriteable')) {
-//   function verifyFileWriteable ($folderPath) {
-//     return verifyFileExist ($folderPath) && is_writeable ($folderPath);
-//   }
-// }
-
-// if (!function_exists ('ObjName2FileName')) {
-//   function ObjName2FileName ($ObjName) {
-//     $arr = array (); for ($i = 65; $i <= 90; $i++) $arr[chr ($i)] = "_" . chr ($i + 32);
-//     return preg_replace ('/^\_/', '', strtr ($ObjName, $arr));
-//   }
-// }
-
-// if (!function_exists ('FileName2ObjName')) {
-//   function FileName2ObjName ($FileName) {
-//     $arr = array (); for ($i = 65 + 32; $i <= 90 + 32; $i++) $arr[chr ($i)] = "_" . chr ($i - 32);
-//     return preg_replace ('/^\_/', '', strtr ($ObjName, $arr));
-//   }
-// }
+if ( !function_exists ('make_click_able_links')) {
+  function make_click_able_links ($text, $is_new_page = true, $class = '', $link_text = '', $max_count_use_link_text = 0) {
+    $text = " " .  ($text);
+    return preg_replace ('/(((https?:\/\/)[~\S]+))/', '<a href="${1}"' . ($class ? ' class="' . $class . '"' : '') . ($is_new_page ? ' target="_blank"' : '') . '>' . ($link_text ? $link_text : '${1}') . '</a>', $text);
+  }
+}

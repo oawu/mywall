@@ -11,6 +11,8 @@ class Main extends Site_controller {
   }
 
   public function index () {
-    $this->load_view ();
+    TempPicture::trace ('==============================');
+    delay_job ('errors', 'record', array ('msg' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'msg2' => '我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我'));
+    TempPicture::trace ('==============================');
   }
 }
