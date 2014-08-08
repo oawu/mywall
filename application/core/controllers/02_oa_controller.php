@@ -10,7 +10,7 @@ class Oa_controller extends Root_controller {
   private $content_path   = array ();
   private $public_path    = array ();
 
-  private $title  = '';
+  private $title = '';
 
   private $component_lists = array ();
 
@@ -40,16 +40,6 @@ class Oa_controller extends Root_controller {
 
   protected function set_componemt_path () {
     $this->componemt_path = array_filter (func_get_args ());
-    return $this;
-  }
-
-  protected function set_frame_path () {
-    $this->frame_path = array_filter (func_get_args ());
-    return $this;
-  }
-
-  protected function set_content_path () {
-    $this->content_path = array_filter (func_get_args ());
     return $this;
   }
 
@@ -97,14 +87,6 @@ class Oa_controller extends Root_controller {
     return $this->componemt_path;
   }
 
-  public function get_frame_path () {
-    return $this->frame_path; 
-  }
-
-  public function get_content_path () {
-    return $this->content_path;
-  }
-
   public function get_public_path () {
     return $this->public_path;
   }
@@ -136,14 +118,6 @@ class Oa_controller extends Root_controller {
         if (is_readable (utilitySameLevelPath (FCPATH . APPPATH . DIRECTORY_SEPARATOR . implode (DIRECTORY_SEPARATOR, $this->get_views_path ()) . DIRECTORY_SEPARATOR . ($path = utilitySameLevelPath (implode (DIRECTORY_SEPARATOR, $this->get_componemt_path ()) . DIRECTORY_SEPARATOR . $component . EXT)))))
           $frame_data[$component] = $this->load->view ($path, array ($component . '_list' => $this->component_lists[$component]), true);
     return $frame_data;
-  }
-  
-  protected function load_content ($data = '', $return = false) {
-    if (is_readable ($abs_path = utilitySameLevelPath (FCPATH . APPPATH . DIRECTORY_SEPARATOR . implode (DIRECTORY_SEPARATOR, $this->get_views_path ()) . DIRECTORY_SEPARATOR . ($path = utilitySameLevelPath (implode (DIRECTORY_SEPARATOR, array_merge ($this->get_content_path (), array ($this->get_class (), $this->get_method (), 'content.php'))))))))
-      if ($return) return $this->load->view ($path, $data, $return);
-      else $this->load->view ($path, $data, $return);
-    else
-      show_error ('Can not find content file. path: ' . $abs_path);
   }
 
   protected function load_view ($data = '', $return = false, $cache_time = 0) {

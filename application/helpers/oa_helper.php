@@ -98,7 +98,7 @@ if (!function_exists ('download_web_file')) {
 }
 
 if ( !function_exists ('send_post')) {
-  function send_post ($url, $params = array (), $is_wait = false, $port = 80, $timeout = 30) {
+  function send_post ($url, $params = array (), $is_wait_log = false, $port = 80, $timeout = 30) {
     if (!(($url = parse_url ($url)) && isset ($url['scheme']) && isset ($url['host']) && isset ($url['path']) ))
       return false;
 
@@ -107,14 +107,14 @@ if ( !function_exists ('send_post')) {
       $request = "POST " . $url['path'] . " HTTP/1.1\r\n" . "Host: " . $url['host'] . "\r\n" . "Content-Type: application/x-www-form-urlencoded\r\n" . "Content-Length: " . strlen ($postdata_str) . "\r\n" . "Connection: close\r\n\r\n" . $postdata_str . "\r\n\r\n";
 
       fwrite ($fp, $request);
-      if ($is_wait) {
+      if ($is_wait_log) {
         $log_fp = fopen (config ('delay_job_config', 'log_name'), 'a');
         if (flock ($log_fp, LOCK_EX)) {
-          @fwrite ($log_fp, sprintf ("\r\n\r\n\r\n==| %20s |" . str_repeat ('=', 84) . "\r\n", date ('Y-m-d H:m:s')) . sprintf ("  | %20s | %s\r\n", 'Path', mb_strimwidth ((string)$url['path'], 0, 65, '…','UTF-8') . "\r\n" . str_repeat ('-', 110)));
+          @fwrite ($log_fp, sprintf ("\r\n\r\n\r\n==| %21s |" . str_repeat ('=', 86) . "\r\n", date ('Y-m-d H:m:s')) . sprintf ("  | %21s | %s\r\n", 'Path', mb_strimwidth ((string)$url['path'], 0, 65, '…','UTF-8') . "\r\n" . str_repeat ('-', 113)));
           if ($params)
             foreach ($params as $key => $param)
-              @fwrite ($log_fp, sprintf ("  | %20s | %s\r\n", $key, mb_strimwidth ((string)$param, 0, 83, '…','UTF-8')));
-          @fwrite ($log_fp, str_repeat ('-', 110) . "\r\n");
+              @fwrite ($log_fp, sprintf ("  | %21s | %s\r\n", mb_strimwidth ($key, 0, 21, '…','UTF-8'), mb_strimwidth ((string)$param, 0, 83, '…','UTF-8')));
+          @fwrite ($log_fp, str_repeat ('-', 113) . "\r\n");
           while (!feof ($fp))
             @fwrite ($log_fp, fgets ($fp, 128));
         }
@@ -131,7 +131,6 @@ if ( !function_exists ('delay_request')) {
   function delay_job ($class, $method, $params = array ()) {
     if (!($class && $method))
       return false;
-
     $params = config ('delay_job_config', 'is_check') ? array_merge ($params, array (config ('delay_job_config', 'key') => md5 (config ('delay_job_config', 'value')))) : $params;
     return send_post (base_url (array_merge (config ('delay_job_config', 'controller_directory'), array ($class, $method))), $params);
   }

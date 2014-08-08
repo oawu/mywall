@@ -7,9 +7,10 @@
 class Root_controller extends CI_Controller {
   private $class  = '';
   private $method = '';
+
   private $controllers_path = array ();
-  private $views_path = array ();
-  private $libraries_path = array ();
+  private $views_path       = array ();
+  private $libraries_path   = array ();
 
   public function __construct () {
     parent::__construct ();
@@ -57,6 +58,16 @@ class Root_controller extends CI_Controller {
     return $this;
   }
 
+  protected function set_content_path () {
+    $this->content_path = array_filter (func_get_args ());
+    return $this;
+  }
+
+  protected function set_frame_path () {
+    $this->frame_path = array_filter (func_get_args ());
+    return $this;
+  }
+
   public function get_class () {
     return $this->class;
   }
@@ -77,6 +88,14 @@ class Root_controller extends CI_Controller {
     return $this->views_path;
   }
 
+  public function get_frame_path () {
+    return $this->frame_path; 
+  }
+
+  public function get_content_path () {
+    return $this->content_path;
+  }
+
   protected function input_get ($index = null, $xss_clean = true) {
     return $index = trim ($index) && ($gets = $this->input->get ()) && isset ($gets[$index]) ? $xss_clean ? $this->security->xss_clean ($gets[$index]) : $gets[$index] : null;
   }
@@ -92,5 +111,13 @@ class Root_controller extends CI_Controller {
     } else {
       return null;
     }
+  }
+
+  protected function load_content ($data = '', $return = false) {
+    if (is_readable ($abs_path = utilitySameLevelPath (FCPATH . APPPATH . DIRECTORY_SEPARATOR . implode (DIRECTORY_SEPARATOR, $this->get_views_path ()) . DIRECTORY_SEPARATOR . ($path = utilitySameLevelPath (implode (DIRECTORY_SEPARATOR, array_merge ($this->get_content_path (), array ($this->get_class (), $this->get_method (), 'content.php'))))))))
+      if ($return) return $this->load->view ($path, $data, $return);
+      else $this->load->view ($path, $data, $return);
+    else
+      show_error ('Can not find content file. path: ' . $abs_path);
   }
 }

@@ -10,7 +10,7 @@ class Main_cells extends Cell_Controller {
     return array ('time' => 60 * 60, 'key' => null);
   }
 
-  public function demo () {
+  public function index () {
     return $this->load_view ();
   }
 }

@@ -12,7 +12,6 @@ class Admin_controller extends Oa_controller {
          ->set_frame_path ('frame', 'admin')
          ->set_content_path ('content', 'admin')
          ->set_public_path ('public')
-         ->set_title ('')
-         ;
+         ->set_title ('');
   }
 }
