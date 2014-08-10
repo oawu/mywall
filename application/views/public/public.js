@@ -105,24 +105,24 @@ var sprintf = function () {
 
 $(function(){
 
-  var containerWidth = parseFloat ($('#container').width ()) + parseFloat ($('#container').css ('border-top-width')) + parseFloat ($('#container').css ('border-bottom-width')),
-      $nav = $('nav.navbar').css ({'width': containerWidth + 'px'}),
-      navAllHeight = parseFloat ($nav.height ()) + parseFloat ($nav.css ('border-top-width')) + parseFloat ($nav.css ('border-bottom-width')) + parseFloat ($nav.css ('margin-bottom')) + parseFloat ($nav.css ('margin-top'));
-      $('#container').css ({'padding-top': navAllHeight + 'px'});
+  // var containerWidth = parseFloat ($('#container').width ()) + parseFloat ($('#container').css ('border-top-width')) + parseFloat ($('#container').css ('border-bottom-width')),
+  //     $nav = $('nav.navbar').css ({'width': containerWidth + 'px'}),
+  //     navAllHeight = parseFloat ($nav.height ()) + parseFloat ($nav.css ('border-top-width')) + parseFloat ($nav.css ('border-bottom-width')) + parseFloat ($nav.css ('margin-bottom')) + parseFloat ($nav.css ('margin-top'));
+  //     $('#container').css ({'padding-top': navAllHeight + 'px'});
   
-  $(window).resize (function() {
-    if (parseFloat ($(this).width ()) < containerWidth) { $nav.css ({'position': 'absolute', 'left': '0px', 'margin-left': 0 + 'px'}); }
-    else { $nav.css ({'position': 'fixed', 'left': '50%', 'margin-left': (0 - (containerWidth / 2)) + 'px'}); } 
-  }).resize ();
+  // $(window).resize (function() {
+  //   if (parseFloat ($(this).width ()) < containerWidth) { $nav.css ({'position': 'absolute', 'left': '0px', 'margin-left': 0 + 'px'}); }
+  //   else { $nav.css ({'position': 'fixed', 'left': '50%', 'margin-left': (0 - (containerWidth / 2)) + 'px'}); } 
+  // }).resize ();
   
-  var visit_menu_margin_top = parseFloat ($('#visit_menu').hide ().css ('margin-top'));
-  var visit_menu_height = parseFloat ($('#visit_menu').css ('height'));
+  // var visit_menu_margin_top = parseFloat ($('#visit_menu').hide ().css ('margin-top'));
+  // var visit_menu_height = parseFloat ($('#visit_menu').css ('height'));
 
-  $('#visit_menu').css ({'margin-top': 0 - visit_menu_height + visit_menu_margin_top + 'px'});
-  $nav.css ({'top': (0 - navAllHeight) + 'px'}).stop ().animate ({'top': '0px'}, 500, function () { $('#visit_menu').show ().animate ({'margin-top': visit_menu_margin_top + 'px'}); })
+  // $('#visit_menu').css ({'margin-top': 0 - visit_menu_height + visit_menu_margin_top + 'px'});
+  // $nav.css ({'top': (0 - navAllHeight) + 'px'}).stop ().animate ({'top': '0px'}, 500, function () { $('#visit_menu').show ().animate ({'margin-top': visit_menu_margin_top + 'px'}); })
   
-  $('div.bs-sidebar ul.list-group li.list-group-item.pointer').click (function () { window.location.assign ($(this).data ('url')); }).each (function (i, t) {if (window.location.href.indexOf ($(this).data ('url')) != -1) $(this).addClass ('active'); });
-  $('#nav_bar_myself_picture span').imgLiquid ({verticalAlign: "center"});
+  // $('div.bs-sidebar ul.list-group li.list-group-item.pointer').click (function () { window.location.assign ($(this).data ('url')); }).each (function (i, t) {if (window.location.href.indexOf ($(this).data ('url')) != -1) $(this).addClass ('active'); });
+  // $('#nav_bar_myself_picture span').imgLiquid ({verticalAlign: "center"});
 
   $('.fancybox').fancybox ({ beforeLoad: function() { this.title = $(this.element).data ('fancybox_title'); }, padding : 0, helpers : { overlay: {locked: false}, title : { type : 'over' }, thumbs: {width: 50, height: 50}}});
   
@@ -130,5 +130,8 @@ $(function(){
   
   $('.jqui_tooltip').tooltip ({ track: true, position: { my: "left+10 top+10"}, show: { effect: 'fade', delay: 150 }, content: function () { return $(this).data ('pic') ? $('<img />').css ({'width': '500px'}).attr ('src', $(this).attr ('title')) : $(this).attr ('title'); } });
   // $('.fancybox').fancybox ({ padding : 0, helpers : { overlay: {locked: false}, title : { type : 'over' }}});
-  if (($('#_fb_sing_in_message').val () != '') && $('#_fb_sing_in_message').val ().length) $.jGrowl ($('#_fb_sing_in_message').val (), {theme: 'j_growl', easing: "easeInExpo"});
+  if ($('#_fb_sing_in_message').length && ($('#_fb_sing_in_message').val () != '') && $('#_fb_sing_in_message').val ().length) $.jGrowl ($('#_fb_sing_in_message').val (), {theme: 'j_growl', easing: "easeInExpo"});
+
+  $('.timeago').timeago ();
+  
 });
