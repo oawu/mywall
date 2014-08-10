@@ -85,6 +85,9 @@ body:before {
 .right {
   text-align: right;
 }
+.center {
+  text-align: center;
+}
 .btn:focus {
     outline: 0;
 }
