@@ -4,25 +4,22 @@
  * @author      OA Wu <comdan66@gmail.com>
  * @copyright   Copyright (c) 2014 OA Wu Design
  */
-class Main_cells extends Cell_Controller {
+class Frame_cells extends Cell_Controller {
 
-  public function _cache_demo () {
-    return array ('time' => 60 * 60, 'key' => null);
-  }
-
-  public function index () {
+  public function user_bar () {
     return $this->load_view ();
   }
 
-  public function promos () {
+  public function main_banner () {
     return $this->load_view ();
   }
 
-  public function tag_category_block9s () {
+  public function feature_bar () {
     return $this->load_view ();
   }
 
-  public function shares_order () {
+  public function tag_category_top () {
     return $this->load_view ();
   }
+  
 }
