@@ -197,29 +197,13 @@ if (defined('ENVIRONMENT'))
 	}
 
   // Resource relative base path.
-  define('RESOURCE_CSS_REL_PATH',   'resource' . '/' . 'css' . '/');
-  define('RESOURCE_JS_REL_PATH',    'resource' . '/' . 'javascript' . '/');
-  define('RESOURCE_IMG_REL_PATH',   'resource' . '/' . 'image' . '/');
-  define('RESOURCE_FILE_REL_PATH',  'resource' . '/' . 'file' . '/');
-  define('RESOURCE_FONT_REL_PATH',  'resource' . '/' . 'font' . '/');
-  define('RESOURCE_FLASH_REL_PATH', 'resource' . '/' . 'flash' . '/');
-  define('RESOURCE_AUDIO_REL_PATH', 'resource' . '/' . 'audio' . '/');
-  
-  // Resource absolute base path.
-  define('RESOURCE_CSS_ABS_PATH',   FCPATH . RESOURCE_CSS_REL_PATH);
-  define('RESOURCE_JS_ABS_PATH',    FCPATH . RESOURCE_JS_REL_PATH);
-  define('RESOURCE_IMG_ABS_PATH',   FCPATH . RESOURCE_IMG_REL_PATH);
-  define('RESOURCE_FILE_ABS_PATH',  FCPATH . RESOURCE_FILE_REL_PATH);
-  define('RESOURCE_FONT_ABS_PATH',  FCPATH . RESOURCE_FONT_REL_PATH);
-  define('RESOURCE_FLASH_ABS_PATH', FCPATH . RESOURCE_FLASH_REL_PATH);
-  define('RESOURCE_AUDIO_ABS_PATH', FCPATH . RESOURCE_AUDIO_REL_PATH);
-
-
-  // Upload relative base path.
-  define('UPLOAD_REL_PATH', 'upload' . '/');
-
-  // Upload absolute base path.
-  define('UPLOAD_ABS_PATH', FCPATH . UPLOAD_REL_PATH);
+  define('REL_PATH_CSS',   'resource/css/');
+  define('REL_PATH_JS',    'resource/javascript/');
+  define('REL_PATH_IMG',   'resource/image/');
+  define('REL_PATH_FILE',  'resource/file/');
+  define('REL_PATH_FONT',  'resource/font/');
+  define('REL_PATH_FLASH', 'resource/flash/');
+  define('REL_PATH_AUDIO', 'resource/audio/');
 
 /*
  * --------------------------------------------------------------------
