@@ -53,9 +53,12 @@ class Oa_controller extends Root_controller {
     return $this;
   }
 
-  protected function add_component_list ($key, $value) {
+  protected function add_component_list ($key, $value, $my_key = null) {
     if (isset ($this->component_lists[$key]))
-      array_push ($this->component_lists[$key], $value);
+      if ($my_key)
+        $this->component_lists[$key][$my_key][] = $value;
+      else
+        array_push ($this->component_lists[$key], $value);
     return $this;
   }
 
@@ -80,6 +83,13 @@ class Oa_controller extends Root_controller {
   protected function add_meta ($attributes = array ()) {
     if ($attributes)
       $this->add_component_list ('meta', $attributes);
+    return $this;
+  }
+
+  protected function add_footer ($title, $sub_items = array ()) {
+    if (($args = func_get_args ()) && ($title = array_shift ($args)) && ($sub_itemss = $args))
+      foreach ($sub_itemss  as $sub_items)
+        $this->add_component_list ('footer', $sub_items, $title);
     return $this;
   }
 

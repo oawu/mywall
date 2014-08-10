@@ -6,7 +6,7 @@
  */
 if (!function_exists ('utilitySameLevelPath')) {
   function utilitySameLevelPath ($path) {
-    return is_string ($path) && strlen ($path) ? preg_replace ("/(https?:\/)\/?/", "$1/", preg_replace ('/\/(\.?\/)+/', '/', $path)) : '';
+    return ($paths = implode ('/', array_filter (func_get_args ()))) ? preg_replace ("/(https?:\/)\/?/", "$1/", preg_replace ('/\/(\.?\/)+/', '/', $paths)) : '';
   }
 }
 
