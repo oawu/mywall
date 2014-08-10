@@ -39,3 +39,17 @@ window.fbAsyncInit = function() {
   //       .complete (function (result) { });
   // });
 };
+
+$(function () {
+  var $menu = $('#menu'), menu_top = parseFloat ($menu.offset ().top), menu_width = parseFloat ($menu.width ()), menu_margin = $menu.css ('margin');
+  var containerWidth = parseFloat ($('#container').width ()) + parseFloat ($('#container').css ('border-top-width')) + parseFloat ($('#container').css ('border-bottom-width'));
+  $(window).scroll (function (e) {
+    if ((parseFloat ($(this).scrollTop ()) > menu_top) && ($menu.css ('position') == 'relative')) {
+      if (parseFloat ($(this).width ()) >= containerWidth)
+        $menu.css ({'position': 'fixed', 'top': '0px', 'width': menu_width + 2 + 'px', 'left': '50%', 'margin-top': '0px', 'margin-left': (0 - (containerWidth / 2)) + 'px'});
+      else;
+    } else if ((parseFloat ($(this).scrollTop ()) <= menu_top) && (($menu.css ('position') == 'fixed') || ($menu.css ('position') == 'absolute'))) {
+      $menu.css ({'position': 'relative', 'margin': menu_margin, 'width': menu_width + 2 + 'px', 'left': '50%', 'margin-left': (0 - (containerWidth / 2)) + 'px'});
+    }
+  });
+})
