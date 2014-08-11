@@ -8,8 +8,8 @@
 
 window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1482020658677319',
-      channelUrl : '//matsu.ioa.tw',
+      appId      : '513554562067842',
+      channelUrl : '//style.ioa.tw',
       status     : true,
       cookie     : true,
       xfbml      : true
@@ -41,18 +41,21 @@ window.fbAsyncInit = function() {
 };
 
 $(function () {
-  var $tag_category_top = $('#tag_category_top'), tag_category_top_top = parseFloat ($tag_category_top.offset ().top), tag_category_top_width = parseFloat ($tag_category_top.width ()), tag_category_top_margin = $tag_category_top.css ('margin');
-  var containerWidth = parseFloat ($('#container').width ()) + parseFloat ($('#container').css ('border-top-width')) + parseFloat ($('#container').css ('border-bottom-width'));
-  
-  var tag_category_top_all_height = parseFloat ($tag_category_top.height ()) + parseFloat ($tag_category_top.css ('border-top-width')) + parseFloat ($tag_category_top.css ('border-bottom-width')) + parseFloat ($tag_category_top.css ('margin-bottom')) + parseFloat ($tag_category_top.css ('margin-top'));
-  
-  $(window).scroll (function (e) {
-    if ((parseFloat ($(this).scrollTop ()) >= tag_category_top_top) && ($tag_category_top.css ('position') == 'relative')) {
-      if (parseFloat ($(this).width ()) >= containerWidth)
-        $tag_category_top.addClass ('to_top').css ({'position': 'fixed', 'top': '-1px', 'width': tag_category_top_width + 2 + 'px', 'left': '50%', 'margin-top': '0px', 'margin-left': (0 - (containerWidth / 2)) + 'px'}).next ().css ({'margin-top': tag_category_top_all_height + 'px'});
-      else;
-    } else if ((parseFloat ($(this).scrollTop ()) < tag_category_top_top) && (($tag_category_top.css ('position') == 'fixed') || ($tag_category_top.css ('position') == 'absolute'))) {
-      $tag_category_top.removeClass ('to_top').css ({'position': 'relative', 'margin': tag_category_top_margin, 'width': tag_category_top_width + 2 + 'px', 'left': '50%', 'margin-left': (0 - (containerWidth / 2)) + 'px'}).next ().css ({'margin-top': 0});
-    }
-  });
+  if ($('#tag_category_top').length) {
+    var $tag_category_top = $('#tag_category_top'), tag_category_top_top = parseFloat ($tag_category_top.offset ().top), tag_category_top_width = parseFloat ($tag_category_top.width ()), tag_category_top_margin = $tag_category_top.css ('margin');
+    var containerWidth = parseFloat ($('#container').width ()) + parseFloat ($('#container').css ('border-top-width')) + parseFloat ($('#container').css ('border-bottom-width'));
+    
+    var tag_category_top_all_height = parseFloat ($tag_category_top.height ()) + parseFloat ($tag_category_top.css ('border-top-width')) + parseFloat ($tag_category_top.css ('border-bottom-width')) + parseFloat ($tag_category_top.css ('margin-bottom')) + parseFloat ($tag_category_top.css ('margin-top'));
+    
+    $(window).scroll (function (e) {
+      if ((parseFloat ($(this).scrollTop ()) >= tag_category_top_top) && ($tag_category_top.css ('position') == 'relative')) {
+        if (parseFloat ($(this).width ()) >= containerWidth)
+          $tag_category_top.addClass ('to_top').css ({'position': 'fixed', 'top': '-1px', 'width': tag_category_top_width + 2 + 'px', 'left': '50%', 'margin-top': '0px', 'margin-left': (0 - (containerWidth / 2)) + 'px'}).next ().css ({'margin-top': tag_category_top_all_height + 'px'});
+        else;
+      } else if ((parseFloat ($(this).scrollTop ()) < tag_category_top_top) && (($tag_category_top.css ('position') == 'fixed') || ($tag_category_top.css ('position') == 'absolute'))) {
+        $tag_category_top.removeClass ('to_top').css ({'position': 'relative', 'margin': tag_category_top_margin, 'width': tag_category_top_width + 2 + 'px', 'left': '50%', 'margin-left': (0 - (containerWidth / 2)) + 'px'}).next ().css ({'margin-top': 0});
+      }
+    });
+    
+  }
 })

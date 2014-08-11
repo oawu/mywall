@@ -61,7 +61,7 @@ if (!function_exists ('web_file_exists')) {
 }
 
 if (!function_exists ('download_web_file')) {
-  function download_web_file ($url, $fileName, $is_use_reffer = false, $cainfo = null) {
+  function download_web_file ($url, $fileName = null, $is_use_reffer = false, $cainfo = null) {
     if (!web_file_exists ($url, $cainfo))
       return null;
 
@@ -84,6 +84,9 @@ if (!function_exists ('download_web_file')) {
     curl_setopt_array ($ch, $options);
     $data = curl_exec ($ch);
     curl_close ($ch);
+
+    if (!$fileName)
+      return $data;
 
     $write = fopen ($fileName, 'w');
     fwrite ($write, $data);

@@ -171,7 +171,7 @@ class OrmImageUploader {
 
         $result = '1';
         foreach ($versions as $version_key => $version_format) {
-          $image = ImageUtility::create ($tempFileName);
+          $image = ImageUtility::create ($tempFileName, null, array ('resizeUp' => true));
 
           try {
             $saveFileName = $fileName . ($auto_add_format ? '.' . $image->getFormat () : '');

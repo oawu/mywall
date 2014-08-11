@@ -22,7 +22,21 @@ class Main_cells extends Cell_Controller {
     return $this->load_view ();
   }
 
-  public function shares_order () {
+  public function pictures_order () {
     return $this->load_view ();
+  }
+
+  public function _cache_pictures ($next_id = 0) {
+    return array ('time' => 60 * 60, 'key' => 'pictures/id_' . $next_id);
+  }
+  public function pictures ($next_id = 0) {
+    $conditions = $next_id ? array ('id <= ?', $next_id) : array ();
+    $pics = Picture::find ('all', array ('order' => 'id DESC', 'include' => array ('user'), 'limit' => config ('main_controller_config', 'pictures_length') + 1, 'conditions' => $conditions));
+    $pictures = array ();
+    foreach (array_slice ($pics, 0, config ('main_controller_config', 'pictures_length')) as $picture)
+      array_push ($pictures, $this->load_view (array ('picture' => $picture)));
+
+    $next_id = ($pics = ($pics = array_slice ($pics, config ('main_controller_config', 'pictures_length'), 1)) ? $pics[0] : null) ? $pics->id : -1;
+    return array ('pictures' => $pictures, 'next_id' => $next_id);
   }
 }
