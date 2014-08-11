@@ -11,12 +11,23 @@ hr {
   width: 100%;
 }
 #user_bar a {
-  color: #fff;
+  color: #ccc;
   font-size: 14px;
   margin: 0px 3px;
 }
+#user_bar a:hover {
+  color: #fff;
+  text-decoration: none;
+}
 #user_bar .left a:first-child {
   margin-left: 10px;
+}
+#user_bar .right a:last-child {
+  margin-right: 10px;
+}
+#user_bar a[class*="icon-"] {
+  position: relative;
+  top: 1px;
 }
 #main_banner {
   /*border: 1px solid red;*/

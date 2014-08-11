@@ -1,5 +1,5 @@
 
-<div id='shares_order' class='row'>
+<div id='pictures_order' class='row'>
   <div class='col-md-1'>
   </div>
   <div class='col-md-1 center'>
