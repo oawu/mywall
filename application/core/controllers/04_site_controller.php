@@ -7,6 +7,8 @@
 class Site_controller extends Oa_controller {
   public function __construct () {
     parent::__construct ();
+    $this->load->helper ('facebook');
+    $this->load->helper ('identity');
 
     $this->init_component_lists ('meta', 'css', 'javascript', 'hidden', 'footer')
          ->set_componemt_path ('component', 'site')
@@ -18,7 +20,7 @@ class Site_controller extends Oa_controller {
          ->_add_css ()
          ->_add_javascript ()
          ->_add_footer ()
-         
+         ->add_hidden (array ('id' => '_fb_sing_in_message','value' => identity ()->get_session ('_fb_sing_in_message', true)))
          ;
   }
 
