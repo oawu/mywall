@@ -186,7 +186,71 @@
   /*border: 1px solid red;*/
   vertical-align: top;
   margin: 4px auto;
+  position: relative;
 }
+.block9_img a {
+  position: absolute;
+  /*border: 1px solid #fff;*/
+}
+.block9_img a:hover {
+  border: 1px solid red;
+}
+.block9_0 {
+  top: 2px;
+  left: 4px;
+  width: 130px;
+  height: 130px;
+}
+.block9_1 {
+  top: 2px;
+  left: 136px;
+  width: 64px;
+  height: 64px;
+}
+.block9_2 {
+  top: 2px;
+  left: 202px;
+  width: 64px;
+  height: 64px;
+}
+.block9_3 {
+  top: 68px;
+  left: 136px;
+  width: 64px;
+  height: 64px;
+}
+.block9_4 {
+  top: 68px;
+  left: 202px;
+  width: 64px;
+  height: 64px;
+}
+.block9_5 {
+  top: 134px;
+  left: 4px;
+  width: 64px;
+  height: 64px;
+}
+.block9_6 {
+  top: 134px;
+  left: 70px;
+  width: 64px;
+  height: 64px;
+}
+.block9_7 {
+  top: 134px;
+  left: 136px;
+  width: 64px;
+  height: 64px;
+}
+.block9_8 {
+  top: 134px;
+  left: 202px;
+  width: 64px;
+  height: 64px;
+}
+
+
 .block9_info {
   /*border: 1px solid red;*/
   vertical-align: top;
