@@ -12,6 +12,11 @@ class Picture extends OaModel {
     array ('user', 'class_name' => 'User'),
   );
   
+  static $has_many = array (
+    array ('tag_mappings', 'class_name' => 'PictureTagMapping'),
+    array ('tags', 'class_name' => 'PictureTag', 'through' => 'picture_mappings', 'order'=> 'RAND()'),
+  );
+  
   static $before_create = array ('add_year_week');
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {
@@ -20,5 +25,7 @@ class Picture extends OaModel {
     OrmImageUploader::bind ('file_name');
   }
 
-  public function add_year_week () { return !$this->year_week ? $this->year_week = date ('YW') : $this->year_week; }
+  public function add_year_week () {
+    return !$this->year_week ? $this->year_week = date ('YW') : $this->year_week;
+  }
 }
