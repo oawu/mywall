@@ -7,11 +7,11 @@
             <?php echo $picture->user->name;?>
           </div>
           <div class='picture_text'>
-            即將要入秋了~ 但感覺台灣還是會熱一陣子! 小露肚皮的時光也不多惹~嘻嘻！
+            <?php echo $picture->text;?>
           </div>
           <div class='picture_info row'>
             <div class='col-md-6 left'>
-              <i class='icon-love'></i> <span>100000</span>
+              <i class='icon-love'></i> <span><?php echo $picture->pageview;?></span>
             </div>
             <div class='col-md-6 right timeago' data-time='<?php echo $picture->created_at;?>'></div>
           </div>

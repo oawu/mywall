@@ -5,3 +5,4 @@
  * @copyright   Copyright (c) 2014 OA Wu Design
  */
 $main_controller_config['pictures_length'] = 10;
+$main_controller_config['block9s_count'] = 3;
