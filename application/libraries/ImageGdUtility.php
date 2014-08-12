@@ -17,6 +17,42 @@ class ImageGdUtility extends ImageBaseUtility {
     $this->_init ()->_setOptions ($options);
   }
 
+  public static function make_block9 ($fileNames, $fileName, $interlace = null, $jpegQuality = 100) {
+    if (count ($fileNames) < 9)
+      return false;
+    $CI =& get_instance ();
+    $CI->load->library ('ImageUtility');
+
+    $positions = array (
+      array ('left' =>   2, 'top' =>   2, 'width' => 130, 'height' => 130),
+      array ('left' => 134, 'top' =>   2, 'width' =>  64, 'height' =>  64),
+      array ('left' => 200, 'top' =>   2, 'width' =>  64, 'height' =>  64),
+      array ('left' => 134, 'top' =>  68, 'width' =>  64, 'height' =>  64),
+      array ('left' => 200, 'top' =>  68, 'width' =>  64, 'height' =>  64),
+      array ('left' =>   2, 'top' => 134, 'width' =>  64, 'height' =>  64),
+      array ('left' =>  68, 'top' => 134, 'width' =>  64, 'height' =>  64),
+      array ('left' => 134, 'top' => 134, 'width' =>  64, 'height' =>  64),
+      array ('left' => 200, 'top' => 134, 'width' =>  64, 'height' =>  64),
+    );
+
+    $image = imagecreatetruecolor (266, 200);
+    imagefill ($image, 0, 0, imagecolorallocate ($image, 255, 255, 255));
+    for ($i = 0; $i < 9; $i++)
+      imagecopymerge ($image, ImageUtility::create ($fileNames[$i])->getImage (), $positions[$i]['left'], $positions[$i]['top'], 0, 0, $positions[$i]['width'], $positions[$i]['height'], 100);
+
+    if ($interlace === true)
+      imageinterlace ($image, 1);
+    else if ($interlace === false)
+      imageinterlace ($image, 0);
+
+    switch (pathinfo ($fileName, PATHINFO_EXTENSION)) {
+      case 'jpg': return @imagejpeg ($image, $fileName, $jpegQuality);
+      case 'gif': return @imagegif ($image, $fileName);
+      case 'png': return @imagepng ($image, $fileName);
+      default: return false;
+    }
+  }
+
   public function adaptiveResizeQuadrant ($width, $height, $item = 'c') {
     if (!((($width = intval ($width)) > 0) && (($height = intval ($height)) > 0)))
       show_error ("The new dimension format error.<br/>It must be a number greater or equal than one.<br/>Please confirm your program again.");

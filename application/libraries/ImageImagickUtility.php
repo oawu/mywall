@@ -17,6 +17,33 @@ class ImageImagickUtility extends ImageBaseUtility {
     $this->_init ()->_setOptions ($options);
   }
 
+
+  public function make_block9 ($fileNames, $fileName, $rawData = true) {
+    if (count ($fileNames) < 9)
+      return false;
+
+    $newImage = new Imagick ();
+    $newImage->newImage (266, 200, new ImagickPixel ('white'));
+    $newImage->setFormat (pathinfo ($fileName, PATHINFO_EXTENSION));
+    
+    $positions = array (
+      array ('left' =>   2, 'top' =>   2, 'width' => 130, 'height' => 130),
+      array ('left' => 134, 'top' =>   2, 'width' =>  64, 'height' =>  64),
+      array ('left' => 200, 'top' =>   2, 'width' =>  64, 'height' =>  64),
+      array ('left' => 134, 'top' =>  68, 'width' =>  64, 'height' =>  64),
+      array ('left' => 200, 'top' =>  68, 'width' =>  64, 'height' =>  64),
+      array ('left' =>   2, 'top' => 134, 'width' =>  64, 'height' =>  64),
+      array ('left' =>  68, 'top' => 134, 'width' =>  64, 'height' =>  64),
+      array ('left' => 134, 'top' => 134, 'width' =>  64, 'height' =>  64),
+      array ('left' => 200, 'top' => 134, 'width' =>  64, 'height' =>  64),
+    );
+
+    for ($i = 0; $i < 9; $i++)
+      $newImage->compositeImage (ImageUtility::create ($fileNames[$i])->getImage (), imagick::COMPOSITE_DEFAULT, $positions[$i]['left'], $positions[$i]['top']);
+
+    return $newImage->writeImages ($fileName, $rawData);
+  }
+
   public function addFont ($text, $font, $startX = 0, $startY = 12, $color = 'black', $fontSize = 12, $alpha = 1, $degree = 0) {
     if (!$text) return $this;
 
