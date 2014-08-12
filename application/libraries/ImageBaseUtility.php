@@ -68,14 +68,14 @@ class ImageBaseUtility {
   }
 
   protected function calcWidth ($oldDimension, $newDimension) {
-    $newWidthPercentage = 100 * $newDimension['width'] / $oldDimension['width'];
-    $height             = $oldDimension['height'] * $newWidthPercentage / 100;
+    $newWidthPercentage = ceil (100 * $newDimension['width'] / $oldDimension['width']);
+    $height             = ceil ($oldDimension['height'] * $newWidthPercentage / 100);
     return $this->createDimension ($newDimension['width'], $height);
   }
 
   protected function calcHeight ($oldDimension, $newDimension) {
-    $newHeightPercentage  = 100 * $newDimension['height'] / $oldDimension['height'];
-    $width                = $oldDimension['width'] * $newHeightPercentage / 100;
+    $newHeightPercentage  = ceil (100 * $newDimension['height'] / $oldDimension['height']);
+    $width                = ceil ($oldDimension['width'] * $newHeightPercentage / 100);
     return $this->createDimension ($width, $newDimension['height']);
   }
 

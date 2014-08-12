@@ -52,6 +52,54 @@ class OrmImageUploader {
     return ($fileName = download_web_file ($url, utilitySameLevelPath (config ('model_config', 'uploader', 'temp_directory') . DIRECTORY_SEPARATOR . config ('model_config', 'uploader', 'temp_file_name')))) && $this->put ($fileName, false) ? file_exists ($fileName) ? @unlink ($fileName) : true : false;
   }
 
+  public function save_as ($key, $version) {
+    if (config ('model_config', 'uploader', 'bucket', 'type') == 'local') {
+      if (!(is_string ($key) && is_array ($version)))
+        show_error ("The key and version format error!<br/>Please confirm your program again.");
+      
+      if (!($versions = $this->getVersions ()) && !($versions = config ('model_config', 'uploader', 'default_version')))
+        show_error ("The versions format error!<br/>Please confirm your program again.");
+
+      if (in_array ($key, array_keys ($versions)))
+        return is_readable ($path = utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR .config ('model_config', 'uploader', 'bucket', 'local', 'base_directory') . DIRECTORY_SEPARATOR . $this->getSavePath () . DIRECTORY_SEPARATOR . $key . config ('model_config', 'uploader', 'file_name', 'separate_symbol') . (string)$this)) ? $path : '';
+      
+      foreach ($versions as $ori_key => $ori_version)
+        if (!($path = '') && is_readable ($path = utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR .config ('model_config', 'uploader', 'bucket', 'local', 'base_directory') . DIRECTORY_SEPARATOR . $this->getSavePath () . DIRECTORY_SEPARATOR . $ori_key . config ('model_config', 'uploader', 'file_name', 'separate_symbol') . ($fileName = (string)$this))))
+          break;
+
+      if (!$path)
+        show_error ("There is not file can be used!<br/>Please confirm your program again.");
+      
+      $separate_symbol = config ('model_config', 'uploader', 'file_name', 'separate_symbol');
+
+      $this->CI->load->library ('ImageUtility');
+      $image = ImageUtility::create ($path, null, array ('resizeUp' => true));
+      
+      try {
+        if (!is_writable ($path = utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR . config ('model_config', 'uploader', 'bucket', 'local', 'base_directory') . DIRECTORY_SEPARATOR)))
+          show_error ("The save base directory can not be 'write'!<br/>Directory : " . $path . "<br/>Please confirm your program again.");
+
+        if (!file_exists ($path = utilitySameLevelPath ($path . DIRECTORY_SEPARATOR . $this->getSavePath () . DIRECTORY_SEPARATOR))) {
+          $oldmask = umask (0);
+          @mkdir ($path, 0777, true);
+          umask ($oldmask);
+        } else if (!is_writable ($path)) {
+          show_error ("The save base directory can not be 'write'!<br/>Directory : " . $path . "<br/>Please confirm your program again.");
+        }
+
+        if (is_callable (array ($image, $method = array_shift ($version))))
+          call_user_func_array (array ($image, $method), $version);
+
+        $path = utilitySameLevelPath ($path . DIRECTORY_SEPARATOR . $key . $separate_symbol . $fileName);
+        if ($image->save ($path, true))
+          return $path;
+      } catch (Exception $e) {
+        return '';
+      }
+      return '';
+    }
+  }
+
   public function put ($fileInfo, $isUseMoveUploadedFile = true) {
     if (is_array ($fileInfo))
       foreach (array ('name', 'type', 'tmp_name', 'error', 'size') as $key)
