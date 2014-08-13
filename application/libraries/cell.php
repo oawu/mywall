@@ -29,7 +29,6 @@ class Cell {
     $this->cache_prefix = strlen ($cache_prefix = config ('cell_config', 'method_prefix')) ? $cache_prefix : null;
   }
 
-
   public function render_cell ($class, $method, $params = array ()) {
     if (preg_match_all ('/(' . config ('cell_config', 'class_suffix') . ')$/', $class) == 1) {
       if (is_readable ($file = utilitySameLevelPath ($this->controller_folder . DIRECTORY_SEPARATOR . ($class = strtolower ($class)) . EXT))) {
@@ -124,12 +123,18 @@ class Cell {
 }
 
 class Cell_Controller {
+  private $CI = null;
   private $view_folder = null;
 
   public function __construct () {
+    $this->CI =& get_instance ();
     $this->view_folder = utilitySameLevelPath (FCPATH . config ('cell_config', 'view_folder'));
   }
 
+  public function get_CI () {
+    return $this->CI;
+  }
+  
   protected function load_view ($data = array ()) {
     $trace = debug_backtrace (DEBUG_BACKTRACE_PROVIDE_OBJECT);
     if (isset ($trace) && count ($trace) > 1 && isset ($trace[1]) && isset ($trace[1]['class']) && isset ($trace[1]['function']) && is_string ($class = strtolower ($trace[1]['class'])) && is_string ($method = strtolower ($trace[1]['function'])) && strlen ($class) && strlen ($method)) {

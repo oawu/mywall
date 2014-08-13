@@ -14,5 +14,6 @@ class ActiveRecordModel extends ActiveRecord\Model {
 
     $this->CI->load->helper ('oa');
     $this->CI->load->library ('OrmImageUploader');
+    $this->CI->load->library ('JsonBind');
   }
 }

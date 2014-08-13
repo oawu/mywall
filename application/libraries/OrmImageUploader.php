@@ -221,7 +221,7 @@ class OrmImageUploader {
   }
 
   public function __toString () {
-    return $this->column_value;
+    return (string)$this->column_value;
   }
 
   public static function bind ($column_name, $instance_class_name = null) {
