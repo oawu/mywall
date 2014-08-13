@@ -130,6 +130,8 @@ class OrmImageUploader {
         $column_name = $this->column_name;
         $this->orm->$column_name = $saveFileName;
         $this->orm->save ();
+        $this->column_value = $saveFileName;
+        $this->orm->$column_name = $this;
         return $result;
       }
     }

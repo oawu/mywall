@@ -17,7 +17,7 @@ class ImageGdUtility extends ImageBaseUtility {
     $this->_init ()->_setOptions ($options);
   }
 
-  public static function make_block9 ($fileNames, $fileName, $interlace = null, $jpegQuality = 100) {
+  public static function make_block9 ($fileNames, $fileName = null, $interlace = null, $jpegQuality = 100) {
     if (count ($fileNames) < 9)
       return false;
     $CI =& get_instance ();
@@ -45,11 +45,13 @@ class ImageGdUtility extends ImageBaseUtility {
     else if ($interlace === false)
       imageinterlace ($image, 0);
 
+    $fileName = $fileName ? $fileName : utilitySameLevelPath (config ('model_config', 'uploader', 'temp_directory') . DIRECTORY_SEPARATOR . config ('model_config', 'uploader', 'temp_file_name')) . '.png';
+
     switch (pathinfo ($fileName, PATHINFO_EXTENSION)) {
-      case 'jpg': return @imagejpeg ($image, $fileName, $jpegQuality);
-      case 'gif': return @imagegif ($image, $fileName);
-      case 'png': return @imagepng ($image, $fileName);
-      default: return false;
+      case 'jpg': return @imagejpeg ($image, $fileName, $jpegQuality) ? $fileName : '';
+      case 'gif': return @imagegif ($image, $fileName) ? $fileName : '';
+      case 'png': return @imagepng ($image, $fileName) ? $fileName : '';
+      default: return '';
     }
   }
 

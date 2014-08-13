@@ -142,3 +142,11 @@ if ( !function_exists ('make_click_able_links')) {
     return preg_replace ('/(((https?:\/\/)[~\S]+))/', '<a href="${1}"' . ($class ? ' class="' . $class . '"' : '') . ($is_new_page ? ' target="_blank"' : '') . '>' . ($link_text ? $link_text : '${1}') . '</a>', $text);
   }
 }
+
+if (!function_exists ('field_array')) {
+  function field_array ($objects, $key) {
+    return array_map (function ($object) use ($key) {
+      return $object->$key;
+    }, $objects);
+  }
+}

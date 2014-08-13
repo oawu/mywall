@@ -18,9 +18,10 @@ class ImageImagickUtility extends ImageBaseUtility {
   }
 
 
-  public function make_block9 ($fileNames, $fileName, $rawData = true) {
+  public function make_block9 ($fileNames, $fileName = null, $rawData = true) {
     if (count ($fileNames) < 9)
       return false;
+    $fileName = $fileName ? $fileName : utilitySameLevelPath (config ('model_config', 'uploader', 'temp_directory') . DIRECTORY_SEPARATOR . config ('model_config', 'uploader', 'temp_file_name')) . '.png';
 
     $newImage = new Imagick ();
     $newImage->newImage (266, 200, new ImagickPixel ('white'));
@@ -41,7 +42,7 @@ class ImageImagickUtility extends ImageBaseUtility {
     for ($i = 0; $i < 9; $i++)
       $newImage->compositeImage (ImageUtility::create ($fileNames[$i])->getImage (), imagick::COMPOSITE_DEFAULT, $positions[$i]['left'], $positions[$i]['top']);
 
-    return $newImage->writeImages ($fileName, $rawData);
+    return $newImage->writeImages ($fileName, $rawData) ? $fileName : false;
   }
 
   public function addFont ($text, $font, $startX = 0, $startY = 12, $color = 'black', $fontSize = 12, $alpha = 1, $degree = 0) {

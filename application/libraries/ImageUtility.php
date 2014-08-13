@@ -36,7 +36,7 @@ class ImageUtility {
   }
 
   public static function make_block9 () {
-    if (count ($params = func_get_args ()) < 2)
+    if (count ($params = func_get_args ()) < 1)
       return false;
     if (!(($module = config ('image_utility_config', 'module')) && in_array ($module, array_keys ($modules = config ('image_utility_config', 'modules')))))
       return show_error ("The file name or module select error, please confirm your program again.");
