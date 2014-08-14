@@ -14,15 +14,23 @@ class Main_cells extends Cell_Controller {
     return $this->load_view ();
   }
 
+  public function _cache_promos () {
+    return array ('time' => 60 * 60, 'key' => null);
+  }
   public function promos () {
-    return $this->load_view ();
+    $promos = array ();
+    if ($promo_list = Promo::find_by_sql ('select * from (SELECT * FROM promos ORDER BY id DESC) AS promos group by kind order by kind ASC limit 0,6'))
+      foreach ($promo_list as $promo)
+        if (!isset ($promos[$promo->kind]))
+          $promos[$promo->kind] = $promo;
+    return $this->load_view (array ('promos' => $promos));
   }
 
   public function _cache_tag_category_block9s () {
     return array ('time' => 60 * 60, 'key' => null);
   }
   public function tag_category_block9s () {
-    if ((config ('main_controller_config', 'block9s_count') && ($categories = TagCategory::find ('all', array ('order' => 'id DESC', 'limit' => config ('main_controller_config', 'block9s_count'), 'conditions' => array ('kind = ?', 'block9'))))) || ($categories = array ()))
+    if ((($block9s_count = config ('main_controller_config', 'block9s_count')) && ($categories = TagCategory::find ('all', array ('order' => 'id DESC', 'limit' => $block9s_count, 'conditions' => array ('kind = ?', 'block9'))))) || ($categories = array ()))
       foreach ($categories as $category)
         $category->make_block9 ();
 
