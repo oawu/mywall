@@ -9,16 +9,9 @@ class Main extends Site_controller {
     parent::__construct ();
   }
 
-  public function a () {
-    // echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" /><pre>';
-    // var_dump (func_get_args ());
-    // exit ();
-  }
   public function index () {
-    // echo '<a href="'.facebook ()-> ('platform', 'fb_sing_in', 'main').'">a</a>';;
-    $this
-      ->add_hidden (array ('id' => 'get_pictures_url', 'value' => base_url (array ('main', 'get_pictures'))))
-      ->load_view ();
+    $this->add_hidden (array ('id' => 'get_pictures_url', 'value' => base_url (array ($this->get_class (), 'get_pictures'))))
+         ->load_view ();
   }
 
   public function get_pictures () {

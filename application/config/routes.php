@@ -37,7 +37,8 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-
+$route['tags/get_pictures(\/?(:any))?'] = "tags/get_pictures/$2";
+$route['tags/(:any)'] = "tags/index/$1";
 $route['default_controller'] = "main";
 $route['admin'] = "admin/main";
 $route['404_override'] = '';
