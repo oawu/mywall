@@ -18,8 +18,12 @@ class Frame_cells extends Cell_Controller {
     return $this->load_view ();
   }
 
+  public function _cache_tag_category_top () {
+    return array ('time' => 60 * 60, 'key' => null);
+  }
   public function tag_category_top () {
-    return $this->load_view ();
+    $categories = ($limit = config ('site_frame_config', 'tag_category_top', 'limit')) ? TagCategory::find ('all', array ('order' => 'id DESC', 'limit' => $limit, 'conditions' => array ('kind = ?', 'top'))) : array ();
+    return $this->load_view (array ('categories' => $categories));
   }
   
 }

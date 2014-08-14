@@ -11,12 +11,20 @@
   border: 2px solid rgba(50, 50, 50, 1.00);
   border-right: 1px solid rgba(50, 50, 50, 1.00);
 }
-.promo1_text {
-  position: absolute;
-  bottom: 0px;
+.promo1_img {
+  position: relative;
+  top: 0px;
   left: 0px;
   width: 100%;
-  height: 77px;
+  height: 100%;
+  overflow: hidden;
+
+}
+.promo1_text {
+  position: absolute;
+  top: 298px;
+  left: 0px;
+  width: 100%;
   background-color: rgba(42, 42, 42, 0.7);
   background: -webkit-linear-gradient(rgba(42, 42, 42, 0.3), rgba(42, 42, 42, 0.8));
      background: -moz-linear-gradient(rgba(42, 42, 42, 0.3), rgba(42, 42, 42, 0.8));
@@ -24,6 +32,19 @@
           background: linear-gradient(rgba(42, 42, 42, 0.3), rgba(42, 42, 42, 0.8));
   text-align: right;
   padding: 5px 0px 0px 15px;
+  /*border: 1px solid red;*/
+}
+.promo1_text_box h4 {
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(205, 205, 205, 1.00);
+  color: rgba(255, 255, 255, 1.00);
+  text-shadow: 1px 1px 6px rgba(0,0,0,1);
+  margin: 0px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow : ellipsis;
+  white-space : nowrap;
 }
 .promo1_text_box {
   position: relative;
@@ -39,14 +60,9 @@
   font-size: 13px;
   overflow: hidden;
 }
-.promo1_text_box h4 {
-  font-weight: bold;
-  padding-bottom: 5px;
-  border-bottom: 1px solid rgba(205, 205, 205, 1.00);
-  color: rgba(255, 255, 255, 1.00);
+#promo1:hover .promo1_text_box {
   text-shadow: 1px 1px 6px rgba(0,0,0,1);
-  margin: 0px;
-  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 1.00);
 }
 #promo2, #promo3, #promo4, #promo5 {
   height: 189px;
@@ -68,11 +84,11 @@
   left: 0px;
   width: 100%;
   height: 30px;
-  line-height: 36px;
+  line-height: 34px;
   text-align: center;
   
   font-weight: bold;  
-  color: rgba(255, 255, 255, 1.00);
+  color: rgba(235, 235, 235, 1.00);
   text-shadow: 1px 1px 6px rgba(0,0,0,1);
 
   overflow: hidden;
@@ -84,19 +100,37 @@
      background: -moz-linear-gradient(rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.6));
        background: -o-linear-gradient(rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.6));
           background: linear-gradient(rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.6));
-  
 }
-
+#promo2:hover .promo2-5_text,
+#promo3:hover .promo2-5_text,
+#promo4:hover .promo2-5_text,
+#promo5:hover .promo2-5_text {
+  color: rgba(255, 255, 255, 1.00);
+  text-shadow: 2px 2px 8px rgba(0,0,0,1);
+  background-color: rgba(42, 42, 42, 0.8);
+  background: -webkit-linear-gradient(rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.7));
+     background: -moz-linear-gradient(rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.7));
+       background: -o-linear-gradient(rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.7));
+          background: linear-gradient(rgba(42, 42, 42, 0), rgba(42, 42, 42, 0.7));
+}
 #promo6 {
   border: 2px solid rgba(50, 50, 50, 1.00);
   border-left: 1px solid rgba(50, 50, 50, 1.00);
 }
-.promo6_text {
-  position: absolute;
-  bottom: 0px;
+.promo6_img {
+  position: relative;
+  top: 0px;
   left: 0px;
   width: 100%;
-  height: 80px;
+  height: 100%;
+  overflow: hidden;
+}
+.promo6_text {
+  /*border: 1px solid red;*/
+  position: absolute;
+  top: 280px;
+  left: 0px;
+  width: 100%;
   /*line-height: 36px;*/
   text-align: left;
   
@@ -108,12 +142,20 @@
   text-overflow : ellipsis;
   /*white-space : nowrap;*/
   padding: 8px;
+  padding-top: 14px;
 
   background-color: rgba(42, 42, 42, 0.7);
-  background: -webkit-linear-gradient(rgba(42, 42, 42, 0.2), rgba(42, 42, 42, 0.8));
-     background: -moz-linear-gradient(rgba(42, 42, 42, 0.2), rgba(42, 42, 42, 0.8));
-       background: -o-linear-gradient(rgba(42, 42, 42, 0.2), rgba(42, 42, 42, 0.8));
-          background: linear-gradient(rgba(42, 42, 42, 0.2), rgba(42, 42, 42, 0.8));
+  background: -webkit-linear-gradient(rgba(42, 42, 42, 0.0), rgba(42, 42, 42, 0.8));
+     background: -moz-linear-gradient(rgba(42, 42, 42, 0.0), rgba(42, 42, 42, 0.8));
+       background: -o-linear-gradient(rgba(42, 42, 42, 0.0), rgba(42, 42, 42, 0.8));
+          background: linear-gradient(rgba(42, 42, 42, 0.0), rgba(42, 42, 42, 0.8));
+}
+.blur {
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
+  -o-filter: blur(7px);
+  -ms-filter: blur(7px);
+  filter: blur(7px);
 }
 #tag_category_block9s {
   /*border: 1px solid red;*/
@@ -177,6 +219,12 @@
   text-overflow : ellipsis;
   white-space : nowrap;
   vertical-align: top;
+}
+.block9_title a {
+  color: #555;
+}
+.block9_title a:hover {
+  color: #000;
 }
 .block9_img {
   width: 270px;
@@ -330,7 +378,7 @@
 .picture_user_name {
   display: inline-block;
   /*border: 1px solid red;*/
-  width: 165px;
+  width: 160px;
   text-align: left;
 
   overflow: hidden;
@@ -339,6 +387,9 @@
 
   color: #555;
   vertical-align: top;
+}
+.picture_user_name a {
+  color: #555;
 }
 .picture_text, .picture_info {
   /*border: 1px solid red;*/
