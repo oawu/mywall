@@ -127,7 +127,7 @@ if ( !function_exists ('send_post')) {
   }
 }
 
-if ( !function_exists ('delay_request')) {
+if ( !function_exists ('delay_job')) {
   function delay_job ($class, $method, $params = array ()) {
     if (!($class && $method))
       return false;
