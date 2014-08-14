@@ -3,7 +3,7 @@
     <div id='tag_category_block9s'>
   <?php foreach ($categories as $category) { ?>
       <div class='tag_category_block9'>
-        <div class='block9_title'><?php echo $category->name;?></div>
+        <div class='block9_title'><a href='<?php echo base_url (array ('tags', implode (' ', $category->tags ())));?>' target='_blank'><?php echo $category->name;?></a></div>
         <div class='block9_img'>
           <img src='<?php echo $category->file_name->url ();?>' />
     <?php if (isset ($category->memo->picture_ids) && $category->memo->picture_ids) {

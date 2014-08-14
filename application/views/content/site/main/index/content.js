@@ -1,5 +1,51 @@
 $(function() {
-  $('#promo1, #promo2, #promo3, #promo4, #promo5, #promo6').imgLiquid ({ verticalAlign: 'top' });
+  var is_blur_num = 2;
+  $('#promo1').mouseenter (function () {
+    var $text = $(this).find ('.promo1_text'),
+        top = parseFloat ($(this).height ()) - parseFloat ($text.height ()) - 5,
+        is_blur = top < (parseFloat ($(this).height ()) / is_blur_num);
+    $text.stop ().animate ({'top': (top < 0 ? 0 : top) + 'px'}, {
+      duration: 500,
+      easing: 'swing',
+      step: function () {
+        if (is_blur)
+          $('#promo1').children ().not ('div.promo1_text').addClass ('blur');
+    }});
+  }).mouseleave (function () {
+    var $text = $(this).find ('.promo1_text'),
+        is_blur = (parseFloat ($(this).height ()) - parseFloat ($text.height ()) - 5) < (parseFloat ($(this).height ()) / is_blur_num);
+    $text.stop ().animate ({'top': '298px'}, {
+      duration: 500,
+      easing: 'swing',
+      step: function () {
+        if (is_blur)
+          $('#promo1').children ().not ('div.promo1_text').removeClass ('blur');
+    }});
+  });
+  $('#promo6').mouseenter (function () {
+    var $text = $(this).find ('.promo6_text'),
+        top = parseFloat ($(this).height ()) - parseFloat ($text.height ()) - 22,
+        is_blur = top < (parseFloat ($(this).height ()) / is_blur_num);
+    $text.stop ().animate ({'top': (top < 0 ? 0 : top) + 'px'}, {
+      duration: 500,
+      easing: 'swing',
+      step: function () {
+        if (is_blur)
+          $('#promo6').children ().not ('div.promo6_text').addClass ('blur');
+    }});
+  }).mouseleave (function () {
+    var $text = $(this).find ('.promo6_text'),
+        is_blur = (parseFloat ($(this).height ()) - parseFloat ($text.height ()) - 22) < (parseFloat ($(this).height ()) / is_blur_num);
+    $text.stop ().animate ({'top': '280px'}, {
+      duration: 500,
+      easing: 'swing',
+      step: function () {
+        if (is_blur)
+          $('#promo6').children ().not ('div.promo6_text').removeClass ('blur');
+    }});
+  });
+
+  $('#promo1 .promo1_img, #promo2, #promo3, #promo4, #promo5, #promo6 .promo6_img').imgLiquid ({ verticalAlign: 'top' });
 
   var masonry = new Masonry ('#pictures', { itemSelector: '.picture', columnWidth: 1, transitionDuration: '0.3s', visibleStyle: { opacity: 1, transform: 'none' }});
 
