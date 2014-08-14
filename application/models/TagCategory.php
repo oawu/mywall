@@ -16,7 +16,7 @@ class TagCategory extends OaModel {
   }
 
   public function make_block9 () {
-    if (($tags = $this->tags ()) && ($tag_ids = field_array (PictureTag::find ('all', array ('select' => 'id', 'order' => 'picture_count DESC', 'conditions' => array ('name IN (?)', $tags))), 'id')) && ($picture_ids = field_array (PictureTagMapping::find ('all', array ('select' => 'picture_id', 'conditions' => array ('picture_tag_id IN (?)', $tag_ids))), 'picture_id')) && (count ($pictures = Picture::find ('all', array ('select' => 'id, file_name', 'limit' => '9', 'order' => 'like_count DESC', 'conditions' => array ('id IN (?) AND year_week >= ?', $picture_ids, date ('YW', strtotime ('-1 weeks')))))) > 8)) {
+    if (($tags = $this->tags ()) && ($tag_ids = field_array (PictureTag::find ('all', array ('select' => 'id', 'order' => 'picture_count DESC', 'conditions' => array ('name IN (?)', $tags))), 'id')) && ($picture_ids = field_array (PictureTagMapping::find ('all', array ('select' => 'picture_id', 'conditions' => array ('picture_tag_id IN (?)', $tag_ids))), 'picture_id')) && (count ($pictures = Picture::find ('all', array ('select' => 'id, file_name', 'limit' => '9', 'order' => 'score DESC', 'conditions' => array ('id IN (?) AND year_week >= ?', $picture_ids, date ('YW', strtotime ('-1 weeks')))))) > 8)) {
       $temp_files = array ();
       foreach ($pictures as $picture)
         array_push ($temp_files, !$temp_files ? $picture->file_name->save_as ('380', array ('adaptiveResizeQuadrant', 130, 130, 't')) : $picture->file_name->save_as ('63', array ('adaptiveResizeQuadrant', 64, 64, 't')));

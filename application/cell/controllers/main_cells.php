@@ -6,14 +6,6 @@
  */
 class Main_cells extends Cell_Controller {
 
-  public function _cache_demo () {
-    return array ('time' => 60 * 60, 'key' => null);
-  }
-
-  public function index () {
-    return $this->load_view ();
-  }
-
   public function _cache_promos () {
     return array ('time' => 60 * 60, 'key' => null);
   }
@@ -37,6 +29,9 @@ class Main_cells extends Cell_Controller {
     return $this->load_view (array ('categories' => $categories));
   }
 
+  public function _cache_pictures_order () {
+    return array ('time' => 60 * 60, 'key' => null);
+  }
   public function pictures_order () {
     return $this->load_view ();
   }

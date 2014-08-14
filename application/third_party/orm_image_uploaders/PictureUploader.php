@@ -8,7 +8,9 @@ class PictureUploader extends OrmImageUploader {
   public function getVersions () {
     return array (
             '' => array (),
+            '100xW' => array ('resize', 100, 100, 'width'),
             '228xW' => array ('resize', 228, 228, 'width'),
+            '640xW' => array ('resize', 640, 640, 'width'),
           );
   }
 }

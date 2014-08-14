@@ -14,6 +14,6 @@ class User extends OaModel {
   }
 
   public function avatar_url ($width = null, $height = null) {
-    return $this->register_from == 'facebook' ? 'https://graph.facebook.com/' . $this->uid . '/picture?width=' . ($width ? $width : 50) . '&height=' . ($height ? $height : 50) : ($url = $this->file_name->url ($width . 'x' . $height) ? $url : $this->file_name->url ());
+    return $this->register_from == 'facebook' ? 'https://graph.facebook.com/' . $this->uid . '/picture?width=' . ($width ? $width : 50) . '&height=' . ($height ? $height : 50) : (($url = $this->file_name->url ($width . 'x' . $height)) ? $url : $this->file_name->url ());
   }
 }

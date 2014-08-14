@@ -17,13 +17,13 @@
         </div>
         <div class='picture_info row'>
           <div class='col-md-6 left'>
-            <i class='icon-love'></i> <span><?php echo $picture->pageview;?></span>
+            <?php echo render_cell ('pictures_cells', 'score_star', $picture); ?>
           </div>
           <div class='col-md-6 right timeago' data-time='<?php echo $picture->created_at;?>'></div>
         </div>
         <a href='<?php echo base_url (array ('users', $picture->user_id));?>' target='_blank'>
           <div class='picture_user_avatar'>
-            <img src='<?php echo $picture->user->avatar_url ();?>' />
+            <img src='<?php echo $picture->user->avatar_url (50, 50);?>' />
           </div>
         </a>
       </div>
