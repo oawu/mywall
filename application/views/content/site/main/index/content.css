@@ -419,22 +419,13 @@
   text-overflow : ellipsis;
   white-space : nowrap;
 }
-
-.picture_info span {
-  font-size: 15px;
-  font-weight: bold;
-  position: relative;
-  top: 1px;
-}
-.picture_info .left {
-}
-.picture_info i {
-  font-size: 12px;
-  color: rgba(223, 0, 94, 1.00);
-}
-.picture_info span:after,
-.picture_info span:before {
-  content: " ";
+.picture_info .left span {
+  height: 100%;
+  font-size: 14px;
+  color: rgba(239, 173, 0, 1.0000);
+  -webkit-text-shadow: 0px 0px 8px rgba(83, 90, 128, 0.175);
+     -moz-text-shadow: 0px 0px 8px rgba(83, 90, 128, 0.175);
+          text-shadow: 0px 0px 8px rgba(83, 90, 128, 0.175);
 }
 .picture_user_avatar {
   position: absolute;
@@ -445,6 +436,7 @@
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
+  background-color: #fff;
 
   -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.1), inset 1px 1px 2px rgba(0, 0, 0, 0.3);
      -moz-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.1), inset 1px 1px 2px rgba(0, 0, 0, 0.3);

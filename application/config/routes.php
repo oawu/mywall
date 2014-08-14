@@ -38,7 +38,14 @@
 |
 */
 $route['tags/get_pictures(\/?(:any))?'] = "tags/get_pictures/$2";
+$route['tags/index/(:num)'] = "tags/index/$1";
 $route['tags/(:any)'] = "tags/index/$1";
+
+$route['pictures/index/(:num)'] = "pictures/index/$1";
+$route['pictures/(:any)'] = "pictures/index/$1";
+$route['pictures/set_score'] = "pictures/set_score";
+$route['pictures/fetch_star_details'] = "pictures/fetch_star_details";
+
 $route['default_controller'] = "main";
 $route['admin'] = "admin/main";
 $route['404_override'] = '';

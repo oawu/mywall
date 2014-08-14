@@ -9,6 +9,7 @@ class UserUploader extends OrmImageUploader {
     return array (
             '' => array (),
             '50x50' => array ('resize', 50, 50, 'width'),
+            '80x80' => array ('resize', 80, 80, 'width'),
           );
   }
 }

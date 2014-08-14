@@ -116,6 +116,7 @@ div.jGrowl div.j_growl {
   -webkit-box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
      -moz-box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
 }
 .jGrowl-closer {
   width: 250px !important;

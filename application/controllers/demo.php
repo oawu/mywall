@@ -72,7 +72,7 @@ class Demo extends Site_controller {
           $tag = trim (preg_replace ('/(.*)分享到(.*)的(.*)/', '$3', $tag));
           $text = preg_replace ('/\s*(.*)\s*/', '$1', $block->find ('.message')->text ());
 
-          $pic = Picture::create (array ('user_id' => rand (1, $rang), 'pageview' => 0, 'like_count' => 0, 'text' => $text, 'file_name' => ''));
+          $pic = Picture::create (array ('user_id' => rand (1, $rang), 'pageview' => 0, 'text' => $text, 'file_name' => ''));
           $pic->file_name->put_url ($src);
 
           if ($tag && !($pic_tag = PictureTag::find ('one', array ('conditions' => array ('name = ?', $tag))))) {
@@ -130,7 +130,7 @@ public function g4 () {
             $tag = trim (preg_replace ('/(.*)分享到(.*)的(.*)/', '$3', $tag));
             $text = preg_replace ('/\s*(.*)\s*/', '$1', $block->find ('.message')->text ());
 
-            $pic = Picture::create (array ('user_id' => rand (1, $rang), 'pageview' => 0, 'like_count' => 0, 'text' => $text, 'file_name' => ''));
+            $pic = Picture::create (array ('user_id' => rand (1, $rang), 'pageview' => 0, 'score' => 0, 'text' => $text, 'file_name' => ''));
             $pic->file_name->put_url ($src);
 
             if ($tag && !($pic_tag = PictureTag::find ('one', array ('conditions' => array ('name = ?', $tag))))) {
@@ -176,7 +176,7 @@ public function g4 () {
       $src = $block->find ('.box-img img')->attr ('src');
       $text = preg_replace ('/\s*(.*)\s*/', '$1', $block->find ('.message')->text ());
       
-      $pic = Picture::create (array ('user_id' => '1', 'pageview' => 0, 'like_count' => 0, 'text' => $text, 'file_name' => ''));
+      $pic = Picture::create (array ('user_id' => '1', 'pageview' => 0, 'score' => 0, 'text' => $text, 'file_name' => ''));
       $pic->file_name->put_url ($src);
     }
     exit ();
