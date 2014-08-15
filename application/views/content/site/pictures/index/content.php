@@ -6,53 +6,24 @@
 ?>
 
 <div id='root' class='row'>
-  <div class="col-md-8">
+  <div class="col-md-8 left_area_col">
     <div id='left_area'>
-      <div id='main'>
-        
-        <div id='main_img'>
-          <img src='<?php echo $picture->file_name->url ('640xW');?>' />
+<?php echo render_cell ('pictures_cells', 'main', $picture);
+      echo render_cell ('pictures_cells', 'to_comment', $picture); ?>
+      <div id='comments' data-id='<?php echo $picture->id;?>' data-next_id='0'></div>
+<?php if (identity ()->get_identity ('sign_in') && ((identity ()->get_session ('user_id') == $picture->user_id) || identity ()->get_identity ('admins'))) { ?>
+        <div class='delete_picture'>
+          <button type="button" class='btn btn-danger btn-sm' name='delete_picture' data-loading-text="請稍候.." data-id='<?php echo $picture->id;?>'>x</button>
         </div>
-
-        <div id='main_not_pic'>
-          <div id='main_info' class='row'>
-            <div class="col-md-7 main_name">
-              <?php echo $picture->user->name;?>
-            </div>
-            <div id='set_score' class="col-md-5 star_area" data-id='<?php echo $picture->id;?>' data-is_sign_in='<?php echo identity ()->get_identity ('sign_in') ? 1 : 0; ?>' data-is_set_scored='<?php echo ($user_score = $picture->user_score (identity ()->get_session ('user_id'))) ? 1 : 0; ?>'>
-              <?php echo render_cell ('pictures_cells', 'score_star', $picture); ?>
-            </div>
-          </div>
-          <div id='main_user_avatar'>
-            <img src='<?php echo $picture->user->avatar_url (80, 80);?>' />
-          </div>
-          <div id='main_text'>
-            <?php echo $picture->text;?>
-          </div>
-          <div id='main_bottom' class='row'>
-            <div class="col-md-8 main_tags">
-        <?php if (count ($picture->tags)) {
-                foreach ($picture->tags as $i => $tag) {
-                  if ($i < config ('picture_controller_config', 'main_tags_max_length')) { ?>
-                    <span class='tag'><a href='<?php echo base_url (array ('tags', $tag->name));?>' target='_blank'><?php echo $tag->name; ?></a></span>
-              <?php if ($i < (count ($picture->tags) - 1)) {?>
-                      <span>|</span>
-              <?php }
-                  }
-                }
-              } ?>
-            </div>
-            <div class="col-md-4 timeago" data-time='<?php echo $picture->created_at;?>'></div>
-          </div>
-        </div>
-        
-      </div>
+<?php } ?>
     </div>
-    
-    
   </div>
-  <div class="col-md-4">
+
+  <div class="col-md-4 right_area_col">
     <div id='right_area'>
+      <div id='set_score' class="star_area" data-id='<?php echo $picture->id;?>' data-is_sign_in='<?php echo identity ()->get_identity ('sign_in') ? 1 : 0; ?>' data-is_set_scored='<?php echo ($user_score = $picture->user_score (identity ()->get_session ('user_id'))) ? 1 : 0; ?>'>
+  <?php echo render_cell ('pictures_cells', 'score_star', $picture); ?>
+      </div>
 <?php echo render_cell ('pictures_cells', 'star_details', $picture);
       echo render_cell ('pictures_cells', 'more_tags', $more_tags, $picture);?>
     </div>

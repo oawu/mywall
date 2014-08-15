@@ -13,6 +13,7 @@ class Migration_Add_users extends CI_Migration {
               `email` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
               `register_from` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
               `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+              `pictures_count` int(11) NOT NULL DEFAULT '0',
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`)
@@ -27,6 +28,7 @@ class Migration_Add_users extends CI_Migration {
               `email` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
               `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
               `register_from` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+              `pictures_count` int(11) NOT NULL DEFAULT '0',
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`)
