@@ -32,7 +32,7 @@ function activerecord_autoload($class_name)
 {
 	// $path = ActiveRecord\Config::instance()->get_model_directory();
   $paths = ActiveRecord\Config::instance()->get_model_directorise();
-	if (count ($paths)) {
+	if ($paths) {
     foreach ($paths as $path) {
       $root = realpath(isset($path) ? $path : '.');
 
@@ -67,4 +67,3 @@ function activerecord_autoload($class_name)
     }
   }
 }
-?>
