@@ -13,6 +13,9 @@ application/logs/*
 
 application/config/database.php
 
+temp/*
+!temp/index.html
+
 upload/*
 !upload/index.html
 

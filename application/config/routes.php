@@ -42,9 +42,13 @@ $route['tags/index/(:num)'] = "tags/index/$1";
 $route['tags/(:any)'] = "tags/index/$1";
 
 $route['pictures/index/(:num)'] = "pictures/index/$1";
-$route['pictures/(:any)'] = "pictures/index/$1";
 $route['pictures/set_score'] = "pictures/set_score";
+$route['pictures/delete_picture'] = "pictures/delete_picture";
+$route['pictures/delete_comment'] = "pictures/delete_comment";
 $route['pictures/fetch_star_details'] = "pictures/fetch_star_details";
+$route['pictures/submit_comment'] = "pictures/submit_comment";
+$route['pictures/get_comments'] = "pictures/get_comments";
+$route['pictures/(:any)'] = "pictures/index/$1";
 
 $route['default_controller'] = "main";
 $route['admin'] = "admin/main";

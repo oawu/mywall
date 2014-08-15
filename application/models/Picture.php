@@ -16,6 +16,7 @@ class Picture extends OaModel {
     array ('tag_mappings', 'class_name' => 'PictureTagMapping'),
     array ('tags', 'class_name' => 'PictureTag', 'through' => 'picture_mappings', 'order'=> 'RAND()'),
     array ('star_details', 'select' => 'COUNT(*) AS count, value', 'class_name' => 'PictureScore', 'order' => 'value DESC', 'group' => 'value'),
+    array ('comments' , 'class_name' => 'PictureComment'),
   );
   
   static $before_create = array ('add_year_week');
@@ -24,6 +25,14 @@ class Picture extends OaModel {
     parent::__construct ($attributes, $guard_attributes, $instantiating_via_find, $new_record);
 
     OrmImageUploader::bind ('file_name');
+  }
+
+  public function recycle () {
+    if ($mappings = $this->tag_mappings)
+      foreach ($mappings as $mapping)
+        $mapping->recycle ();
+
+    return parent::recycle ();
   }
 
   public function add_year_week () {
