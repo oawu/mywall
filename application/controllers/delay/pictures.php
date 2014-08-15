@@ -9,20 +9,25 @@ class Pictures extends Delay_controller {
     parent::__construct ();
   }
 
-  public function set_score () {
-    $picture_id = $this->input_post ('picture_id');
+  public function update_pictures_count () {
     $user_id = $this->input_post ('user_id');
-    $score   = $this->input_post ('score');
-
-    if (($score > 0) && ($score < 6) && ($user = User::find ('one', array ('conditions' => array ('id = ?', $user_id)))) && ($picture = Picture::find ('one', array ('select' => 'id, score, updated_at', 'conditions' => array ('id = ?', $picture_id))))) {
-      if ($picture_score = PictureScore::create (array ('picture_id' => $picture->id, 'user_id' => $user->id, 'value' => $score))) {
-        if ($picture_score = PictureScore::find ('one', array ('select' => 'SUM(value) AS sum, COUNT(id) as count', 'conditions' => array ('picture_id = ?', $picture->id)))) {
-          $picture->score = round ($picture_score->sum / $picture_score->count, 2);
-          $picture->save ();
-          clear_cell ('pictures_cells', 'score_star', $picture->id);
-          clear_cell ('pictures_cells', 'star_details', $picture->id);
-        }
-      }
+    if (($user = User::find ('one', array ('select' => 'id, pictures_count, updated_at', 'conditions' => array ('id = ?', $user_id)))) && ($picture = Picture::find ('one', array ('select' => 'COUNT(id) AS count', 'conditions' => array ('user_id = ?', $user->id))))) {
+      $user->pictures_count = $picture->count;
+      $user->save ();
+      clean_cell ();
     }
+  }
+  public function update_comments_count () {
+    $picture_id = $this->input_post ('picture_id');
+    if (($picture = Picture::find ('one', array ('select' => 'id, comments_count, updated_at', 'conditions' => array ('id = ?', $picture_id)))) && ($picture_comment = PictureComment::find ('one', array ('select' => 'COUNT(id) AS count', 'conditions' => array ('picture_id = ?', $picture->id))))) {
+      $picture->comments_count = $picture_comment->count;
+      $picture->save ();
+      clean_cell ('pictures_cells', 'comments', 'picture_id_' . $picture->id . '/*');
+    }
+  }
+  public function add_pageview () {
+    $id = $this->input_post ('id');
+    if ($picture = Picture::find ('one', array ('select' => 'id, pageview, updated_at', 'conditions' => array ('id = ?', $id))))
+      Pageview::add_count ($picture, 'pageview', 1);
   }
 }

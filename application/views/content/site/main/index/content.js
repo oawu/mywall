@@ -59,7 +59,7 @@ $(function() {
     return $obj;
   }
 
-  var loadPicture = function () {
+  var loadPictures = function () {
     $pictures = $('#pictures');
     if ($pictures.data ('next_id') >= 0) {
       $.ajax ({
@@ -88,6 +88,6 @@ $(function() {
   var footer_height = $("#footer").height ();
   $(window).scroll (function () {
     if ($(document).height() - $(window).height () - $(window).scrollTop () < footer_height)
-      loadPicture ();
+      loadPictures ();
   }).scroll ();
 });

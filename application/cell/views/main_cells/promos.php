@@ -66,7 +66,7 @@
               <img src='<?php echo $promos['promo6']->file_name->url ('promo6');?>'>
             </div>
             <div class='promo6_text'>
-              <?php echo $promos['promo6']->title;?>
+              <?php echo $promos['promo6']->text;?>
             </div>
           </div>
         </a>

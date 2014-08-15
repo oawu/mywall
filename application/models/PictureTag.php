@@ -11,6 +11,7 @@ class PictureTag extends OaModel {
   static $has_many = array (
     array ('picture_mappings', 'class_name' => 'PictureTagMapping'),
     array ('pictures' , 'class_name' => 'Picture', 'through' => 'tag_mappings', 'order'=> 'pageview DESC'),
+    array ('more_tag_pictures' , 'class_name' => 'Picture', 'through' => 'tag_mappings', 'order'=> 'RAND()', 'limit' => 9),
   );
 
   // static $has_one = array (
