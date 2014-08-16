@@ -1,9 +1,9 @@
 <?php 
-  if ($picture->file_name->url ('228xW')) { ?>
+  if ($picture->file_name->url ('230xW')) { ?>
     <div class='picture'>
       <a href='<?php echo base_url (array ('pictures', $picture->id));?>'>
         <div class='picture_pic'>
-          <img src='<?php echo $picture->file_name->url ('228xW');?>' />
+          <img src='<?php echo $picture->file_name->url ('230xW');?>' />
         </div>
       </a>
       <div class='picture_not_pic'>

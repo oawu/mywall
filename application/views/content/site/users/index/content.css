@@ -1,0 +1,65 @@
+.trans3d {
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform-style: preserve-3d;
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform-style:preserve-3d;
+  -ms-transform: translate3d(0, 0, 0);
+  transform-style:preserve-3d;
+  transform: translate3d(0, 0, 0);
+
+  /*-webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility:hidden;
+  backface-visibility:hidden;*/
+}
+
+#contentContainer {
+  position:relative;
+  width:100%;
+  height:400px;
+  border: 1px solid red;
+}
+
+#carouselContainer
+{
+  position:absolute;
+  margin-left:-500px;
+  margin-top:-500px;
+  left:50%;
+  top:50%;
+  width:1000px;
+  height:1000px;
+}
+
+.carouselItem
+{
+  width:320px;
+  height:130px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-left:-160px;
+  margin-top:-90px;
+  visibility:hidden;
+}
+
+.carouselItemInner
+{
+  width:230px;
+  height:230px;
+  position:absolute;
+  background-color:rgba(255, 255, 255, .75);
+  border:1px solid rgba(255, 255, 255, .5);
+  color:aqua;
+  left:50%;
+  top:50%;
+  margin-left:-160px;
+  margin-top:-100px;
+  text-align:center;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
+     -moz-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
+          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
+
+}
