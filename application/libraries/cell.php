@@ -93,6 +93,7 @@ class Cell {
       $path = $this->cache_folder;
       $key = config ('cell_config', 'file_prefix') . '_|_' . strtolower ($class) . '_|_' . strtolower ($method);
     }
+
     if (!is_writable ($temp_path = utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR . $path))) {
       $oldmask = umask (0);
       @mkdir ($temp_path, 0777, true);
@@ -115,7 +116,7 @@ class Cell {
         $oldmask = umask (0);
         @mkdir ($temp_path, 0777, true);
         umask ($oldmask);
-      } else {          
+      } else {
         @$this->CI->cache->file->clean ($path, true);
       }
     }
@@ -135,10 +136,10 @@ class Cell_Controller {
     return $this->CI;
   }
   
-  protected function load_view ($data = array ()) {
+  protected function load_view ($data = array (), $set_method = null, $set_class = null) {
     $trace = debug_backtrace (DEBUG_BACKTRACE_PROVIDE_OBJECT);
     if (isset ($trace) && count ($trace) > 1 && isset ($trace[1]) && isset ($trace[1]['class']) && isset ($trace[1]['function']) && is_string ($class = strtolower ($trace[1]['class'])) && is_string ($method = strtolower ($trace[1]['function'])) && strlen ($class) && strlen ($method)) {
-      if (is_readable ($_ci_path = utilitySameLevelPath ($this->view_folder . DIRECTORY_SEPARATOR . $class . DIRECTORY_SEPARATOR . $method . EXT))) {
+      if (is_readable ($_ci_path = utilitySameLevelPath ($this->view_folder . DIRECTORY_SEPARATOR . ($set_class ? $set_class : $class) . DIRECTORY_SEPARATOR . ($set_method ? $set_method : $method) . EXT))) {
         extract ($data);
         ob_start();
 

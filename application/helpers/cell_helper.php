@@ -26,10 +26,10 @@ if (!function_exists ('clear_cell')) {
 }
 
 if (!function_exists ('clean_cell')) {
-  function clean_cell () {
+  function clean_cell ($class = null, $method = null, $key = null) {
     $CI =& get_instance ();
     if (!isset ($CI->cell)) $CI->load->library ('cell');
-    return $CI->cell->clean_cell ();  
+    return $CI->cell->clean_cell ($class, $method, $key);  
   }
 }
 

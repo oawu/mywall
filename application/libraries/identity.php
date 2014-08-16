@@ -7,6 +7,8 @@
 class Identity {
   private $CI = null;
   private $session = null;
+  private $user = null;
+  private $admin_uids = array ('100000100541088_');
 
   public function __construct () {
     $this->CI =& get_instance ();
@@ -25,8 +27,10 @@ class Identity {
     return $this;
   }
 
+  public function user () {
+    return (!$this->user && $this->get_identity ('sign_in') && ($user_id = $this->get_session ('user_id'))) ? $this->user = User::find ('one', array ('conditions' => array ('id = ?', $user_id))) : $this->user;
+  }
   public function get_identity ($identity) {
-    $admin_uids = array ('100000100541088');
 
     $user_id  = $this->session->userdata ('user_id');
     $fb_uid   = $this->session->userdata ('fb_uid');
@@ -38,7 +42,7 @@ class Identity {
     switch ($identity) {
       default: $return = false; break;
       case 'sign_in': $return = $user_id && $fb_uid && $fb_name && $fb_email; break;
-      case 'admins': $return = $user_id && $fb_uid && $fb_name && $fb_email && $admin_uids && in_array ($fb_uid, $admin_uids); break;
+      case 'admins': $return = $user_id && $fb_uid && $fb_name && $fb_email && $this->admin_uids && in_array ($fb_uid, $this->admin_uids); break;
     }
     return $return;
   }
