@@ -10,8 +10,6 @@ class Pictures extends Site_controller {
   }
 
   public function index ($id = 0) {
-    // Picture::recover ('one', array ('conditions' => array ('origin_id = 139')));
-    // PictureTagMapping::recover ('one', array ('conditions' => array ('picture_id = 139')));
     if (!($id && is_numeric ($id) && ($picture = Picture::find ('one', array ('conditions' => array ('id = ?', $id))))))
       redirect ();
 
