@@ -50,6 +50,8 @@ $route['pictures/submit_comment'] = "pictures/submit_comment";
 $route['pictures/get_comments'] = "pictures/get_comments";
 $route['pictures/(:any)'] = "pictures/index/$1";
 
+$route['users/(:any)'] = "users/index/$1";
+
 $route['default_controller'] = "main";
 $route['admin'] = "admin/main";
 $route['404_override'] = '';

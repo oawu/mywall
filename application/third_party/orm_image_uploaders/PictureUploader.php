@@ -9,7 +9,7 @@ class PictureUploader extends OrmImageUploader {
     return array (
             '' => array (),
             '100xW' => array ('resize', 100, 100, 'width'),
-            '228xW' => array ('resize', 228, 228, 'width'),
+            '230xW' => array ('resize', 230, 230, 'width'),
             '640xW' => array ('resize', 640, 640, 'width'),
           );
   }
