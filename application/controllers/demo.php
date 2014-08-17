@@ -75,8 +75,10 @@ class Demo extends Site_controller {
           if (!$pic->file_name->put_url ($src)) {
             $pic->recycle ();
           } else {
-            if ($tag && !($pic_tag = PictureTag::find ('one', array ('conditions' => array ('name = ?', $tag))))) {
-              $pic_tag = PictureTag::create (array ('name' => $tag, 'picture_count' => '0'));
+            // UserActive::create_active ($user, 'po_picture', get_class ($pic), $pic->id);
+
+            if ($tag && !($pic_tag = PictureTag::find ('one', array ('conditions' => array ('name = ?', strip_tags ($tag)))))) {
+              $pic_tag = PictureTag::create (array ('name' => strip_tags ($tag), 'picture_count' => '0'));
             }
 
             if (isset ($pic_tag)) {
@@ -152,6 +154,7 @@ public function g4 () {
       }
     $this->g5 ();
   }
+
   public function g5 () {
     if ($users = User::find ('all', array ('select' => 'id, pictures_count, updated_at'))) {
       foreach ($users as $user) {
@@ -159,6 +162,38 @@ public function g4 () {
         $user->save ();
       }
     }
+    $this->g6 ();
+  }
+
+  public function g6 () {
+    if ($pics = Picture::find ('all', array ('select' => 'id, user_id'))) 
+      foreach ($pics as $pic) 
+        UserActive::create_active ($pic->user_id, 'po_picture', get_class ($pic), $pic->id);
+    $this->g7 ();
+  }
+  public function g7 () {
+    $comment_items = array ('gooood', 'XDDDDDDDD', 'I like!', '水喔！', '哈哈哈', '酷喔', ': )', '好漂亮！', '我也要>"<', '咦？');
+
+    if (($pictures = Picture::find ('all', array ('select' => 'id'))) && ($user_count = User::count ())) {
+      foreach ($pictures as $picture) {
+        if ($users = User::find ('all', array ('select' => 'id', 'order' => 'RAND()', 'limit' => rand (1, $user_count), 'conditions' => array ()))) {
+          foreach ($users as $user) {
+            if ($comment = PictureComment::create (array ('user_id' => $user->id, 'picture_id' => $picture->id, 'text' => $comment_items[rand (0, count ($comment_items) - 1)]))) {
+              UserActive::create_active ($user, 'add_picture_comment', get_class ($comment), $comment->id);
+            }
+          }
+        }
+      }
+    }
+    $this->g8 ();
+  }
+  public function g8 () {
+    if ($pictures = Picture::find ('all', array ('select' => 'id, comments_count, updated_at')))
+      foreach ($pictures as $picture)
+        if ($picture_comment = PictureComment::find ('one', array ('select' => 'COUNT(id) AS count', 'conditions' => array ('picture_id = ?', $picture->id)))) {
+          $picture->comments_count = $picture_comment->count;
+          $picture->save ();
+        }
   }
 
 }

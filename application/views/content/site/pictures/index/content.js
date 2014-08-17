@@ -1,17 +1,18 @@
 $(function() {
   var $main_img = $('#main_img');
+  var scroll_timer = null;
+
   $main_img.imagesLoaded (function () {
     $main_img.css ({'height': parseFloat ($main_img.find ('img').css ('height')) }).imgLiquid ({horizontalAlign: "top"});
-
     $(window).scroll (function () {
-      var $comments = $('#comments');
-      if (($comments.data ('next_id') >= 0) && $(window).height () + $(window).scrollTop () > $('#comments').height () + $('#comments').offset ().top + 70) {
-        var next_id = $comments.data ('next_id');
-        $comments.data ('next_id', -1);
-        loadComments (next_id);
+      clearTimeout (scroll_timer);
+      if ($(window).height () + $(window).scrollTop () > $('#comments').height () + $('#comments').offset ().top + 70) {
+        scroll_timer = setTimeout (function () { loadComments (); }, 100);
       }
     }).scroll ();
   });
+
+
   $('#main_user_avatar').imgLiquid ({horizontalAlign: "center"});
   $('.picture').imgLiquid ({verticalAlign: "top"});
   $('.comment_user_avatar').imgLiquid ({verticalAlign: "center"});
@@ -168,11 +169,11 @@ $(function() {
   });
   
 
-  var loadComments = function (next_id) {
+  var loadComments = function () {
     var $comments = $('#comments');
     $.ajax ({
       url: $('#get_comments_url').val (),
-      data: { id: $comments.data ('id'), next_id: next_id },
+      data: { id: $comments.data ('id'), next_id: $comments.data ('next_id') },
       async: true, cache: false, dataType: 'json', type: 'POST',
       beforeSend: function () {
         $comments.data ('next_id', -1);
@@ -188,7 +189,7 @@ $(function() {
         $comments.data ('next_id', result.next_id);
       }
     })
-    .fail (function (result) { console.info (result.responseText); })
+    .fail (function (result) { ajaxError (result); })
     .complete (function (result) { });
   }
 
