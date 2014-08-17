@@ -7,6 +7,7 @@
 class TagCategory extends OaModel {
 
   static $table_name = 'tag_categories';
+  static $before_save = array ('strip_tags');
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {
     parent::__construct ($attributes, $guard_attributes, $instantiating_via_find, $new_record);
@@ -15,6 +16,9 @@ class TagCategory extends OaModel {
     JsonBind::bind ('memo');
   }
 
+  public function strip_tags () {
+    isset ($this->name) ? $this->name = $this->name ? strip_tags ($this->name) : '' : '';
+  }
   public function make_block9 () {
     if (($tags = $this->tags ()) && ($tag_ids = field_array (PictureTag::find ('all', array ('select' => 'id', 'order' => 'picture_count DESC', 'conditions' => array ('name IN (?)', $tags))), 'id')) && ($picture_ids = field_array (PictureTagMapping::find ('all', array ('select' => 'picture_id', 'conditions' => array ('picture_tag_id IN (?)', $tag_ids))), 'picture_id')) && (count ($pictures = Picture::find ('all', array ('select' => 'id, file_name', 'limit' => '9', 'order' => 'score DESC', 'conditions' => array ('id IN (?) AND year_week >= ?', $picture_ids, date ('YW', strtotime ('-1 weeks')))))) > 8)) {
       $temp_files = array ();

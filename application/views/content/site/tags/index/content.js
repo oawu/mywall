@@ -32,7 +32,7 @@ $(function() {
           $pictures.data ('next_id', result.next_id);
         }
       })
-      .fail (function (result) { console.info (result.responseText); })
+      .fail (function (result) { ajaxError (result); })
       .complete (function (result) { });
     }
   }

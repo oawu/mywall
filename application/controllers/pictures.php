@@ -38,7 +38,7 @@ class Pictures extends Site_controller {
       return $this->output_json (array ('status' => false, 'title' => '失敗', 'message' => '刪除失敗! 您沒有權限刪除!', 'action' => 'function () { $(this).OA_Dialog ("close"); }'));
     
     $picture->recycle ();
-    delay_job ('pictures', 'update_pictures_count', array ('user_id' => $picture->user_id));
+    delay_job ('users', 'update_pictures_count', array ('user_id' => $picture->user_id));
     $this->output_json (array ('status' => true, 'title' => '成功', 'message' => '刪除成功!', 'action' => 'function(){window.location.assign ("' . base_url (array ('users', $picture->user_id)) . '");}'));
   }
   public function get_comments () {
@@ -61,6 +61,7 @@ class Pictures extends Site_controller {
 
     $comment->recycle ();
     delay_job ('pictures', 'update_comments_count', array ('picture_id' => $comment->picture_id));
+    // delay_job ('user_actives', 'create_actives', array ('user_id' => $user_id, 'kind' => 'add_picture_comment', 'model_name' => get_class ($picture_comment), 'model_id' => $picture_comment->id));
 
     $this->output_json (array ('status' => true, 'title' => '成功', 'message' => '刪除成功!'));
   }
@@ -81,6 +82,7 @@ class Pictures extends Site_controller {
       return $this->output_json (array ('status' => false, 'title' => '錯誤', 'message' => '留言失敗，請通知程式設計人員!', 'action' => 'function () { $(this).OA_Dialog ("close"); }'));
     
     delay_job ('pictures', 'update_comments_count', array ('picture_id' => $picture->id));
+    delay_job ('user_actives', 'create_actives', array ('user_id' => $user_id, 'kind' => 'add_picture_comment', 'model_name' => get_class ($picture_comment), 'model_id' => $picture_comment->id));
 
     $this->output_json (array ('status' => true, 'message' => '留言成功!', 'content' => render_cell ('pictures_cells', 'comment', $picture_comment)));
   }

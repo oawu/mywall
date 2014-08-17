@@ -15,7 +15,7 @@ class Site_controller extends Oa_controller {
          ->set_frame_path ('frame', 'site')
          ->set_content_path ('content', 'site')
          ->set_public_path ('public')
-         ->set_title ('FOODWALL')
+         ->set_title ('MYWALL')
 
          ->_add_css ()
          ->_add_javascript ()

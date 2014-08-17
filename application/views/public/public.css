@@ -93,13 +93,13 @@ body:before {
 }
 
 div.ui-tooltip {
-  border-radius: 3px;
+  border-radius: 2px;
   font-size: 13px;
   padding: 2px 3px;
 
 
   border: 1px solid #edeff4 !important;
-  background: rgba(86, 110, 167, 0.8500) !important;
+  background: rgba(75, 75, 75, 1.00) !important;
   color: #fff;
 }
 

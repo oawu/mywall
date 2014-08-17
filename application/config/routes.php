@@ -50,6 +50,7 @@ $route['pictures/submit_comment'] = "pictures/submit_comment";
 $route['pictures/get_comments'] = "pictures/get_comments";
 $route['pictures/(:any)'] = "pictures/index/$1";
 
+$route['users/get_actives'] = "users/get_actives";
 $route['users/(:any)'] = "users/index/$1";
 
 $route['default_controller'] = "main";

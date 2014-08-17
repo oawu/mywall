@@ -241,6 +241,10 @@
   padding: 8px;
   padding-top: 15px;
   text-align: left;
+  
+  overflow: hidden;
+  word-wrap: break-word; 
+  word-break: normal; 
 }
 #main_bottom {
   padding-top: 8px;

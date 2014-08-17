@@ -4,20 +4,11 @@
  * @author      OA Wu <comdan66@gmail.com>
  * @copyright   Copyright (c) 2014 OA Wu Design
  */
-class PictureComment extends OaModel {
+class DeleteUserActive extends OaDeleteModel {
 
-  static  $table_name = 'picture_comments';
-  static $before_save = array ('strip_tags');
-
-  static $belongs_to = array (
-    array ('user', 'class_name' => 'User'),
-    array ('picture', 'class_name' => 'Picture'),
-  );
+  static $table_name = 'delete_user_actives';
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {
     parent::__construct ($attributes, $guard_attributes, $instantiating_via_find, $new_record);
-  }
-  public function strip_tags () {
-    isset ($this->text) ? $this->text = $this->text ? strip_tags ($this->text) : '' : '';
   }
 }
