@@ -9,6 +9,12 @@ class Main extends Site_controller {
     parent::__construct ();
   }
 
+
+  public function x () {
+    $o = Picture::find_by_id (1);
+    $u = user::find_by_id (1);
+    UserActive::create_active ($u, 'dsad', $o);
+  }
   public function index () {
     $this->add_hidden (array ('id' => 'get_pictures_url', 'value' => base_url (array ($this->get_class (), 'get_pictures'))))
          ->load_view ();

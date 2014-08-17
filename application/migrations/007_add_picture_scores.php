@@ -14,7 +14,8 @@ class Migration_Add_picture_scores extends CI_Migration {
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`),
-              KEY `user_id_index` (`user_id`)
+              KEY `user_id_index` (`user_id`),
+              KEY `picture_id_index` (`picture_id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
     $this->db->query ($sql);
     
@@ -27,7 +28,8 @@ class Migration_Add_picture_scores extends CI_Migration {
               `created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
               PRIMARY KEY (`id`),
-              KEY `user_id_index` (`user_id`)
+              KEY `user_id_index` (`user_id`),
+              KEY `picture_id_index` (`picture_id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
     $this->db->query ($sql);
   }

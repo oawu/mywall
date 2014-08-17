@@ -13,11 +13,11 @@ class Pageview extends OaModel {
   }
 
   public static function add_count ($object, $column_name, $count = 1) {
-    if ($pageview = self::find ('one', array ('conditions' => array ('model_name = ? AND model_id = ? AND date = ?', $object->table ()->table, $object->id, date ('Y-m-d'))))) {
+    if ($pageview = self::find ('one', array ('conditions' => array ('model_name = ? AND model_id = ? AND date = ?', get_class ($object), $object->id, date ('Y-m-d'))))) {
       $pageview->counts = $pageview->counts + 1;
       $pageview->save ();
     } else {
-      self::create (array ('model_name' => $object->table ()->table, 'model_id' => $object->id, 'date' => date ('Y-m-d'), 'counts' => $count));
+      self::create (array ('model_name' => get_class ($object), 'model_id' => $object->id, 'date' => date ('Y-m-d'), 'counts' => $count));
     }
     $object->$column_name = $object->$column_name + $count;
     $object->save ();

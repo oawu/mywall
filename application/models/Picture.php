@@ -20,11 +20,16 @@ class Picture extends OaModel {
   );
   
   static $before_create = array ('add_year_week');
+  static $before_save = array ('strip_tags');
 
   public function __construct ($attributes = array (), $guard_attributes = TRUE, $instantiating_via_find = FALSE, $new_record = TRUE) {
     parent::__construct ($attributes, $guard_attributes, $instantiating_via_find, $new_record);
 
     OrmImageUploader::bind ('file_name');
+  }
+
+  public function strip_tags () {
+    isset ($this->text) ? $this->text = $this->text ? strip_tags ($this->text) : '' : '';
   }
 
   public function recycle () {
