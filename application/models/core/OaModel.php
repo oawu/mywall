@@ -17,7 +17,7 @@ class OaModel extends ActiveRecordModel {
     $ori_object = $ori_model::find ('one', array ('select' => implode (',', array_map (function ($ori_column) { return '`' . $ori_column . '`'; }, $ori_columns)), 'conditions' => array ('id = ?', $this->id)));
     if (($ori_object !== null) && is_object ($ori_object)) {
       $sql = array (); foreach ($ori_columns as $ori_column) $sql[$ori_column == 'id' ? $origin_id : $ori_column] = $ori_object->$ori_column;
-      return count ($sql) && is_object ($delete_object = $delete_model::create ($sql)) && $delete_object->is_valid () && $ori_object->delete ();
+      return count ($sql) && is_object ($delete_object = $delete_model::create ($sql)) && $delete_object->is_valid () && $ori_object->delete () ? $ori_object : false;
     } else { return false;}
     return false;
   }
@@ -65,7 +65,7 @@ class OaModel extends ActiveRecordModel {
         if (is_object ($delete_object = $delete_model::find ($mode, $conditions))) {
           $sql = array ();
           foreach ($delete_columns as $delete_column) if ($delete_column != 'id') $sql[$delete_column == $origin_id ? 'id' : $delete_column] = $delete_object->$delete_column;
-          return count ($sql) && is_object ($ori_object = $ori_model::create ($sql)) && $ori_object->is_valid () && $delete_object->delete ();
+          return count ($sql) && is_object ($ori_object = $ori_model::create ($sql)) && $ori_object->is_valid () && $delete_object->delete () ? $ori_object : false;
         }
         break;
 

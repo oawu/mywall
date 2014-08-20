@@ -8,5 +8,4 @@
   echo render_cell ('main_cells', 'pictures_order');
 ?>
 
-<div id='pictures' data-next_id='0'>
-</div>
+<div id='pictures' data-next_id='0'></div>

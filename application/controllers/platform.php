@@ -9,16 +9,16 @@ class Platform extends Site_controller {
     parent::__construct ();
   }
 
-  public function fb_sing_in () {
-    if (($uid = facebook ()->getUser ()) && ($token = facebook ()->getAccessToken ()) && ($fb_user = $this->fb->fql ('SELECT email, name FROM user WHERE uid=' . $uid)) && ($fb_user = array_shift ($fb_user)) && isset ($fb_user['name']) && isset ($fb_user['email']) && $fb_user['name'] && $fb_user['email'] && ((($user = User::find ('one', array ('conditions' => array ('uid = ?', $uid)))) && ($user->name = $fb_user['name']) && ($user->email = $fb_user['email']) && $user->save ()) || verifyCreateOrm ($user = User::create (array ('uid' => $uid, 'name' => $fb_user['name'], 'email' => $fb_user['email'], 'register_from' => 'facebook', 'file_name' => '')))))
-      identity ()->set_session ('user_id', $user->id)->set_session ('fb_uid', $user->uid)->set_session ('fb_name', $user->name)->set_session ('fb_email', $user->email)->set_session ('_fb_sing_in_message', '使用 Facebook 登入成功!', true);
+  public function fb_sign_in () {
+    if (($uid = facebook ()->getUser ()) && ($token = facebook ()->getAccessToken ()) && ($fb_user = $this->fb->fql ('SELECT email, name FROM user WHERE uid=' . $uid)) && ($fb_user = array_shift ($fb_user)) && isset ($fb_user['name']) && isset ($fb_user['email']) && $fb_user['name'] && $fb_user['email'] && ((($user = User::find ('one', array ('conditions' => array ('uid = ?', $uid)))) && ($user->name = $fb_user['name']) && ($user->email = $fb_user['email']) && ($user->sign_in_count = $user->sign_in_count + 1) && ($user->sign_in_at = date ('Y-m-d H:i:s')) && $user->save ()) || verifyCreateOrm ($user = User::create (array ('uid' => $uid, 'name' => $fb_user['name'], 'email' => $fb_user['email'], 'register_from' => 'facebook', 'avatar' => '', 'sign_in_count' => '1', 'sign_in_at' => date ('Y-m-d H:i:s'))))))
+      identity ()->set_session ('user_id', $user->id)->set_session ('fb_uid', $user->uid)->set_session ('fb_name', $user->name)->set_session ('fb_email', $user->email)->set_session ('_fb_sign_in_message', '使用 Facebook 登入成功!', true);
     else
-      identity ()->set_session ('_fb_sing_in_message', 'Facebook 登入錯誤，請通知程式設計人員!', true);
+      identity ()->set_session ('_fb_sign_in_message', 'Facebook 登入錯誤，請通知程式設計人員!', true);
     redirect (func_get_args (), 'refresh');
   }
 
   public function sign_out () {
-    identity ()->set_identity ('sign_out')->set_session ('_fb_sing_in_message', '登出成功!', true);
+    identity ()->set_identity ('sign_out')->set_session ('_fb_sign_in_message', '登出成功!', true);
     redirect (func_get_args (), 'refresh');
   }
 

@@ -44,8 +44,8 @@ class Demo extends Site_controller {
         $src = str_replace ('thumb_big_', '', $img->eq (0)->attr ('src'));
         if ($user = User::create (
                   array ('uid' => 0, 'name' => $name, 'email' => '',
-                    'register_from' => 'local', 'file_name' => '')))
-          if (!$user->file_name->put_url ($src))
+                    'register_from' => 'local', 'avatar' => '', 'banner' => '', 'to_picture_comments_count' => 0, 'pictures_count' => 0, 'sign_in_at' => date ('Y-m-d H:i:s'), 'sign_in_count' => rand (10, 100))))
+          if (!$user->avatar->put_url ($src))
             $user->recycle ();
       }
     $this->g2 ();
@@ -194,6 +194,46 @@ public function g4 () {
           $picture->comments_count = $picture_comment->count;
           $picture->save ();
         }
+    $this->g9 ();
+  }
+
+  public function g9 () {
+    if ($users = User::find ('all', array ('select' => 'id, banner, updated_at')))
+      foreach ($users as $user)
+        if ($user->rand_picture)
+          $user->banner->put_url ($user->rand_picture->file_name->url ());
+    $this->g10 ();
+  }
+
+  public function g10 () {
+    if ($users = User::find ('all', array ('select' => 'id, to_picture_comments_count, updated_at'))) {
+      foreach ($users as $user) {
+        $user->to_picture_comments_count = PictureComment::count (array ('conditions' => array ('user_id = ?', $user->id)));
+        $user->save ();
+      }
+    }
+    $this->g11 ();
+  }
+  public function g11 () {
+    $count = User::count ();
+    if (($users = User::find ('all', array ('select' => 'id'))) && ($count = User::count ())) {
+      foreach ($users as $user) {
+        if ($be_user_ids = field_array (User::find ('all', array ('select' => 'id', 'order' => 'RAND()', 'limit' => floor ($count / rand (2, 4)), 'conditions' => array ('id NOT IN (?)', array ($user->id)))), 'id')) {
+          foreach ($be_user_ids as $be_user_id) {
+            $follow = Follow::create (array ('user_id' => $user->id, 'be_user_id' => $be_user_id));
+            delay_job ('user_actives', 'create_actives', array ('user_id' => $follow->user_id, 'kind' => 'to_follow', 'model_name' => get_class ($follow), 'model_id' => $follow->be_user_id));
+            delay_job ('user_actives', 'create_actives', array ('user_id' => $follow->be_user_id, 'kind' => 'be_follow', 'model_name' => get_class ($follow), 'model_id' => $follow->user_id));
+            delay_job ('users', 'update_follows_count', array ('user_id' => $follow->user_id, 'be_user_id' => $follow->be_user_id));
+          }
+        }
+      }
+    }
+    $this->g12 ();
+  }
+  public function g12 () {
+    if ($users = User::find ('all'))
+      foreach ($users as $user)
+        $user->score_set ();
   }
 
 }
