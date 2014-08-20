@@ -130,7 +130,7 @@ $(function(){
   
   $('.jqui_tooltip').tooltip ({ track: true, position: { my: "left+10 top+10"}, show: { effect: 'fade', delay: 150 }, content: function () { return $(this).data ('pic') ? $('<img />').css ({'width': '500px'}).attr ('src', $(this).attr ('title')) : $(this).attr ('title'); } });
   // $('.fancybox').fancybox ({ padding : 0, helpers : { overlay: {locked: false}, title : { type : 'over' }}});
-  if ($('#_fb_sing_in_message').length && ($('#_fb_sing_in_message').val () != '') && $('#_fb_sing_in_message').val ().length) $.jGrowl ($('#_fb_sing_in_message').val (), {theme: 'j_growl', easing: "easeInExpo"});
+  if ($('#_fb_sign_in_message').length && ($('#_fb_sign_in_message').val () != '') && $('#_fb_sign_in_message').val ().length) $.jGrowl ($('#_fb_sign_in_message').val (), {theme: 'j_growl', easing: "easeInExpo"});
 
   $('.timeago').timeago ();
   

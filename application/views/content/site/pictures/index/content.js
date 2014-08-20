@@ -96,7 +96,7 @@ $(function() {
           .fail (function (result) { ajaxError (result); })
           .complete (function (result) { });
         } else { $.jGrowl ('你已經評過分數囉!', { theme: 'j_growl', easing: "easeInExpo"}); }
-      } else { showConfirm ('提示', '你還沒登入喔！趕快按下確定，就可以輕鬆使用 Facebook 登入評分囉!', function () { window.location.assign ($('#fb_sing_in_url').val ()); }); }
+      } else { showConfirm ('提示', '你還沒登入喔！趕快按下確定，就可以輕鬆使用 Facebook 登入評分囉!', function () { window.location.assign ($('#fb_sign_in_url').val ()); }); }
     });
   }
   initSetScoreStar ();

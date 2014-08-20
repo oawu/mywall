@@ -1,6 +1,6 @@
 <?php if (!identity ()->get_identity ('sign_in')) { ?>
         <div id='be_comment'>
-            <a class="btn btn-primary btn-sm" href='<?php echo facebook ()->login_url ('platform', 'fb_sing_in', 'pictures', $picture->id);?>'>我要留言!</a>
+            <a class="btn btn-primary btn-sm" href='<?php echo facebook ()->login_url ('platform', 'fb_sign_in', 'pictures', $picture->id);?>'>我要留言!</a>
         </div>
 <?php } else { ?>
         <div id='to_comment'>
