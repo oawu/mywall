@@ -689,7 +689,7 @@ class Admin_controller extends Root_controller {
 //     // $this->add_left_navitem (array ('name' => null));
 
 //     $this->add_right_navitem (array ('name' => '<span class="icon-exit"></span>', 'title' => '', 'url' => array ('platform', 'sign_out')));
-//     $this->add_right_navitem (array ('name' => '<span class="icon-facebook22"></span>', 'title' => 'Facebook 登入', 'url' => $this->fb->getLoginUrl (array ('redirect_uri' => base_url (array ('platform', 'fb_sing_in', 'main_index|index'))))));
+//     $this->add_right_navitem (array ('name' => '<span class="icon-facebook22"></span>', 'title' => 'Facebook 登入', 'url' => $this->fb->getLoginUrl (array ('redirect_uri' => base_url (array ('platform', 'fb_sign_in', 'main_index|index'))))));
 //     // $this->add_right_navitem (array ('name' => null));
 //     // $this->add_right_navitem (array ('name' => '<span id="reciprocal" data-duration="' . (strtotime ('2014-04-18 00:00:00') - strtotime (date ('Y-m-d H:i:s'))) . '" data-format="歲次 甲午年 三月十九日 還有 %s" data-message="就是現在，北港廟會開始囉！"></span>', 'title' => '大家快一起來倒數吧！', 'url' => ''));
     

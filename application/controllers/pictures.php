@@ -18,7 +18,7 @@ class Pictures extends Site_controller {
     delay_job ('pictures', 'add_pageview', array ('id' => $picture->id));
 
     $this
-    ->add_hidden (array ('id' => 'fb_sing_in_url', 'value' => facebook ()->login_url ('platform', 'fb_sing_in', $this->get_class (), $picture->id)))
+    ->add_hidden (array ('id' => 'fb_sign_in_url', 'value' => facebook ()->login_url ('platform', 'fb_sign_in', $this->get_class (), $picture->id)))
     ->add_hidden (array ('id' => 'delete_picture_url', 'value' => base_url (array ($this->get_class (), 'delete_picture'))))
     ->add_hidden (array ('id' => 'delete_comment_url', 'value' => base_url (array ($this->get_class (), 'delete_comment'))))
     ->add_hidden (array ('id' => 'fetch_star_details_url', 'value' => base_url (array ($this->get_class (), 'fetch_star_details'))))
@@ -61,6 +61,7 @@ class Pictures extends Site_controller {
 
     $comment->recycle ();
     delay_job ('pictures', 'update_comments_count', array ('picture_id' => $comment->picture_id));
+    delay_job ('users', 'update_to_comments_count', array ('user_id' => $comment->user_id));
     // delay_job ('user_actives', 'create_actives', array ('user_id' => $user_id, 'kind' => 'add_picture_comment', 'model_name' => get_class ($picture_comment), 'model_id' => $picture_comment->id));
 
     $this->output_json (array ('status' => true, 'title' => '成功', 'message' => '刪除成功!'));
@@ -82,6 +83,7 @@ class Pictures extends Site_controller {
       return $this->output_json (array ('status' => false, 'title' => '錯誤', 'message' => '留言失敗，請通知程式設計人員!', 'action' => 'function () { $(this).OA_Dialog ("close"); }'));
     
     delay_job ('pictures', 'update_comments_count', array ('picture_id' => $picture->id));
+    delay_job ('users', 'update_to_comments_count', array ('user_id' => $user_id));
     delay_job ('user_actives', 'create_actives', array ('user_id' => $user_id, 'kind' => 'add_picture_comment', 'model_name' => get_class ($picture_comment), 'model_id' => $picture_comment->id));
 
     $this->output_json (array ('status' => true, 'message' => '留言成功!', 'content' => render_cell ('pictures_cells', 'comment', $picture_comment)));
@@ -109,7 +111,7 @@ class Pictures extends Site_controller {
       return $this->output_json (array ('status' => false, 'title' => '錯誤', 'message' => '評分錯誤，請稍候再試，或請通知程式設計人員!', 'action' => 'function () { $(this).OA_Dialog ("close"); }'));
 
     if (!(identity ()->get_identity ('sign_in') && ($user_id = identity ()->get_session ('user_id')) && ($user = User::find ('one', array ('select' => 'id', 'conditions' => array ('id = ?', $user_id))))))
-      return $this->output_json (array ('status' => false, 'title' => '提示', 'message' => '你還沒登入喔！趕快按下確定，就可以輕鬆使用 Facebook 登入評分囉!', 'action' => 'function () { window.location.assign ("' . $this->fb->getLoginUrl (array ('redirect_uri' => base_url (array ('platform', 'fb_sing_in', implode ('|', array ($this->get_class (), 'id', $unit_id)))))) . '"); }'));
+      return $this->output_json (array ('status' => false, 'title' => '提示', 'message' => '你還沒登入喔！趕快按下確定，就可以輕鬆使用 Facebook 登入評分囉!', 'action' => 'function () { window.location.assign ("' . $this->fb->getLoginUrl (array ('redirect_uri' => base_url (array ('platform', 'fb_sign_in', implode ('|', array ($this->get_class (), 'id', $unit_id)))))) . '"); }'));
 
     if (!($picture = Picture::find ('one', array ('select' => 'id, score, updated_at', 'conditions' => array ('id = ?', $id)))))
       return $this->output_json (array ('status' => false, 'title' => '失敗', 'message' => '評分失敗，此景點暫時不提供評分，如有任何問題請通知管理人員!', 'action' => 'function () { $(this).OA_Dialog ("close"); }'));

@@ -36,17 +36,26 @@ class Main_cells extends Cell_Controller {
     return $this->load_view ();
   }
 
-  public function _cache_pictures ($next_id = 0) {
-    return array ('time' => 60 * 60, 'key' => 'pictures/id_' . $next_id);
+  public function _cache_pictures ($user = null, $next_id = 0) {
+    return array ('time' => 60 * 5, 'key' => 'user_id_' . ($user ? $user->id: '0') . '/next_id_' . $next_id);
   }
-  public function pictures ($next_id = 0) {
-    $conditions = $next_id ? array ('id <= ?', $next_id) : array ();
-    $pics = Picture::find ('all', array ('order' => 'id DESC', 'include' => array ('user'), 'limit' => config ('main_controller_config', 'pictures_length') + 1, 'conditions' => $conditions));
-    $pictures = array ();
-    foreach (array_slice ($pics, 0, config ('main_controller_config', 'pictures_length')) as $picture)
-      array_push ($pictures, $this->load_view (array ('picture' => $picture)));
+  public function pictures ($user = null, $next_id = 0) {
+    if ($user && ($be_user_ids = array_merge (field_array ($user->be_follows, 'be_user_id'), array ($user->id)))) {
+      $conditions = $next_id ? array ('id <= ? AND user_id IN (?)', $next_id, $be_user_ids) : array ('user_id IN (?)', $be_user_ids);
+      $pics = Picture::find ('all', array ('order' => 'id DESC', 'include' => array ('user'), 'limit' => config ('main_controller_config', 'pictures_length') + 1, 'conditions' => $conditions));
+      $pictures = array ();
+      foreach (array_slice ($pics, 0, config ('main_controller_config', 'pictures_length')) as $picture)
+        array_push ($pictures, $this->load_view (array ('picture' => $picture)));
+      $next_id = ($pics = ($pics = array_slice ($pics, config ('main_controller_config', 'pictures_length'), 1)) ? $pics[0] : null) ? $pics->id : -1;
+    } else {
+      $conditions = $next_id ? array ('id <= ?', $next_id) : array ();
+      $pics = Picture::find ('all', array ('order' => 'id DESC', 'include' => array ('user'), 'limit' => config ('main_controller_config', 'pictures_length') + 1, 'conditions' => $conditions));
+      $pictures = array ();
+      foreach (array_slice ($pics, 0, config ('main_controller_config', 'pictures_length')) as $picture)
+        array_push ($pictures, $this->load_view (array ('picture' => $picture)));
+      $next_id = ($pics = ($pics = array_slice ($pics, config ('main_controller_config', 'pictures_length'), 1)) ? $pics[0] : null) ? $pics->id : -1;
+    }
 
-    $next_id = ($pics = ($pics = array_slice ($pics, config ('main_controller_config', 'pictures_length'), 1)) ? $pics[0] : null) ? $pics->id : -1;
     return array ('pictures' => $pictures, 'next_id' => $next_id);
   }
 }
