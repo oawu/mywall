@@ -3,31 +3,8 @@
   echo render_cell ('frame_cells', 'main_banner');
   echo render_cell ('frame_cells', 'feature_bar');
   echo render_cell ('frame_cells', 'tag_category_top');
+  echo render_cell ('users_cells', 'banner', $user); ?>
 
-  if ($user->banner_pictures && $user->banner) { ?>
-    <div id='user_banner'>
-      <div id="contentContainer" class="trans3d"> 
-        <section id="carouselContainer" class="trans3d">
-    <?php foreach ($user->banner_pictures as $banner_picture) { ?>
-            <figure class="carouselItem trans3d">
-              <div class="carouselItemInner trans3d">
-                <img src='<?php echo $banner_picture->file_name->url ('230xW');?>' />
-              </div>
-            </figure>
-    <?php } ?>
-        </section>
-      </div>
-      <div class='user_banner'>
-        <div class='user_banner_img'>
-          <img src='<?php echo $user->banner->url ('1000x350');?>' />
-        </div>
-      </div>
-      <div class='banner_filter'></div>
-      <div id='user_avatar'><img src='<?php echo $user->avatar_url (100, 100);?>' /></div>
-<?php echo render_cell ('users_cells', 'user_score', $user); ?>
-    </div>
-<?php
-  } ?>
 <div class='user_info'>
   <div class='user_feature_area_left'>
   <?php if (identity ()->get_identity ('sign_in')) {

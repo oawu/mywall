@@ -127,7 +127,8 @@ $(function() {
     $(window).scroll (function () {
       if ($(document).height() - $(window).height () - $(window).scrollTop () < footer_height)
         loadPictures ();
-    }).scroll ();
+    });
+    loadPictures ();
   });
 
   
