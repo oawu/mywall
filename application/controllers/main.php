@@ -9,15 +9,6 @@ class Main extends Site_controller {
     parent::__construct ();
   }
 
-  public function x () {
-    $user = User::find ('one', array ('conditions' => array ('id = 10')));
-    $user->score_set ();
-    echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" /><pre>';
-    var_dump ($user->score);
-    exit ();
-    // $user->set_score ();
-  }
-
   public function index () {
     $this->add_hidden (array ('id' => 'get_pictures_url', 'value' => base_url (array ($this->get_class (), 'get_pictures'))))
          ->load_view ();
