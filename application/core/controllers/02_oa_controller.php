@@ -123,7 +123,8 @@ class Oa_controller extends Root_controller {
 
   protected function load_components () {
     $frame_data = array ();
-    if ($components = !($components = array_filter (func_get_args ())) ? $component_lists_keys = array_keys ($component_lists = $this->get_component_lists ()) : array_filter ($components, function ($component) use ($component_lists_keys) { return in_array ($component, $component_lists_keys); }))
+    $component_lists_keys = array_keys ($component_lists = $this->get_component_lists ());
+    if ($components = !($components = array_filter (func_get_args ())) ? $component_lists_keys : array_filter ($components, function ($component) use ($component_lists_keys) { return in_array ($component, $component_lists_keys); }))
       foreach ($components as $component)
         if (is_readable (utilitySameLevelPath (FCPATH . APPPATH . DIRECTORY_SEPARATOR . implode (DIRECTORY_SEPARATOR, $this->get_views_path ()) . DIRECTORY_SEPARATOR . ($path = utilitySameLevelPath (implode (DIRECTORY_SEPARATOR, $this->get_componemt_path ()) . DIRECTORY_SEPARATOR . $component . EXT)))))
           $frame_data[$component] = $this->load->view ($path, array ($component . '_list' => $this->component_lists[$component]), true);
