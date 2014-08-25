@@ -56,4 +56,10 @@ class Users_cells extends Cell_Controller {
 
     return array ('pictures' => $pictures, 'next_id' => $next_id);
   }
+  public function _cache_banner ($user) {
+    return array ('time' => 60 * 60, 'key' => $user->id);
+  }
+  public function banner ($user) {
+    return $this->load_view (array ('user' => $user));
+  }
 }
