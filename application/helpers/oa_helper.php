@@ -153,3 +153,9 @@ if (!function_exists ('field_array')) {
     }, $objects);
   }
 }
+
+if (!function_exists ('url_parse')) {
+  function url_parse ($url, $key) {
+    return ($url = parse_url ($url)) && isset ($url[$key]) ? $url[$key] : '';
+  }
+}

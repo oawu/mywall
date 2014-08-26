@@ -102,7 +102,6 @@ div.ui-tooltip {
   background: rgba(75, 75, 75, 1.00) !important;
   color: #fff;
 }
-
 div.jGrowl div.j_growl {
   width: 250px !important;
   text-align: center;
@@ -118,7 +117,7 @@ div.jGrowl div.j_growl {
           box-shadow: 0px 0px 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
   z-index: 9999;
 }
-.jGrowl-closer {
+div.jGrowl div.j_growl + .jGrowl-closer {
   width: 250px !important;
   border: 1px solid #edeff4 !important;
   background: rgba(75, 75, 75, 1.00) !important;
@@ -129,10 +128,62 @@ div.jGrowl div.j_growl {
           box-shadow: 0px 0px 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
 
 }
-.jGrowl-closer:hover {
+div.jGrowl div.j_growl + .jGrowl-closer:hover {
   background: rgba(35, 35, 35, 1.00) !important;
 }
-.jGrowl.center {
+div.jGrowl div.j_growl + .jGrowl.center {
+  top: 50%;
+  width: 50%;
+  left: 40%;
+}
+
+div.jGrowl div.j_warning {
+  width: 250px !important;
+  text-align: center;
+  border-radius: 3px;
+  border: 1px solid #edeff4 !important;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+
+  background: rgba(255, 100, 100, 1.00) !important;
+  color: rgba(145, 0, 0, 1.00) !important;
+  font-weight: bolder;
+
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+
+
+  -webkit-text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+     -moz-text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+          text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+  z-index: 9999;
+}
+div.jGrowl div.j_warning + .jGrowl-closer {
+  width: 250px !important;
+  border: 1px solid #edeff4 !important;
+  background: rgba(75, 75, 75, 1.00) !important;
+  border-radius: 0px !important;
+  background: rgba(255, 100, 100, 1.00) !important;
+  color: rgba(145, 0, 0, 1.00) !important;
+  font-weight: bolder;
+  font-size: 16px;
+
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+
+
+  -webkit-text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+     -moz-text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+          text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+  
+}
+div.jGrowl div.j_warning + .jGrowl-closer:hover {
+  background: rgba(205, 50, 50, 1.00) !important;
+}
+div.jGrowl div.j_warning + .jGrowl.center {
   top: 50%;
   width: 50%;
   left: 40%;
@@ -315,4 +366,7 @@ div.jGrowl div.j_growl {
 .btn-group .btn-info:hover {
   background-color: #98a8c9;
   border: 1px solid #566fa3;
+}
+.btn:focus{
+  outline: 0;
 }

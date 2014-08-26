@@ -1,11 +1,6 @@
-
 <div id='feature_bar' class='row'>
   <div class='col-md-8 left'>
-    <a href='' class='icon-camera6'> PO食物</a>
-    |
-    <a href='' class='icon-pictures4'> 覓食</a>
-    |
-    <a href='' class='icon-magazine'> 菜單</a>
+    <a class='icon-camera6 post_form-fancybox' href='<?php echo base_url (array ('postform', 'upload_picture'));?>'> PO圖</a>
   </div>
   <div class='col-md-4 right'>
     關鍵字搜尋：

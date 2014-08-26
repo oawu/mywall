@@ -21,6 +21,7 @@ class Site_controller extends Oa_controller {
          ->_add_javascript ()
          ->_add_footer ()
          ->add_hidden (array ('id' => '_fb_sign_in_message', 'value' => identity ()->get_session ('_fb_sign_in_message', true)))
+         ->add_hidden (array ('id' => '_current_uri', 'value' => url_parse (current_url (), 'path')))
          ;
   }
 
@@ -62,9 +63,11 @@ class Site_controller extends Oa_controller {
   }
   private function _add_footer () {
     return $this->add_footer ('參考網站', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/'),
-                                         array ('name' => 'O SHa\'Re', 'src' => 'http://www.oshare.com.tw/'))
+                                         array ('name' => 'O SHa\'Re', 'src' => 'http://www.oshare.com.tw/'),
+                                         array ('name' => 'Dappei', 'src' => 'http://dappei.com/')
+                                         )
          ->add_footer ('特別感謝', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/'))
          ->add_footer ('贊助廠商', array ('name' => 'OA', 'src' => 'https://www.facebook.com/comdan66'))
-         ->add_footer ('其他資源', array ('name' => '相關說明', 'src' => 'ccc'));
+         ->add_footer ('其他資源', array ('name' => '相關說明', 'src' => base_url ('about', 'info')));
   }
 }

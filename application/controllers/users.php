@@ -14,7 +14,7 @@ class Users extends Site_controller {
   public function index ($id = 0) {
     if (!($id && is_numeric ($id) && ($user = User::find ('one', array ('conditions' => array ('id = ?', $id))))))
       redirect ();
-    
+
     $this->add_hidden (array ('id' => 'get_scroll_range', 'value' => config ('users_controller_config', 'scroll_range')))
          ->add_hidden (array ('id' => 'get_actives_url', 'value' => base_url (array ($this->get_class (), 'get_actives'))))
          ->add_hidden (array ('id' => 'set_follow_url', 'value' => base_url (array ($this->get_class (), 'set_follow'))))

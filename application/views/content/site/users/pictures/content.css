@@ -284,6 +284,7 @@
 .user_feature_area_left a,
 .user_feature_area_right a {
   margin-top: 2px;
+  margin-right: 5px;
   position: relative;
   width: 33px;
   height: 33px;
