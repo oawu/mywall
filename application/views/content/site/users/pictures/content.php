@@ -22,7 +22,7 @@
   <div class='user_feature_area_right'>
 <?php
     if (identity ()->get_identity ('sign_in') && (identity ()->get_session ('user_id') == $user->id)) { ?>
-      <a class='icon-camera6 jqui_tooltip fancybox_po_picture' title='PO圖片'></a>
+      <a class='icon-camera6 jqui_tooltip fancybox_po_picture post_form-fancybox' href='<?php echo base_url (array ('postform', 'upload_picture'));?>' title='PO圖片'></a>
 <?php
     } ?>
     <a class='icon-uptime jqui_tooltip' href='<?php echo base_url (array ('users', $user->id));?>' title='時間軸'></a>

@@ -5,7 +5,7 @@ if ($footer_list) { ?>
     <div class='dividing_line_area row'>
       <div class="col-md-5 dividing_line"></div>
       <div class="col-md-2 copy_right_title">
-        Foodwall © 2014
+        MYWALL © 2014
       </div>
       <div class="col-md-5 dividing_line"></div>
     </div>

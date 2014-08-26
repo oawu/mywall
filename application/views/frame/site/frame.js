@@ -58,4 +58,34 @@ $(function () {
     });
     
   }
+
+  $('.post_form-fancybox').fancybox ({
+    beforeLoad: function () {
+      this.title = $(this.element).data ('fancybox_title');
+    },
+    padding: 0,
+    helpers: {
+      overlay: {
+        locked: false
+      },
+      title: {
+        type: 'over'
+      }
+    },
+    type: 'ajax',
+    ajax: {
+      type: 'POST',
+      data: {'current_uri' : $('#_current_uri').val ()},
+      cache: false
+    },
+    data: {
+      current_url: 'sss' 
+    },
+    // width: '600',
+    // height: '450',
+    maxWidth: 600,
+    maxHeight: 450,
+    // minWidth: 600,
+    // minHeight: 450,
+  });
 })

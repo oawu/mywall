@@ -477,6 +477,7 @@
 .user_feature_area_left a,
 .user_feature_area_right a {
   width: 33px;
+  margin-right: 5px;
   height: 33px;
   display: inline-block;
   font-size: 27px;

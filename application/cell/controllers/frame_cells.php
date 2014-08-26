@@ -10,10 +10,16 @@ class Frame_cells extends Cell_Controller {
     return $this->load_view ();
   }
 
+  public function _cache_main_banner () {
+    return array ('time' => 60 * 60, 'key' => null);
+  }
   public function main_banner () {
     return $this->load_view ();
   }
 
+  public function _cache_feature_bar () {
+    return array ('time' => 60 * 60, 'key' => null);
+  }
   public function feature_bar () {
     return $this->load_view ();
   }
