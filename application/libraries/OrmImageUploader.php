@@ -214,9 +214,17 @@ class OrmImageUploader {
     return false;
   }
 
+  public function path ($key = '') {
+    if (config ('model_config', 'uploader', 'bucket', 'type') == 'local') {
+      return ($fileName = (string)$this) && (($versions = $this->getVersions ()) || ($versions = config ('model_config', 'uploader', 'default_version'))) && isset ($versions[$key]) && is_readable (utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR . ($path = utilitySameLevelPath (config ('model_config', 'uploader', 'bucket', 'local', 'base_directory') . DIRECTORY_SEPARATOR . $this->getSavePath () . DIRECTORY_SEPARATOR . $key . config ('model_config', 'uploader', 'file_name', 'separate_symbol') . $fileName)))) ? $path : '';
+    } else {
+      return '';
+    }
+  }
+
   public function url ($key = '') {
     if (config ('model_config', 'uploader', 'bucket', 'type') == 'local') {
-      return ($fileName = (string)$this) && (($versions = $this->getVersions ()) || ($versions = config ('model_config', 'uploader', 'default_version'))) && isset ($versions[$key]) && is_readable (utilitySameLevelPath (FCPATH . DIRECTORY_SEPARATOR . ($path = utilitySameLevelPath (config ('model_config', 'uploader', 'bucket', 'local', 'base_directory') . DIRECTORY_SEPARATOR . $this->getSavePath () . DIRECTORY_SEPARATOR . $key . config ('model_config', 'uploader', 'file_name', 'separate_symbol') . $fileName)))) ? base_url ($path) : '';
+      return ($path = $this->path ($key)) ? base_url ($path) : '';
     } else {
       return '';
     }
