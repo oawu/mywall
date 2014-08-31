@@ -1,0 +1,1219 @@
+<?xml version="1.0"?>
+
+<!--
+-
+- Sequel Pro XML dump
+- Version 4096
+-
+- http://www.sequelpro.com/
+- http://code.google.com/p/sequel-pro/
+-
+- Host: ibeautytwdb.cvxygpm3rrds.ap-northeast-1.rds.amazonaws.com (MySQL 5.5.27-log)
+- Database: fgplay_rails
+- Generation Time Time: 2014-09-02 02:33:45 +0000
+-
+-->
+
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="fgplay_rails">
+
+	<table_structure name="_authorizations">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="provider" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="uid" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="email" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="token" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="memo" type="text" null="YES" key="" default="<null>" extra="" />
+
+		<options name="_authorizations" engine="InnoDB" version="10" row_format="Compact" rows="21762" avg_row_length="265" data_length="5783552" max_data_length="0" index_length="4784128" data_free="5242880" create_time="2014-06-16 08:16:34" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="api_logs">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="method" type="varchar(50)" null="YES" key="" default="<null>" extra="" />
+		<field field="uri" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="get_data" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="post_data" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="ip" type="varchar(20)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="api_logs" engine="InnoDB" version="10" row_format="Compact" rows="203374" avg_row_length="152" data_length="30998528" max_data_length="0" index_length="0" data_free="7340032" create_time="2014-06-23 08:28:16" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="beauties">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="label" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="description" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="avatar" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_stick" type="tinyint(1)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="beauties" engine="InnoDB" version="10" row_format="Compact" rows="32" avg_row_length="512" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:54:46" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="black_users">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(20)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="black_users" engine="InnoDB" version="10" row_format="Compact" rows="2" avg_row_length="8192" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-23 08:27:39" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="brands">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="logo" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="link" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="brands" engine="InnoDB" version="10" row_format="Compact" rows="22" avg_row_length="744" data_length="16384" max_data_length="0" index_length="16384" data_free="0" create_time="2014-04-15 18:10:11" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="categories">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="categories" engine="InnoDB" version="10" row_format="Compact" rows="42" avg_row_length="390" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-07-28 09:05:49" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="category_maps">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="category_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="category_tag_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="category_maps" engine="InnoDB" version="10" row_format="Compact" rows="34" avg_row_length="481" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-07-28 09:51:42" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="category_tags">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="category_tags" engine="InnoDB" version="10" row_format="Compact" rows="5" avg_row_length="3276" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-07-28 09:12:27" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="click_counts">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="object" type="varchar(50)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="object_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="date" type="date" null="YES" key="" default="<null>" extra="" />
+		<field field="count" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="url" type="varchar(500)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="click_counts" engine="InnoDB" version="10" row_format="Compact" rows="182169" avg_row_length="170" data_length="30998528" max_data_length="0" index_length="15761408" data_free="4194304" create_time="2014-04-15 18:12:50" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="crawl_site_items">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="url" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="hash" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="crawled" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+		<field field="category_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="assign_user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="assign_tag" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="priority" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="keywords" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="crawl_site_items" engine="InnoDB" version="10" row_format="Compact" rows="4233" avg_row_length="375" data_length="1589248" max_data_length="0" index_length="0" data_free="4194304" create_time="2012-05-22 10:55:34" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="crontab_logs">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="class_name" type="varchar(30)" null="YES" key="" default="<null>" extra="" />
+		<field field="method_name" type="varchar(80)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_finish" type="int(11)" null="NO" key="" default="0" extra="" />
+		<field field="start_at" type="varchar(30)" null="YES" key="" default="<null>" extra="" />
+		<field field="run_time" type="varchar(80)" null="NO" key="" default="0" extra="" />
+		<field field="finish_at" type="varchar(30)" null="YES" key="" default="<null>" extra="" />
+		<field field="comment" type="varchar(255)" null="NO" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="crontab_logs" engine="InnoDB" version="10" row_format="Compact" rows="820" avg_row_length="259" data_length="212992" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-23 09:23:53" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="day_pageviews">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="object" type="varchar(255)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="object_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="date" type="date" null="YES" key="" default="<null>" extra="" />
+		<field field="counts" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="day_pageviews" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="32768" data_free="0" create_time="2014-06-06 08:45:30" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="del_searches">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="path" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="share_ids" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="del_searches" engine="InnoDB" version="10" row_format="Compact" rows="284365" avg_row_length="101" data_length="28901376" max_data_length="0" index_length="0" data_free="5242880" create_time="2013-01-30 10:26:45" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="delayed_jobs">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="priority" type="int(11)" null="YES" key="MUL" default="0" extra="" />
+		<field field="attempts" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="handler" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="last_error" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="run_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="locked_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="failed_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="locked_by" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="queue" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="delayed_jobs" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="16384" data_free="0" create_time="2012-08-28 10:22:54" update_time="<null>" collation="latin1_swedish_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="facebook_friends">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="facebook_id" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="style_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="is_readed" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="facebook_name" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="facebook_friends" engine="InnoDB" version="10" row_format="Compact" rows="247141" avg_row_length="82" data_length="20496384" max_data_length="0" index_length="13156352" data_free="4194304" create_time="2014-07-10 08:47:31" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="facebook_uuids">
+		<field field="id" type="mediumint(8) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="uu_type" type="varchar(20)" null="NO" key="" default="<null>" extra="" />
+		<field field="uu_id" type="varchar(100)" null="NO" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="NO" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="NO" key="" default="<null>" extra="" />
+
+		<options name="facebook_uuids" engine="InnoDB" version="10" row_format="Compact" rows="14015" avg_row_length="113" data_length="1589248" max_data_length="0" index_length="0" data_free="4194304" create_time="2012-11-16 12:24:31" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="fake_likes">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="date" type="varchar(20)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="is_finish" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="fake_likes" engine="InnoDB" version="10" row_format="Compact" rows="37064" avg_row_length="71" data_length="2637824" max_data_length="0" index_length="1589248" data_free="4194304" create_time="2013-08-23 08:42:30" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="fake_product_urls">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="url" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="postnum" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="fake_product_urls" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:54:48" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="fashion_editors">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="type" type="varchar(50)" null="YES" key="" default="<null>" extra="" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="link" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="fashion_editors" engine="InnoDB" version="10" row_format="Compact" rows="47" avg_row_length="348" data_length="16384" max_data_length="0" index_length="16384" data_free="0" create_time="2014-04-15 18:12:27" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="fashion_guide_coins">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="message" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="coinable_type" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="coinable_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="bonus" type="int(11)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="fashion_guide_coins" engine="InnoDB" version="10" row_format="Compact" rows="1590405" avg_row_length="118" data_length="188416000" max_data_length="0" index_length="0" data_free="4194304" create_time="2014-01-20 03:43:07" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="fashion_peoples">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="link" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="fashion_peoples" engine="InnoDB" version="10" row_format="Compact" rows="14" avg_row_length="1170" data_length="16384" max_data_length="0" index_length="16384" data_free="0" create_time="2013-06-19 03:36:10" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_bloggers">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="blog_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="cover_url" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="description" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="blog_url" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_picture_url" type="varchar(256)" null="YES" key="" default="" extra="" />
+		<field field="cate" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="blog_nickname" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_url" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_bloggers" engine="InnoDB" version="10" row_format="Compact" rows="31" avg_row_length="1585" data_length="49152" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-15 07:11:06" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_discussions">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="topic_id" type="int(11)" null="NO" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_discussions" engine="InnoDB" version="10" row_format="Compact" rows="4" avg_row_length="4096" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-01-27 03:28:25" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_likes">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_likes" engine="InnoDB" version="10" row_format="Compact" rows="1921" avg_row_length="59" data_length="114688" max_data_length="0" index_length="0" data_free="0" create_time="2013-12-05 08:40:22" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_magazines">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="picture" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="year" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="month" type="int(11)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_magazines" engine="InnoDB" version="10" row_format="Compact" rows="2" avg_row_length="8192" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-14 10:28:57" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_pk_magazines">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="start_time" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="end_time" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_pk_magazines" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-14 10:29:06" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_pk_pictures">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="ftv_pk_magazine_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="picture" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="adjust_votes" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="votes" type="int(11)" null="YES" key="" default="0" extra="" />
+
+		<options name="ftv_pk_pictures" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-14 10:29:06" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_pk_votes">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="ftv_pk_picture_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="date" type="date" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_pk_votes" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-14 10:29:07" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_previews">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="url" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="date" type="date" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="is_visible" type="int(11)" null="YES" key="" default="0" extra="" />
+
+		<options name="ftv_previews" engine="InnoDB" version="10" row_format="Compact" rows="97" avg_row_length="506" data_length="49152" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-25 03:15:51" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_replays">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="title" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="url" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="picture" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="date" type="date" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_replays" engine="InnoDB" version="10" row_format="Compact" rows="85" avg_row_length="192" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-14 10:29:07" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_share_likes">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="share1_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="share2_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="date" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_share_likes" engine="InnoDB" version="10" row_format="Compact" rows="25" avg_row_length="655" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-12-05 06:07:26" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_super_models">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="ftv_super_models" engine="InnoDB" version="10" row_format="Compact" rows="42" avg_row_length="390" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-14 10:29:07" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="ftv_topics">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="date" type="date" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="content" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="picture" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="url" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="ftv_topics" engine="InnoDB" version="10" row_format="Compact" rows="141" avg_row_length="348" data_length="49152" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-29 05:31:14" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="groups">
+		<field field="id" type="mediumint(8) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(20)" null="NO" key="" default="<null>" extra="" />
+		<field field="description" type="varchar(100)" null="NO" key="" default="<null>" extra="" />
+
+		<options name="groups" engine="InnoDB" version="10" row_format="Compact" rows="2" avg_row_length="8192" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-11-15 13:36:27" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="hot_tags">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="category_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="link" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="hot_tags" engine="InnoDB" version="10" row_format="Compact" rows="43" avg_row_length="381" data_length="16384" max_data_length="0" index_length="16384" data_free="0" create_time="2012-08-31 07:44:49" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="img10x10">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="img_link" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="img_url" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="img_content" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="insert_time" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="page" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="tinyint(1)" null="YES" key="" default="1" extra="" />
+
+		<options name="img10x10" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-11-22 08:56:06" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="index_banners">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="link" type="varchar(500)" null="YES" key="" default="" extra="" />
+		<field field="file" type="varchar(255)" null="NO" key="" default="" extra="" />
+		<field field="datetime_from" type="datetime" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="datetime_end" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="index_banners" engine="InnoDB" version="10" row_format="Compact" rows="25" avg_row_length="655" data_length="16384" max_data_length="0" index_length="16384" data_free="0" create_time="2014-06-23 08:27:42" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="jobs">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="jobs" engine="InnoDB" version="10" row_format="Compact" rows="92" avg_row_length="178" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:54:48" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="login_attempts">
+		<field field="id" type="mediumint(8) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="ip_address" type="varbinary(16)" null="NO" key="MUL" default="<null>" extra="" />
+		<field field="login" type="varchar(100)" null="NO" key="MUL" default="<null>" extra="" />
+		<field field="time" type="int(11) unsigned" null="NO" key="" default="<null>" extra="" />
+
+		<options name="login_attempts" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="32768" data_free="0" create_time="2012-11-15 13:44:22" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="magazine_promos">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="desc" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="magazine_ids" type="varchar(155)" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="magazine_promos" engine="InnoDB" version="10" row_format="Compact" rows="21" avg_row_length="780" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-23 08:27:42" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="magazine_shares">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="magazine_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="cover_sort" type="int(11)" null="YES" key="MUL" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="text" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="magazine_shares" engine="InnoDB" version="10" row_format="Compact" rows="68008" avg_row_length="162" data_length="11026432" max_data_length="0" index_length="6275072" data_free="4194304" create_time="2012-08-10 06:25:03" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="magazine_subscriptions">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="magazine_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="magazine_subscriptions" engine="InnoDB" version="10" row_format="Compact" rows="2916" avg_row_length="61" data_length="180224" max_data_length="0" index_length="0" data_free="0" create_time="2012-07-12 03:13:00" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="magazine_weights">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="magazine_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="weight" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="magazine_weights" engine="InnoDB" version="10" row_format="Compact" rows="41" avg_row_length="399" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-03-04 03:47:43" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="magazines">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="category_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="cover_picture" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="description" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="tinyint(1)" null="YES" key="MUL" default="1" extra="" />
+		<field field="magazine_shares_count" type="int(11)" null="YES" key="MUL" default="0" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="magazine_subscriptions_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="views_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="keywords" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="new_cover_picture" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_pick" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="add_picked_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="memo" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="magazines" engine="InnoDB" version="10" row_format="Compact" rows="3521" avg_row_length="451" data_length="1589248" max_data_length="0" index_length="524288" data_free="4194304" create_time="2014-04-15 18:09:29" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="mapi_logs">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="token" type="varchar(55)" null="YES" key="" default="<null>" extra="" />
+		<field field="method" type="varchar(50)" null="YES" key="" default="<null>" extra="" />
+		<field field="uri" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="get_data" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="post_data" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="ip" type="varchar(20)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="mapi_logs" engine="InnoDB" version="10" row_format="Compact" rows="429882" avg_row_length="274" data_length="118079488" max_data_length="0" index_length="0" data_free="7340032" create_time="2014-06-23 08:27:48" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="migrations">
+		<field field="version" type="int(3)" null="NO" key="" default="<null>" extra="" />
+
+		<options name="migrations" engine="InnoDB" version="10" row_format="Compact" rows="1" avg_row_length="16384" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-11-15 13:36:27" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="mobile_devices">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="device_id" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="NO" key="" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="device" type="varchar(50)" null="YES" key="" default="<null>" extra="" />
+		<field field="device_name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="mobile_devices" engine="InnoDB" version="10" row_format="Compact" rows="7345" avg_row_length="216" data_length="1589248" max_data_length="0" index_length="0" data_free="4194304" create_time="2014-06-27 07:24:36" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="nav_categories">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="parent_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="ename" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="block" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="pic" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="memo" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="nav_categories" engine="InnoDB" version="10" row_format="Compact" rows="328" avg_row_length="199" data_length="65536" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-23 08:27:41" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="new_categories">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="parent_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="name" type="varchar(255)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="e_name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="tinyint(3)" null="YES" key="" default="1" extra="" />
+		<field field="is_enabled" type="tinyint(1)" null="YES" key="" default="1" extra="" />
+		<field field="meta_keywords" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="meta_description" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="score" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="style_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="new_categories" engine="InnoDB" version="10" row_format="Compact" rows="1506" avg_row_length="87" data_length="131072" max_data_length="0" index_length="114688" data_free="0" create_time="2014-02-11 05:26:07" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="new_notices">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="target_user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="from_user" type="text" null="NO" key="" default="<null>" extra="" />
+		<field field="total_count" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="read_status" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+		<field field="notice_type" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticeable_type" type="varchar(50)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticeable_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="remarks" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="new_notices" engine="InnoDB" version="10" row_format="Compact" rows="118138" avg_row_length="333" data_length="39387136" max_data_length="0" index_length="7864320" data_free="7340032" create_time="2013-11-12 02:06:07" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="noticer_lists">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="notice_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="remarks" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="read_time" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="noticer_lists" engine="InnoDB" version="10" row_format="Compact" rows="992094" avg_row_length="58" data_length="57753600" max_data_length="0" index_length="156729344" data_free="22020096" create_time="2012-11-30 08:05:14" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="noticer_lists_copy">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="notice_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="remarks" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="read_time" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="noticer_lists_copy" engine="InnoDB" version="10" row_format="Compact" rows="1408551" avg_row_length="60" data_length="85573632" max_data_length="0" index_length="142065664" data_free="5242880" create_time="2012-11-30 03:19:28" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="notices">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="read_status" type="tinyint(1)" null="YES" key="MUL" default="0" extra="" />
+		<field field="notice_type" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticer_lists_count" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticeable_type" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticeable_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="remarks" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="notices" engine="InnoDB" version="10" row_format="Compact" rows="280464" avg_row_length="95" data_length="26755072" max_data_length="0" index_length="54951936" data_free="7340032" create_time="2013-08-09 07:31:09" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="notices_copy">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="read_status" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+		<field field="notice_type" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticer_lists_count" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticeable_type" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticeable_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="remarks" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="notices_copy" engine="InnoDB" version="10" row_format="Compact" rows="159811" avg_row_length="82" data_length="13123584" max_data_length="0" index_length="13664256" data_free="7340032" create_time="2012-11-30 03:17:46" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="outdoor_choices">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="outdoor_choices" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-07-30 06:21:57" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="outdoors">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="outdoors" engine="InnoDB" version="10" row_format="Compact" rows="270" avg_row_length="60" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-07-30 06:13:41" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="pictures">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="picture" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="pictures" engine="InnoDB" version="10" row_format="Compact" rows="1034" avg_row_length="95" data_length="98304" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:54:48" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="post_topic_references">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="post_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="topic_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="post_topic_references" engine="InnoDB" version="10" row_format="Compact" rows="823" avg_row_length="79" data_length="65536" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-17 06:03:59" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="posts">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="text" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="parent_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="group_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="posts" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-17 06:04:01" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="privileges">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="label" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="description" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="locked" type="tinyint(1)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="privileges" engine="InnoDB" version="10" row_format="Compact" rows="4" avg_row_length="4096" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:54:49" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="products">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="label" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="text" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="link" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="share_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="products" engine="InnoDB" version="10" row_format="Compact" rows="135340" avg_row_length="236" data_length="32047104" max_data_length="0" index_length="2637824" data_free="7340032" create_time="2012-08-06 06:17:55" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="promos">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="block" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="content" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="link" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="picture" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="promos" engine="InnoDB" version="10" row_format="Compact" rows="720" avg_row_length="341" data_length="245760" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-23 08:27:41" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="share_comment_syncs">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="cn_share_comment_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="in_share_comment_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="share_comment_syncs" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-03-04 03:48:15" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="share_comments">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="text" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="share_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="share_comments" engine="InnoDB" version="10" row_format="Compact" rows="724420" avg_row_length="77" data_length="56180736" max_data_length="0" index_length="60456960" data_free="4194304" create_time="2014-06-13 03:11:07" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="share_likes">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="share_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="share_likes" engine="InnoDB" version="10" row_format="Compact" rows="1194295" avg_row_length="55" data_length="66682880" max_data_length="0" index_length="106627072" data_free="10485760" create_time="2014-01-08 03:59:13" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="share_syncs">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="cn_share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="in_share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="share_syncs" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-03-04 03:48:15" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="share_tag_references">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="tag_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="share_tag_references" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:55:09" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="share_weights">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="weight" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="share_weights" engine="InnoDB" version="10" row_format="Compact" rows="1878" avg_row_length="69" data_length="131072" max_data_length="0" index_length="0" data_free="0" create_time="2014-03-04 03:46:24" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="shares">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="text" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="likes_weekly" type="int(11)" null="YES" key="MUL" default="0" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="uid" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="snp_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="link" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="link_title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="link_description" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="keywords" type="varchar(255)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="group_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="share_comments_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="category_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="picture" type="varchar(255)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="picture_height" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="picture_width" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="topic_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="MUL" default="1" extra="" />
+		<field field="geolocation" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="place" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="share_likes_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="magazine_shares_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="shop_url" type="tinyint(2)" null="YES" key="" default="0" extra="" />
+		<field field="system_keywords" type="varchar(255)" null="NO" key="" default="" extra="" />
+		<field field="upload_from" type="varchar(50)" null="NO" key="MUL" default="website" extra="" />
+		<field field="weight" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="weight_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="temp_pic_url" type="varchar(255)" null="YES" key="" default="" extra="" />
+		<field field="year_week" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="pageviews" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="pv" type="int(11)" null="NO" key="" default="0" extra="" />
+
+		<options name="shares" engine="InnoDB" version="10" row_format="Compact" rows="794686" avg_row_length="554" data_length="440369152" max_data_length="0" index_length="408174592" data_free="6291456" create_time="2014-07-07 07:00:34" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="shop_urls">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="url" type="varchar(100)" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="shop_urls" engine="InnoDB" version="10" row_format="Compact" rows="46" avg_row_length="356" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-23 08:27:40" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="snap_asia_choices">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="snap_asia_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="snap_asia_choices" engine="InnoDB" version="10" row_format="Compact" rows="8" avg_row_length="2048" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-07-22 03:47:48" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="snap_asias">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="share_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="like_count" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="text" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="rank" type="int(11)" null="YES" key="" default="0" extra="" />
+
+		<options name="snap_asias" engine="InnoDB" version="10" row_format="Compact" rows="862" avg_row_length="190" data_length="163840" max_data_length="0" index_length="0" data_free="0" create_time="2014-07-24 04:57:27" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="stores">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="label" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="description" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="url" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="stores" engine="InnoDB" version="10" row_format="Compact" rows="16" avg_row_length="1024" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:55:12" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="styles">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="meta_keywords" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="meta_description" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="styles" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2013-03-08 08:25:04" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="suggest_followers">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="type" type="varchar(50)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="suggest_followers" engine="InnoDB" version="10" row_format="Compact" rows="55" avg_row_length="297" data_length="16384" max_data_length="0" index_length="16384" data_free="0" create_time="2014-04-15 18:13:35" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="sync_records">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="object" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="object_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="action" type="varchar(256)" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="sync_records" engine="InnoDB" version="10" row_format="Compact" rows="180575" avg_row_length="78" data_length="14172160" max_data_length="0" index_length="0" data_free="4194304" create_time="2014-03-04 03:48:15" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="system_mobile_push_records">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="mobile_device_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="system_mobile_push_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="system_mobile_push_records" engine="InnoDB" version="10" row_format="Compact" rows="165" avg_row_length="99" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-26 07:38:34" update_time="<null>" collation="latin1_swedish_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="system_mobile_pushs">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="device" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="content" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="is_finish" type="int(11)" null="NO" key="" default="0" extra="" />
+		<field field="picture" type="varchar(255)" null="NO" key="" default="" extra="" />
+
+		<options name="system_mobile_pushs" engine="InnoDB" version="10" row_format="Compact" rows="14" avg_row_length="1170" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-26 09:40:40" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="system_notices">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="title" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="content" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="top" type="tinyint(1)" null="YES" key="MUL" default="0" extra="" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="system_notices" engine="InnoDB" version="10" row_format="Compact" rows="7" avg_row_length="2340" data_length="16384" max_data_length="0" index_length="16384" data_free="0" create_time="2012-06-19 09:50:26" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="tag_clicks">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="tag_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="click_num" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="date" type="date" null="YES" key="MUL" default="<null>" extra="" />
+
+		<options name="tag_clicks" engine="InnoDB" version="10" row_format="Compact" rows="856754" avg_row_length="47" data_length="40435712" max_data_length="0" index_length="43089920" data_free="5242880" create_time="2014-07-10 09:01:56" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="tag_references">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="parent_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="child_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="tag_references" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:55:12" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="taggings">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="tag_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="taggable_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="taggable_type" type="varchar(255)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="tagger_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="tagger_type" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="context" type="varchar(128)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="taggings" engine="InnoDB" version="10" row_format="Compact" rows="1179266" avg_row_length="62" data_length="74022912" max_data_length="0" index_length="181272576" data_free="7340032" create_time="2012-08-10 06:25:09" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="tags">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(255)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="for_search" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+
+		<options name="tags" engine="InnoDB" version="10" row_format="Compact" rows="12126" avg_row_length="40" data_length="491520" max_data_length="0" index_length="409600" data_free="0" create_time="2013-03-15 04:18:54" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="tags_mapping">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="category_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="tag_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="top_status" type="tinyint(4)" null="YES" key="" default="1" extra="" />
+		<field field="bottom_status" type="tinyint(4)" null="YES" key="" default="1" extra="" />
+		<field field="sort" type="int(11)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="tags_mapping" engine="MyISAM" version="10" row_format="Fixed" rows="174" avg_row_length="19" data_length="3306" max_data_length="5348024557502463" index_length="10240" data_free="0" create_time="2013-01-03 09:55:27" update_time="2013-01-25 04:10:42" collation="utf8_general_ci" create_options="" comment="標籤分類對照" />
+	</table_structure>
+
+	<table_structure name="temp_pics">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="filename" type="varchar(500)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="temp_pics" engine="InnoDB" version="10" row_format="Compact" rows="8352" avg_row_length="56" data_length="475136" max_data_length="0" index_length="0" data_free="0" create_time="2014-04-28 01:31:25" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="temp_users">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="email" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="password" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="is_enabled" type="int(1)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="uid" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="token" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="temp_users" engine="InnoDB" version="10" row_format="Compact" rows="115" avg_row_length="569" data_length="65536" max_data_length="0" index_length="0" data_free="0" create_time="2014-06-17 01:01:12" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="topics">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="label" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="first_post_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="last_post_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="post_topic_references_count" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="view_counts" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="topics" engine="InnoDB" version="10" row_format="Compact" rows="183" avg_row_length="268" data_length="49152" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:55:18" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="user_references">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="follower_user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="target_user_id" type="int(11)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="user_references" engine="InnoDB" version="10" row_format="Compact" rows="151532" avg_row_length="65" data_length="9977856" max_data_length="0" index_length="8208384" data_free="4194304" create_time="2012-08-06 06:17:49" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="user_stat_shares">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="category_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="count" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+
+		<options name="user_stat_shares" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2012-04-13 03:55:19" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="user_syncs">
+		<field field="id" type="int(11) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="cn_user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="in_user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="user_syncs" engine="InnoDB" version="10" row_format="Compact" rows="0" avg_row_length="0" data_length="16384" max_data_length="0" index_length="0" data_free="0" create_time="2014-03-04 03:48:15" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="users">
+		<field field="id" type="int(11)" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="email" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="sign_in_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="last_sign_in_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="last_sign_in_ip" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="name" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="password" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="salt" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="gender" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="birthday" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="interest" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="job_id" type="int(11)" null="YES" key="" default="81" extra="" />
+		<field field="description" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="keywords" type="varchar(255)" null="NO" key="" default="" extra="" />
+		<field field="avatar" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="banner" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="updated_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+		<field field="status" type="int(11)" null="YES" key="" default="1" extra="" />
+		<field field="admin" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+		<field field="notices_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="magazine_subscriptions_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="shares_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="share_likes_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="share_likeds_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="share_comments_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="share_commenteds_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="idols_counter" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="fans_counter" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="remember_code" type="varchar(40)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_on" type="int(11) unsigned" null="NO" key="" default="<null>" extra="" />
+		<field field="last_login" type="int(11) unsigned" null="YES" key="" default="<null>" extra="" />
+		<field field="magazines_count" type="int(11)" null="YES" key="" default="0" extra="" />
+		<field field="memo" type="text" null="YES" key="" default="<null>" extra="" />
+		<field field="country" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="oauth_from" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="pageviews" type="int(11)" null="NO" key="" default="0" extra="" />
+		<field field="share_sum_pv" type="int(11)" null="NO" key="" default="0" extra="" />
+		<field field="share_average_pv" type="float" null="NO" key="" default="0" extra="" />
+		<field field="uid" type="varchar(255)" null="YES" key="MUL" default="<null>" extra="" />
+		<field field="token" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+
+		<options name="users" engine="InnoDB" version="10" row_format="Compact" rows="36893" avg_row_length="524" data_length="19349504" max_data_length="0" index_length="1589248" data_free="4194304" create_time="2014-07-10 08:58:02" update_time="<null>" collation="utf8_unicode_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="users_groups">
+		<field field="id" type="mediumint(8) unsigned" null="NO" key="PRI" default="<null>" extra="auto_increment" />
+		<field field="user_id" type="mediumint(8) unsigned" null="NO" key="" default="<null>" extra="" />
+		<field field="group_id" type="mediumint(8) unsigned" null="NO" key="" default="<null>" extra="" />
+
+		<options name="users_groups" engine="InnoDB" version="10" row_format="Compact" rows="17144" avg_row_length="30" data_length="524288" max_data_length="0" index_length="0" data_free="0" create_time="2012-11-15 13:44:21" update_time="<null>" collation="utf8_general_ci" create_options="" comment="" />
+	</table_structure>
+
+	<table_structure name="view_notice">
+		<field field="user_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticeable_type" type="varchar(255)" null="YES" key="" default="<null>" extra="" />
+		<field field="noticeable_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="read_status" type="tinyint(1)" null="YES" key="" default="0" extra="" />
+		<field field="noticer_lists_count" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="notice_id" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="notice_type" type="int(11)" null="YES" key="" default="<null>" extra="" />
+		<field field="created_at" type="datetime" null="YES" key="" default="<null>" extra="" />
+
+		<options name="view_notice" engine="<null>" version="<null>" row_format="<null>" rows="<null>" avg_row_length="<null>" data_length="<null>" max_data_length="<null>" index_length="<null>" data_free="<null>" create_time="<null>" update_time="<null>" collation="<null>" create_options="<null>" comment="VIEW" />
+	</table_structure>
+
+</database>
+</mysqldump>

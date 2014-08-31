@@ -16,7 +16,7 @@ class Root_controller extends CI_Controller {
     parent::__construct ();
 
     error_reporting (-1);
-    ini_set('display_errors', 1);
+    ini_set ('display_errors', 1);
 
     $this->load->driver ('cache', array ('adapter' => 'apc', 'backup' => 'file'));
     

@@ -15,6 +15,8 @@
     <?php echo (isset ($topbar) && ($topbar !== '')) ? $topbar:'';?>
 
     <div id='container'>
+      <?php echo render_cell ('frame_cells', 'main_bar'); ?>
+
       <?php echo (isset ($visit_menu) && ($visit_menu !== '')) ? ("<div id='visit_menu'>" . $visit_menu . "</div>"):'';?>
 
       <?php echo (isset ($sidebar) && ($sidebar !== '')) ? $sidebar:'';?>

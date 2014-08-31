@@ -7,7 +7,6 @@
 class Site_controller extends Oa_controller {
   public function __construct () {
     parent::__construct ();
-    $this->load->helper ('facebook');
     $this->load->helper ('identity');
 
     $this->init_component_lists ('meta', 'css', 'javascript', 'hidden', 'footer')
@@ -15,7 +14,7 @@ class Site_controller extends Oa_controller {
          ->set_frame_path ('frame', 'site')
          ->set_content_path ('content', 'site')
          ->set_public_path ('public')
-         ->set_title ('FOODWALL')
+         ->set_title ("OA's CodeIgniter")
 
          ->_add_css ()
          ->_add_javascript ()
@@ -37,6 +36,9 @@ class Site_controller extends Oa_controller {
                 ->add_css (base_url (utilitySameLevelPath (REL_PATH_CSS, 'fancyBox_v2.1.5', 'jquery.fancybox-buttons.css')))
                 ->add_css (base_url (utilitySameLevelPath (REL_PATH_CSS, 'fancyBox_v2.1.5', 'jquery.fancybox-thumbs.css')))
                 ->add_css (base_url (utilitySameLevelPath (REL_PATH_CSS, 'jquery.jgrowl', 'jquery.jgrowl.css')))
+                
+                ->add_css (base_url (utilitySameLevelPath (REL_PATH_CSS, 'prettify', 'prettify.css')))
+                ->add_css (base_url (utilitySameLevelPath (REL_PATH_CSS, 'highlight', 'default.css')))
                 ;
   }
   private function _add_javascript () {
@@ -54,17 +56,16 @@ class Site_controller extends Oa_controller {
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'fancyBox_v2.1.5', 'jquery.fancybox-buttons.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'fancyBox_v2.1.5', 'jquery.fancybox-thumbs.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'fancyBox_v2.1.5', 'jquery.fancybox-media.js')))
-
+                
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'masonry_v3.1.2', 'masonry.pkgd.min.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'jquery.jgrowl', 'jquery.jgrowl.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'imagesloaded_v3.1.8', 'imagesloaded.pkgd.min.js')))
+                
+                ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'prettify', 'prettify.js')))
+                ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'highlight', 'highlight.pack.js')))
                 ;
   }
   private function _add_footer () {
-    return $this->add_footer ('參考網站', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/'),
-                                         array ('name' => 'O SHa\'Re', 'src' => 'http://www.oshare.com.tw/'))
-         ->add_footer ('特別感謝', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/'))
-         ->add_footer ('贊助廠商', array ('name' => 'OA', 'src' => 'https://www.facebook.com/comdan66'))
-         ->add_footer ('其他資源', array ('name' => '相關說明', 'src' => 'ccc'));
+    return $this;
   }
 }
