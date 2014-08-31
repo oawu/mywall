@@ -71,9 +71,9 @@ class Cell {
             $res = $this->CI->cache->file->save ($option['key'], $view, $option['time'], $option['path']);
           }
           return $view;
-        } else showError ("The class: " . $file . " not exist method: " . $method);
-      } else { showError ("The Cell's controllers is not exist or can't read! File: " . $file); }
-    } else { showError ("The class name doesn't have suffix, class name: " . $class . ", suffix: " . config ('cell_config', 'class_suffix')); }
+        } else show_error ("The class: " . $file . " not exist method: " . $method);
+      } else { show_error ("The Cell's controllers is not exist or can't read! File: " . $file); }
+    } else { show_error ("The class name doesn't have suffix, class name: " . $class . ", suffix: " . config ('cell_config', 'class_suffix')); }
   }
 
   public function clear_cell ($class, $method, $key = null) {
@@ -149,7 +149,7 @@ class Cell_Controller {
         $buffer = ob_get_contents ();
         @ob_end_clean ();
         return $buffer;
-      } else { showError ("The Cell's controllers is not exist or can't read! File: " . $_ci_path); }
-    } else { showError ('The debug_backtrace Error!'); }
+      } else { show_error ("The Cell's controllers is not exist or can't read! File: " . $_ci_path); }
+    } else { show_error ('The debug_backtrace Error!'); }
   }
 }

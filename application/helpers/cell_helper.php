@@ -13,7 +13,7 @@ if (!function_exists ('render_cell')) {
       $CI =& get_instance ();
       if (!isset ($CI->cell)) $CI->load->library ('cell');
       return $CI->cell->render_cell ($class, $method, $params);  
-    } else { showError ('The render_cell params error!'); }
+    } else { show_error ('The render_cell params error!'); }
   }
 }
 

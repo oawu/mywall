@@ -60,3 +60,26 @@ li.L8 { background: #ddd }
 li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8, li.L9 {
     list-style-type: decimal !important;
 }
+
+.prettyprint {
+  margin-bottom: 0px !important;
+  text-align: left;
+}
+.prettyprint .filepath {
+  background-color: #eee;
+
+  border-bottom: 1px solid #777;
+  font-size: 12px;
+  text-align: right;
+  font-style: italic;
+  color: #888;
+}
+
+.prettyprint .filepath:before {
+  content: "File Path : ";
+  float: left;
+  color: #555;
+}
+.prettyprint ol.linenums li {
+  border-left: 1px solid #777;
+}
