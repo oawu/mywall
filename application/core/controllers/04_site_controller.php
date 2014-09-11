@@ -61,10 +61,6 @@ class Site_controller extends Oa_controller {
                 ;
   }
   private function _add_footer () {
-    return $this->add_footer ('參考網站', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/'),
-                                         array ('name' => 'O SHa\'Re', 'src' => 'http://www.oshare.com.tw/'))
-         ->add_footer ('特別感謝', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/'))
-         ->add_footer ('贊助廠商', array ('name' => 'OA', 'src' => 'https://www.facebook.com/comdan66'))
-         ->add_footer ('其他資源', array ('name' => '相關說明', 'src' => 'ccc'));
+    return $this;
   }
 }
