@@ -9,6 +9,11 @@ class Main extends Site_controller {
     parent::__construct ();
   }
 
+  public function parallax () {
+    $this->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'parallax_d2014_10_05', 'jquery.parallax.js')));
+    $this->load_view ();
+  }
+
   public function index () {
     $this->add_hidden (array ('id' => 'get_pictures_url', 'value' => base_url (array ($this->get_class (), 'get_pictures'))))
          ->load_view ();
