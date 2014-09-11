@@ -28,4 +28,13 @@ class Tags extends Site_controller {
     else 
       $this->output_json (array ('status' => false));
   }
+
+  public function search () {
+    if (!$this->is_ajax ())
+      show_error ("It's not Ajax request!<br/>Please confirm your program again.");
+    if ($q = $this->input_post ('q'))
+      $this->output_json (array ('status' => true, 'datas' => array_map (function ($tag) { return array ('value' => $tag->name, 'label' => $tag->name, 'desc' => '目前有 ' . $tag->picture_count . '張圖片', 'url' => base_url (array ('tags', $tag->name))); }, PictureTag::find ('all', array ('conditions' => array ('name LIKE "%' . $q . '%"'))))));
+    else
+      $this->output_json (array ('status' => false, 'datas' => array ()));
+  }
 }

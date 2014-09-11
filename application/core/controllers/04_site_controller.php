@@ -22,6 +22,7 @@ class Site_controller extends Oa_controller {
          ->_add_footer ()
          ->add_hidden (array ('id' => '_fb_sign_in_message', 'value' => identity ()->get_session ('_fb_sign_in_message', true)))
          ->add_hidden (array ('id' => '_current_uri', 'value' => url_parse (current_url (), 'path')))
+         ->add_hidden (array ('id' => '_search_url', 'value' => base_url (array ('tags', 'search'))))
          ;
   }
 
