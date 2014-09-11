@@ -39,6 +39,7 @@
 */
 $route['tags/get_pictures(\/?(:any))?'] = "tags/get_pictures/$2";
 $route['tags/index/(:num)'] = "tags/index/$1";
+$route['tags/search'] = "tags/search";
 $route['tags/(:any)'] = "tags/index/$1";
 
 $route['pictures/index/(:num)'] = "pictures/index/$1";

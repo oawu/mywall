@@ -56,14 +56,22 @@ $(function () {
         $tag_category_top.removeClass ('to_top').css ({'position': 'relative', 'margin': tag_category_top_margin, 'width': tag_category_top_width + 2 + 'px', 'left': '50%', 'margin-left': (0 - (containerWidth / 2)) + 'px'}).next ().css ({'margin-top': 0});
       }
     });
-    
   }
 
   $('.post_form-fancybox').fancybox ({
-    beforeLoad: function () {
-      this.title = $(this.element).data ('fancybox_title');
-    },
     padding: 0,
+    type: 'ajax',
+    // width: '600',
+    // height: '450',
+    // minWidth: 600,
+    // minHeight: 450,
+    maxWidth: 600,
+    maxHeight: 450,
+    ajax: {
+      type: 'POST',
+      data: {'current_uri' : $('#_current_uri').val ()},
+      cache: false
+    },
     helpers: {
       overlay: {
         locked: false
@@ -72,20 +80,35 @@ $(function () {
         type: 'over'
       }
     },
-    type: 'ajax',
-    ajax: {
-      type: 'POST',
-      data: {'current_uri' : $('#_current_uri').val ()},
-      cache: false
-    },
     data: {
       current_url: 'sss' 
     },
-    // width: '600',
-    // height: '450',
-    maxWidth: 600,
-    maxHeight: 450,
-    // minWidth: 600,
-    // minHeight: 450,
+    beforeLoad: function () {
+      this.title = $(this.element).data ('fancybox_title');
+    }
   });
+
+  $('#search').autocomplete ({
+    minLength: 1,
+    autoFocus: true,
+    source: function( request, response ) {
+      $.ajax ({
+        url: $('#_search_url').val (),
+        data: { q: request.term },
+        async: true, cache: false, dataType: 'json', type: 'POST',
+        beforeSend: function () {}
+      })
+      .done (function (result) {
+        response( result.datas );
+      })
+      .fail (function (result) { ajaxError (result); })
+      .complete (function (result) { });
+    },
+    focus: function (event, ui) { $('#project').val (ui.item.label); return false; },
+    select: function (event, ui) { window.location.assign (ui.item.url); },
+    open: function () { $(this).removeClass ('ui-corner-all').addClass ('ui-corner-top'); },
+    close: function () { $(this).removeClass ('ui-corner-top').addClass ('ui-corner-all'); }
+  }).data ('ui-autocomplete')._renderItem = function (ul, item) {
+    return $('<li />').addClass ('search_item').append ('<a>' + item.label + '<div class="desc">' + item.desc + '</div></a>').appendTo (ul);
+  };
 })
