@@ -273,3 +273,22 @@ hr {
   background-image: none !important;
   background-color: #fff !important;
 }
+
+#menu {
+  position: relative;
+  margin-top: 10px;
+}
+#menu .item {
+  text-decoration: none;
+  margin: 5px;
+}
+#menu .line {
+  display: inline-block;
+  width: 1px;
+  background-color: rgba(181, 181, 181, 1.00);
+  height: 100%;
+  margin-top: 8px;
+}
+#menu .item.active {
+
+}

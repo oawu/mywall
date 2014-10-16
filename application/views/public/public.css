@@ -9,6 +9,7 @@ html * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+  vertical-align: top;
 }
 
 html, body {
@@ -61,7 +62,7 @@ body:before {
   z-index: 1px;
   background-color: transparent;
   min-height: 500px;
-  width: 1000px;
+  width: 900px;
   border: 0px solid red;
   text-align: center;
 }

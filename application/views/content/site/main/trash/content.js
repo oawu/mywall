@@ -2,7 +2,7 @@ $(function() {
   $('#tags').on ('click', '.delete', function () {
     $(this).parents ('.tag').fadeOut (function () {
       $.ajax ({
-        url: $('#del_tag_url').val (),
+        url: $('#del_trash_url').val (),
         data: { id: $(this).data ('id') },
         async: true, cache: false, dataType: 'json', type: 'POST',
         beforeSend: function () {}
@@ -30,7 +30,7 @@ $(function() {
     $tags = $('#tags');
     if ($tags.data ('next_id') >= 0) {
       $.ajax ({
-        url: $('#get_tags_url').val (),
+        url: $('#get_trashs_url').val (),
         data: { next_id: $tags.data ('next_id') },
         async: true, cache: false, dataType: 'json', type: 'POST',
         beforeSend: function () {

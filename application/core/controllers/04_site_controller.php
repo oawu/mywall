@@ -15,7 +15,7 @@ class Site_controller extends Oa_controller {
          ->set_frame_path ('frame', 'site')
          ->set_content_path ('content', 'site')
          ->set_public_path ('public')
-         ->set_title ('MYWALL')
+         ->set_title ('The iOA')
 
          ->_add_css ()
          ->_add_javascript ()
@@ -63,12 +63,7 @@ class Site_controller extends Oa_controller {
                 ;
   }
   private function _add_footer () {
-    return $this->add_footer ('參考網站', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/'),
-                                         array ('name' => 'O SHa\'Re', 'src' => 'http://www.oshare.com.tw/'),
-                                         array ('name' => 'Dappei', 'src' => 'http://dappei.com/')
-                                         )
-         ->add_footer ('特別感謝', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/'))
-         ->add_footer ('贊助廠商', array ('name' => 'OA', 'src' => 'https://www.facebook.com/comdan66'))
-         ->add_footer ('其他資源', array ('name' => '相關說明', 'src' => base_url ('about', 'info')));
+    return $this->add_footer ('參考網站', array ('name' => 'STYLEWALL', 'src' => 'http://style.fashionguide.com.tw/')
+                                         );
   }
 }
