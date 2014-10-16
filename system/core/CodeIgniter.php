@@ -235,7 +235,7 @@
 
 	require_once BASEPATH.'helpers/file_helper.php';
 
-	if ($controllers = get_filenames (APPPATH.'core/controllers/')) {
+	if (($controllers = get_filenames (APPPATH.'core/controllers/')) && sort ($controllers)) {
 		foreach ($controllers as $controller) {
 			if ((('.' . pathinfo ($controller, PATHINFO_EXTENSION)) == EXT) && file_exists (APPPATH . 'core/controllers/' . $controller)) {
 				require APPPATH . 'core/controllers/' . $controller;
