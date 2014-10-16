@@ -10,12 +10,20 @@
 
   </head>
   <body lang="zh-tw">
-
     <?php echo isset ($hidden) ? $hidden:'';?>
+    <?php echo ''/*isset ($content) && ($content !== '') ? $content : ''*/; ?>
+    <!-- <div data-role="page" id="pageone">
+      <div data-role="header">
+        <h1>在此处写入标题</h1>
+      </div>
 
-    <div id='container'>
-      <?php echo isset ($content) && ($content !== '') ? $content : ''; ?>
-    </div>
-    
+      <div data-role="content">
+        <p>在此处写入正文</p>
+      </div>
+
+      <div data-role="footer">
+        <h1>在此处写入页脚文本</h1>
+      </div>
+    </div>  -->
   </body>
 </html>
