@@ -11,20 +11,22 @@ if ($footer_list) { ?>
     </div>
     <div class='link_groups'>
 <?php
-    foreach ($footer_list as $title => $footers) { ?>
-    <div class='link_group' style='width: <?php echo 980 / count ($footer_list);?>px;'>
-      <div class='links_title'>
-        <?php echo $title; ?>
+    if (false) {
+      foreach ($footer_list as $title => $footers) { ?>
+      <div class='link_group' style='width: <?php echo 980 / count ($footer_list);?>px;'>
+        <div class='links_title'>
+          <?php echo $title; ?>
+        </div>
+        <div class='link_list'>
+    <?php if (count ($footers)) {
+            foreach ($footers as $footer) { ?>
+              <div class='link_tag'><a href='<?php echo $footer['src']; ?>' target='_blank'><?php echo $footer['name']; ?></a></div>
+      <?php }
+          } ?>
+        </div>
       </div>
-      <div class='link_list'>
-  <?php if (count ($footers)) {
-          foreach ($footers as $footer) { ?>
-            <div class='link_tag'><a href='<?php echo $footer['src']; ?>' target='_blank'><?php echo $footer['name']; ?></a></div>
-    <?php }
-        } ?>
-      </div>
-    </div>
-<?php
+  <?php
+    }
     } ?>
     </div>
 

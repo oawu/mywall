@@ -124,14 +124,13 @@ $(function(){
   // $('div.bs-sidebar ul.list-group li.list-group-item.pointer').click (function () { window.location.assign ($(this).data ('url')); }).each (function (i, t) {if (window.location.href.indexOf ($(this).data ('url')) != -1) $(this).addClass ('active'); });
   // $('#nav_bar_myself_picture span').imgLiquid ({verticalAlign: "center"});
 
-  $('.fancybox').fancybox ({ beforeLoad: function() { this.title = $(this.element).data ('fancybox_title'); }, padding : 0, helpers : { overlay: {locked: false}, title : { type : 'over' }, thumbs: {width: 50, height: 50}}});
+  // $('.fancybox').fancybox ({ beforeLoad: function() { this.title = $(this.element).data ('fancybox_title'); }, padding : 0, helpers : { overlay: {locked: false}, title : { type : 'over' }, thumbs: {width: 50, height: 50}}});
   
-  $.jGrowl.defaults.closerTemplate = '<div>關閉所有提示</div>';
+  // $.jGrowl.defaults.closerTemplate = '<div>關閉所有提示</div>';
   
-  $('.jqui_tooltip').tooltip ({ track: true, position: { my: "left+10 top+10"}, show: { effect: 'fade', delay: 150 }, content: function () { return $(this).data ('pic') ? $('<img />').css ({'width': '500px'}).attr ('src', $(this).attr ('title')) : $(this).attr ('title'); } });
+  // $('.jqui_tooltip').tooltip ({ track: true, position: { my: "left+10 top+10"}, show: { effect: 'fade', delay: 150 }, content: function () { return $(this).data ('pic') ? $('<img />').css ({'width': '500px'}).attr ('src', $(this).attr ('title')) : $(this).attr ('title'); } });
   // $('.fancybox').fancybox ({ padding : 0, helpers : { overlay: {locked: false}, title : { type : 'over' }}});
-  if ($('#_fb_sign_in_message').length && ($('#_fb_sign_in_message').val () != '') && $('#_fb_sign_in_message').val ().length) $.jGrowl ($('#_fb_sign_in_message').val (), {theme: 'j_growl', easing: "easeInExpo"});
+  // if ($('#_fb_sign_in_message').length && ($('#_fb_sign_in_message').val () != '') && $('#_fb_sign_in_message').val ().length) $.jGrowl ($('#_fb_sign_in_message').val (), {theme: 'j_growl', easing: "easeInExpo"});
 
   $('.timeago').timeago ();
-  
 });

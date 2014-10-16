@@ -57,7 +57,7 @@ $route['users/get_actives'] = "users/get_actives";
 $route['users/(:any)/pictures'] = "users/pictures/$1";
 $route['users/(:any)'] = "users/index/$1";
 
-$route['default_controller'] = "main";
+$route['default_controller'] = "mobile";
 $route['admin'] = "admin/main";
 $route['404_override'] = '';
 
