@@ -10,9 +10,12 @@ class Mobile extends Mobile_controller {
   }
 
   public function index () {
-    $this->add_css (base_url (utilitySameLevelPath (REL_PATH_CSS, 'jquery.mobile.custom_v1.4.4', 'jquery.mobile.custom.structure.css')))
+    $this//->add_css ('http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css')
          // ->add_css (base_url (utilitySameLevelPath (REL_PATH_CSS, 'jquery.mobile.custom_v1.4.4', 'jquery.mobile.custom.theme.css')))
-         ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'jquery.mobile.custom_v1.4.4', 'jquery.mobile.custom.min.js')))
+         // ->add_javascript ('http://demos.jquerymobile.com/1.4.4/_assets/js/index.js')
+         // ->add_javascript ('http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js')
+         // ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'headroom_v0.7.0', 'headroom.min.js')))
+         // ->add_javascript ('https://raw.githubusercontent.com/WickyNilliams/headroom.js/v0.7.0/dist/headroom.min.js')
          ->load_view ();
   }
 }

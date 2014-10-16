@@ -18,7 +18,7 @@ html, body {
 body{
   position: relative;
   overflow-y: visible;
-  margin: 0px;
+  margin: 0;
 
   font: 15px/20px normal Helvetica, Arial, sans-serif;
   color: #000;
@@ -35,9 +35,9 @@ body:before {
   width: 100%;
   height: 10px;
   z-index: 100;
-  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
-     -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
-          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+     -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 }
 
 ::selection {
@@ -57,21 +57,21 @@ body:before {
 
 #container {
   position: relative;
-  margin: 0px auto;
+  margin: 0 auto;
   z-index: 1px;
   background-color: transparent;
   min-height: 500px;
   width: 1000px;
-  border: 0px solid red;
+  border: 0 solid red;
   text-align: center;
 }
 
 .row {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin-right: 0;
+  margin-left: 0;
 }
 .row div[class*="col-md-"] {
-  padding: 0px;
+  padding: 0;
   overflow: hidden;
   text-overflow : ellipsis;
   height: 100%;
@@ -91,7 +91,15 @@ body:before {
 .btn:focus {
     outline: 0;
 }
-
+.clearfix {
+    *zoom: 1;
+}
+.clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+    clear: both;
+}
 div.ui-tooltip {
   border-radius: 2px;
   font-size: 13px;
@@ -112,20 +120,20 @@ div.jGrowl div.j_growl {
   padding: 10px;
   font-size: 16px;
 
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
-     -moz-box-shadow: 0px 0px 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 0 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
   z-index: 9999;
 }
 div.jGrowl div.j_growl + .jGrowl-closer {
   width: 250px !important;
   border: 1px solid #edeff4 !important;
   background: rgba(75, 75, 75, 1.00) !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
   font-size: 16px;
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
-     -moz-box-shadow: 0px 0px 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 0 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 2px rgba(75, 75, 75, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
 
 }
 div.jGrowl div.j_growl + .jGrowl-closer:hover {
@@ -150,34 +158,34 @@ div.jGrowl div.j_warning {
   color: rgba(145, 0, 0, 1.00) !important;
   font-weight: bolder;
 
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
-     -moz-box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 0 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
 
 
-  -webkit-text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
-     -moz-text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
-          text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+  -webkit-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+     -moz-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+          text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   z-index: 9999;
 }
 div.jGrowl div.j_warning + .jGrowl-closer {
   width: 250px !important;
   border: 1px solid #edeff4 !important;
   background: rgba(75, 75, 75, 1.00) !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
   background: rgba(255, 100, 100, 1.00) !important;
   color: rgba(145, 0, 0, 1.00) !important;
   font-weight: bolder;
   font-size: 16px;
 
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
-     -moz-box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 0px 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 0 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px 2px rgba(255, 100, 100, 0.50), inset 1px 1px 2px rgba(255, 255, 255, 0.5), inset -1px -1px 2px rgba(0, 0, 0, 0.3);
 
 
-  -webkit-text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
-     -moz-text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
-          text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+  -webkit-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+     -moz-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+          text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   
 }
 div.jGrowl div.j_warning + .jGrowl-closer:hover {
@@ -197,7 +205,7 @@ div.jGrowl div.j_warning + .jGrowl.center {
 /*  border-top-right-radius: 5px !important;
   border-top-left-radius: 5px !important;*/
   border-radius: 4px !important;
-  padding: 0px;
+  padding: 0;
   background-color: #566fa3;
   color: #fff;
 }
@@ -225,13 +233,13 @@ div.jGrowl div.j_warning + .jGrowl.center {
 }
 
 .popover-content {
-  padding: 0px;
+  padding: 0;
   font-size: 10px;
   color: #000;
   text-align: center;
   padding: 2px 4px;
-  margin: 0px;
-  border: 0px;
+  margin: 0;
+  border: 0;
   color: #fff;
 }
 
@@ -271,8 +279,8 @@ div.jGrowl div.j_warning + .jGrowl.center {
   z-index: 99999 !important;
 }
 .navbar {
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   margin-left: auto;
   margin-right: auto;
 
@@ -283,13 +291,13 @@ div.jGrowl div.j_warning + .jGrowl.center {
   border-color: #566fa3;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-top: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 0;
 
-  -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.175), inset 0px 0px 50px rgba(0, 0, 0, 0.175);
-     -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.175), inset 0px 0px 50px rgba(0, 0, 0, 0.175);
-          box-shadow: 0 2px 6px rgba(0,0,0,0.275), inset 0px 0px 50px rgba(0, 0, 0, 0.075);
+  -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.175), inset 0 0 50px rgba(0, 0, 0, 0.175);
+     -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.175), inset 0 0 50px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 2px 6px rgba(0,0,0,0.275), inset 0 0 50px rgba(0, 0, 0, 0.075);
 }
 
 .bs-content {
@@ -297,8 +305,8 @@ div.jGrowl div.j_warning + .jGrowl.center {
   width: 1090px;
   overflow: hidden;
   display: inline-block;
-  padding: 0px;
-  margin: 0px 0px 0px 10px;
+  padding: 0;
+  margin: 0 0 0 10px;
   background-color: transparent;
   border: 1px solid transparent;
   padding: 3px;
@@ -323,9 +331,9 @@ div.jGrowl div.j_warning + .jGrowl.center {
 
   border-color: rgba(86, 111, 163, 1.0000);
   background: rgba(129, 148, 191, 1.0000);
-  -webkit-box-shadow: 0 0px 10px rgba(0,0,0,0.175), inset 0px 0px 2px rgba(0, 0, 0, 0.175);
-     -moz-box-shadow: 0 0px 10px rgba(0,0,0,0.175), inset 0px 0px 2px rgba(0, 0, 0, 0.175);
-          box-shadow: 0 0px 10px rgba(0,0,0,0.175), inset 0px 0px 2px rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.175), inset 0 0 2px rgba(0, 0, 0, 0.175);
+     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.175), inset 0 0 2px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 0 10px rgba(0,0,0,0.175), inset 0 0 2px rgba(0, 0, 0, 0.175);
 }
 
 .ui-slider-handle.ui-state-default.ui-state-hover {
@@ -338,15 +346,15 @@ div.jGrowl div.j_warning + .jGrowl.center {
   cursor: url(./css_images/closedhand.cur) 8 8, move;
   border-color: rgba(66, 91, 143, 1.0000);
   background: rgba(109, 128, 171, 1.0000);
-  -webkit-box-shadow: 0 0px 10px rgba(0,0,0,0.2), inset 0px 0px 2px rgba(0, 0, 0, 0.2);
-     -moz-box-shadow: 0 0px 10px rgba(0,0,0,0.2), inset 0px 0px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0px 10px rgba(0,0,0,0.2), inset 0px 0px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2), inset 0 0 2px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.2), inset 0 0 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(0,0,0,0.2), inset 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-group {
-  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 .btn-group label {

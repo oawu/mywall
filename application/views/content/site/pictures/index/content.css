@@ -15,15 +15,15 @@
   overflow: hidden;
   border: 1px solid rgba(175, 175, 175, 1.00);
   background-color: rgba(255, 255, 255, 1.00);
-  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
-     -moz-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
-          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.1), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
+     -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
+          box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
 }
 #be_comment {
   margin: 3px;
   position: relative;
   text-align: center;
-  padding: 20px 0px !important;
+  padding: 20px 0 !important;
 } 
 #be_comment a {
   width: 150px;
@@ -39,14 +39,14 @@
 }
 .to_comment_area {
   border: 1px solid rgba(200, 201, 204, 1.00);
-  border-radius: 0px 20px 3px 20px;
+  border-radius: 0 20px 3px 20px;
 
-  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
-     -moz-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
-          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
+     -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
+          box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
 }
 .text_area {
-  border-radius: 0px 20px 0px 0px;
+  border-radius: 0 20px 0 0;
   background-color: #fff;
   overflow: hidden;
 }
@@ -60,14 +60,14 @@
 
   outline: none;
   resize: none;
-  border: 0px;
+  border: 0;
   padding: 10px;
   height: 40px;
   min-height: 40px;
   width: 100%;
   vertical-align: top;
   font-size: 16px;
-  margin: 0px;
+  margin: 0;
   padding-left: 30px;
 }
 .to_comment_bottom {
@@ -78,7 +78,7 @@
   vertical-align: top;
   overflow: hidden;
   padding: 8px 10px;
-  border-radius: 0px 0px 3px 20px;
+  border-radius: 0 0 3px 20px;
   text-align: right;
 }
 .submit_comment {
@@ -98,16 +98,16 @@
   width: 610px;
   margin: 5px;
   margin-top: 18px;
-  border-radius: 0px 25px 3px 25px;
+  border-radius: 0 25px 3px 25px;
   overflow: hidden;
   text-align: right;
 
   border: 1px solid rgba(210, 210, 210, 1.00);
   background-color: rgba(255, 255, 255, 1.00);
 
-  -webkit-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
-     -moz-box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
-          box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
+     -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
+          box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.175);
 }
 .delete_comment {
   display: inline-block;
@@ -119,9 +119,9 @@
   border-radius: 50px;
   padding: 2px 8px !important;
   overflow: hidden;
-  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.3);
-     -moz-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.3);
-          box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+     -moz-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+          box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 .comment_user_info {
   display: inline-block;
@@ -157,20 +157,20 @@
   background: #fff url(data:image/gif;base64,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) no-repeat center center;
 
   border: 1px solid rgba(235, 235, 235, 1.00);
-  -webkit-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.4);
-     -moz-box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.4);
-          box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+     -moz-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3), inset 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 .other_comments_user_avatar:hover {
-  -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.3);
-     -moz-box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3), inset 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 .comment_area {
   vertical-align: top;
   text-align: left;
   padding: 5px 10px 10px 10px;
-  border-radius: 0px 0px 3px 10px;
+  border-radius: 0 0 3px 10px;
 
   overflow: hidden;
 }
@@ -181,7 +181,7 @@
   font-size: 13px;
 }
 #main_img {
-  border-radius: 2px 2px 0px 0px;
+  border-radius: 2px 2px 0 0;
   margin: auto;
   height: 100px;
   overflow: hidden;
@@ -227,14 +227,14 @@
   border-radius: 50%;
   border: 2px solid rgba(235, 235, 235, 1.00);
   background-color: #fff;
-  -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-     -moz-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-          box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+     -moz-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 #main_user_avatar:hover {
-  -webkit-box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-     -moz-box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
-          box-shadow: 0px 0px 9px 5px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 9px 5px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+     -moz-box-shadow: 0 0 9px 5px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 9px 5px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
 }
 #main_text {
   vertical-align: top;
@@ -265,15 +265,15 @@
   font-size: 14px;
   line-height: 14px;
   vertical-align: top;
-  padding: 0px;
-  margin: 2px 0px;
+  padding: 0;
+  margin: 2px 0;
   color: rgba(36, 63, 141, 1.0000);
 }
 .main_tags span.tag {
   cursor: pointer;
   color: rgba(66, 93, 171, 1.0000);
-  padding: 0px 2px;
-  margin: 2px 0px;
+  padding: 0 2px;
+  margin: 2px 0;
 }
 .main_tags span.tag a {
   color: rgba(66, 93, 171, 1.0000);
@@ -304,9 +304,9 @@
   border-radius: 50px;
   padding: 2px 8px !important;
   overflow: hidden;
-  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.3);
-     -moz-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.3);
-          box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+     -moz-box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+          box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 #right_area {
   width: 100%;
@@ -323,15 +323,15 @@
 
   border: 1px solid rgba(190, 190, 190, 1.00);
   background-color: rgba(255, 255, 255, 1.00);
-  -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.075);
-     -moz-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.075);
-          box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.05), 0px 2px 1px 0px rgba(0, 0, 0, 0.075);
+  -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.075);
+          box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.05), 0 2px 1px 0 rgba(0, 0, 0, 0.075);
 
   min-height: 100px;
   vertical-align: top;
 }
 .star_area {
-  min-height: 0px;
+  min-height: 0;
   background-color: rgba(255, 255, 255, 1.00);
   min-height: 40px;
   height: 40px;
@@ -367,9 +367,9 @@
   margin: auto 3px;
   cursor: pointer;
   color: rgba(249, 183, 0, 1.0000);
-  -webkit-text-shadow: 0px 0px 8px rgba(83, 90, 128, 0.175);
-     -moz-text-shadow: 0px 0px 8px rgba(83, 90, 128, 0.175);
-          text-shadow: 0px 0px 8px rgba(83, 90, 128, 0.175);
+  -webkit-text-shadow: 0 0 8px rgba(83, 90, 128, 0.175);
+     -moz-text-shadow: 0 0 8px rgba(83, 90, 128, 0.175);
+          text-shadow: 0 0 8px rgba(83, 90, 128, 0.175);
 
 }
 .star_details {
@@ -454,7 +454,7 @@
   display: inline-block;
   width: 100px;
   height: 13px;
-  border-radius: 0px 2px 2px 0px;
+  border-radius: 0 2px 2px 0;
   background-color: #9197a3;
 }
 .score_value {
@@ -501,7 +501,7 @@
 
 
 .picture_panel {
-  padding: 0px 5px;
+  padding: 0 5px;
 }
 
 .picture_list {
@@ -513,7 +513,7 @@
   overflow: none;
   text-align: left;
   padding: 2px;
-  font-size: 0px;
+  font-size: 0;
  
 }
 .picture {
@@ -556,8 +556,8 @@
 }
 .title {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
+  bottom: 0;
+  left: 0;
   background-color: red;
   font-size: 14px;
   font-weight: bold;

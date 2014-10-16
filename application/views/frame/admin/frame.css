@@ -1,7 +1,7 @@
 
 #container {
   position: relative;
-  margin: 0px auto;
+  margin: 0 auto;
   z-index: 1px;
   background-color: transparent;
   min-height: 500px;
@@ -12,7 +12,7 @@
 
 #container_table {
   position: relative;
-  margin: 0px auto;
+  margin: 0 auto;
   z-index: 1px;
   /*border: 1px solid red;*/
   width: 100%;
@@ -35,10 +35,10 @@
   word-break: break-all;
 }
 .row {
-  margin: 0px;
+  margin: 0;
 }
 .row div[class*="col-md-"] {
-  padding: 0px;
+  padding: 0;
 }
 
 .bs-sidebar {
@@ -51,9 +51,9 @@
   overflow: hidden;
   border-radius: 4px;
   background: transparent;
-  -webkit-box-shadow: 0px 3px 10px rgba(0,0,0,0.100);
-     -moz-box-shadow: 0px 3px 10px rgba(0,0,0,0.100);
-          box-shadow: 0px 3px 10px rgba(0,0,0,0.100); 
+  -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.100);
+     -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.100);
+          box-shadow: 0 3px 10px rgba(0,0,0,0.100); 
 }
 .bs-sidebar .list-group .list-group-item {
   border-color: rgba(150, 156, 179, 1.0000);
@@ -80,9 +80,9 @@
 .bs-sidebar .list-group .list-group-item:not(.title).active {
   font-weight: bold;
 
-  -webkit-text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
-     -moz-text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
-          text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
+  -webkit-text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+     -moz-text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+          text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
   
   color: #fff;
   background-color: rgba(134, 140, 180, 1.0000);
@@ -126,11 +126,11 @@ div.ui-tooltip hr {
   text-align: right;
 }
 .pagination {
-  margin: 0px auto;
+  margin: 0 auto;
   vertical-align: top;
-  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 .pagination > li > a, .pagination > li > span {
   padding-top: 2px;
@@ -143,9 +143,9 @@ div.ui-tooltip hr {
 }
 .pagination > li.active > a, .pagination > li.active > span {
   color: #fff;
-  -webkit-text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
-     -moz-text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
-          text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+  -webkit-text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+     -moz-text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+          text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   border: 1px solid #566fa3;  
   background-color: rgba(134, 140, 180, 1.0000);
   -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.225);
@@ -163,9 +163,9 @@ div.ui-tooltip hr {
 }
 
 .btn-group {
-  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -179,9 +179,9 @@ div.ui-tooltip hr {
 .btn-group .btn-info.active {
   color: #fff;
 
-  -webkit-text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
-     -moz-text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
-          text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+  -webkit-text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+     -moz-text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+          text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 
   font-weight: bold;
   border: 1px solid #566fa3;
@@ -219,9 +219,9 @@ table.list {
   margin: 10px auto;
   position: relative;
 
-  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 table.list:before, table.list:after {
@@ -288,8 +288,8 @@ table.list tbody tr td img:hover {
 }
 table.list tbody tr td .keyword {
   display: inline;
-  padding: 0px;
-  margin: 2px 0px;
+  padding: 0;
+  margin: 2px 0;
   color: rgba(36, 63, 141, 1.0000);
   background-color: rgba(202, 210, 224, 1.0000);
   border: 1px solid rgba(123, 144, 183, 1.000);
@@ -324,9 +324,9 @@ table.list tbody tr td [class*="icon-"]:hover {
   font-weight: normal;
   vertical-align: top;
   position: relative;
-  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
 }
 
 #search_form table.search_list:before, #search_form table.search_list:after {
@@ -603,25 +603,25 @@ table.list tbody tr td [class*="icon-"]:hover {
 div.jGrowl div.j_growl {
   width: 200px !important;
   text-align: center;
-  border-radius: 0px;
+  border-radius: 0;
   border: 1px solid #edeff4 !important;
   background: rgba(86, 110, 167, 0.8500) !important;
   color: #fff;
   padding: 10px;
   font-size: 16px;
 
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
-     -moz-box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 0 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
 }
 .jGrowl-closer {
   width: 200px !important;
   border: 1px solid #edeff4 !important;
   background: rgba(66, 90, 147, 1) !important;
   font-size: 16px;
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
-     -moz-box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 0px 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0 0 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 2px rgba(86, 110, 167, 0.8500), inset 0 0 50px rgba(0, 0, 0, 0.1);
 
 }
 .jGrowl-closer:hover {
@@ -638,15 +638,15 @@ div.jGrowl div.j_growl {
   padding: 3px;
 }
 #sortable .item:hover {
-  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.175), inset 0px 0px 40px rgba(0, 0, 0, 0.050);
-     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.175), inset 0px 0px 40px rgba(0, 0, 0, 0.050);
-          box-shadow: 2px 2px 5px rgba(0,0,0,0.175), inset 0px 0px 40px rgba(0, 0, 0, 0.050);
+  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.175), inset 0 0 40px rgba(0, 0, 0, 0.050);
+     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.175), inset 0 0 40px rgba(0, 0, 0, 0.050);
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.175), inset 0 0 40px rgba(0, 0, 0, 0.050);
 }
 #sortable .item.ui-sortable-helper {
   cursor: url(./closedhand.cur) 8 8, move;
-  -webkit-box-shadow: 2px 2px 20px rgba(0,0,0,0.175), inset 0px 0px 20px rgba(0, 0, 0, 0.050);
-     -moz-box-shadow: 2px 2px 20px rgba(0,0,0,0.175), inset 0px 0px 20px rgba(0, 0, 0, 0.050);
-          box-shadow: 2px 2px 20px rgba(0,0,0,0.175), inset 0px 0px 20px rgba(0, 0, 0, 0.050);
+  -webkit-box-shadow: 2px 2px 20px rgba(0,0,0,0.175), inset 0 0 20px rgba(0, 0, 0, 0.050);
+     -moz-box-shadow: 2px 2px 20px rgba(0,0,0,0.175), inset 0 0 20px rgba(0, 0, 0, 0.050);
+          box-shadow: 2px 2px 20px rgba(0,0,0,0.175), inset 0 0 20px rgba(0, 0, 0, 0.050);
 }
 
 #sortable .item .handle, #sortable .item .handle span[class*="icon-"] {
