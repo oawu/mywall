@@ -15,3 +15,5 @@ application/config/database.php
 
 upload/*
 !upload/index.html
+
+compass/.sass-cache/*
