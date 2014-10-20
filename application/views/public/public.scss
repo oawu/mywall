@@ -1,0 +1,45 @@
+@import "_oa";
+
+@include font-face("Blooming Grove", font-files("/resource/font/bloominggrove/bgrove.ttf", "http://style.ioa.tw/resource/font/bloominggrove/bgrove.otf"));
+@include font-face("Monaco", font-files("/resource/font/monaco/monaco.ttf"));
+
+* {
+  vertical-align: top;
+  @include selection(rgba(150, 180, 230, 1.0000), rgba(237, 239, 244, 1.0000));
+
+  &, &:after, &:before {
+    @include box-sizing(border-box);
+  }
+}
+
+html {
+  * {
+    @include font-smoothing(antialiased);
+  }
+  
+  body {
+    margin: 0;
+    height: 100%;
+    position: relative;
+    overflow-y: visible;
+    font: 15px/20px normal Helvetica, Arial, sans-serif;
+
+    color: #000;
+    background-color: rgba(233, 234, 237, 1.00);
+    font-family: "微軟正黑體", Monaco, "Blooming Grove", "lucida grande", tahoma, verdana, arial, sans-serif;
+
+    @include font-smoothing(antialiased);
+    @include box-shadow(none);
+
+    &:before {
+      content: "";
+      position: fixed;
+      top: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      z-index: 100;
+      @include box-shadow(0 0 5px rgba(0, 0, 0, 0.8));
+    }
+  }
+}

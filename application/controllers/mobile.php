@@ -10,6 +10,9 @@ class Mobile extends Mobile_controller {
   }
 
   public function index () {
+    // echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" /><pre>';
+    // var_dump (base_url (utilitySameLevelPath (REL_PATH_FONT, 'bloominggrove', 'bgrove.ttf')));
+    // exit ();
     $this//->add_css ('http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css')
          // ->add_css (base_url (utilitySameLevelPath (REL_PATH_CSS, 'jquery.mobile.custom_v1.4.4', 'jquery.mobile.custom.theme.css')))
          // ->add_javascript ('http://demos.jquerymobile.com/1.4.4/_assets/js/index.js')
