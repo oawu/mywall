@@ -1,0 +1,179 @@
+/* line 16, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures {
+  padding: 0;
+  margin: 0 auto;
+}
+/* line 20, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column {
+  display: inline-block;
+  overflow: visible;
+}
+/* line 24, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column.size-1of1 {
+  width: 100%;
+}
+/* line 25, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column.size-1of2 {
+  width: 50%;
+}
+/* line 26, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column.size-1of3 {
+  width: 33.3333%;
+}
+/* line 27, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column.size-1of4 {
+  width: 25%;
+}
+/* line 29, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture {
+  position: relative;
+  display: inline-block;
+  border: 1px solid red;
+  width: 320px;
+  margin: 10px 10px 10px 10px;
+  padding: 0;
+  background-color: #fff;
+  overflow: hidden;
+  border: 1px solid #cdcdcd;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.175);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.175);
+}
+/* line 44, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+  border-bottom: 1px solid #cdcdcd;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -moz-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.175);
+}
+/* line 58, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .user {
+  position: relative;
+  display: block;
+  height: 24px;
+  line-height: 24px;
+}
+/* line 64, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .user .avatar {
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border: 2px solid #ebebeb;
+  background-color: #fff;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+/* line 79, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .user .info, html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .user .timeago {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 83, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .user .name {
+  width: 130px;
+  display: inline-block;
+  margin-left: 60px;
+  height: 100%;
+  float: left;
+}
+/* line 91, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .user .timeago {
+  text-align: right;
+  width: 80px;
+  display: inline-block;
+  height: 100%;
+  float: right;
+  margin-right: 5px;
+  font-size: 10px;
+  color: #555;
+}
+/* line 103, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .content {
+  padding: 10px 10px;
+}
+/* line 107, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info {
+  margin: 0 10px;
+  padding: 5px;
+  border-top: 1px solid #c9c9c9;
+}
+/* line 112, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .tags, html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .stars {
+  font-size: 10px;
+}
+/* line 116, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .tags {
+  float: left;
+  width: 68%;
+}
+/* line 121, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .stars {
+  width: 32%;
+  float: right;
+  text-align: right;
+}
+/* line 126, content.scss */
+html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .stars span[class*="icon-"] {
+  color: #efad00;
+  text-shadow: 0 0 8px rgba(83, 90, 128, 0.175);
+}
+@media screen and (min-width: 345px) and (max-width: 684px) {
+  /* line 138, content.scss */
+  html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns] {
+    width: 340px;
+  }
+  /* line 140, content.scss */
+  html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns]::before {
+    content: "1 .column.size-1of1";
+  }
+}
+@media screen and (min-width: 685px) and (max-width: 1024px) {
+  /* line 138, content.scss */
+  html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns] {
+    width: 680px;
+  }
+  /* line 140, content.scss */
+  html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns]::before {
+    content: "2 .column.size-1of2";
+  }
+}
+@media screen and (min-width: 1025px) and (max-width: 1364px) {
+  /* line 138, content.scss */
+  html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns] {
+    width: 1020px;
+  }
+  /* line 140, content.scss */
+  html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns]::before {
+    content: "3 .column.size-1of3";
+  }
+}
+@media screen and (min-width: 1365px) and (max-width: 1704px) {
+  /* line 138, content.scss */
+  html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns] {
+    width: 1360px;
+  }
+  /* line 140, content.scss */
+  html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns]::before {
+    content: "4 .column.size-1of4";
+  }
+}

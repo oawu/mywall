@@ -1,28 +1,16 @@
 $.mobile.loading ('show', { theme: 'loading' });
 
 $(function () {
-    $("#main_page .ui-panel-wrapper").on("swiperight",function(){
-      $('#left_panel').panel ('open');
-    });
-    $('#main_page').css({'min-height': $(window).height()});
+  $.mobile.loading ('hide');
+  $('#main_page').css ({'min-height': $(window).height ()});
+  
+  $('#main_page .ui-panel-wrapper').on ('swiperight', function () {
+    $('#left_panel').panel ('open');
+  });
 
   $('.avatar, .imgLiquid').imgLiquid ({verticalAlign: "center"});
 
-  $(window).scroll (function () {
-    // $('.title').text (
-    //   "document:" + $(document).height() + ", " +
-    //   "window: "+ $(window).height () + ", " +
-    //   "scrollTop: " + $(window).scrollTop ());
-    
-    if (!$('.ui-panel-dismiss-open').length && (($(document).height() - $(window).height () - $(window).scrollTop ()) < 100)) {
-      // autoload
-      // alert ();/
-    }
-  }).scroll ();
-  $.mobile.loading ('hide');
 
-
-salvattore['init']();
 
   // window.ss.init ();
 // console.info (window.salvattore);

@@ -7,21 +7,22 @@ html {
         height: 100%;
         @include box-shadow(inset -1px 0 10px rgba(0, 0, 0, 0.3));
 
-        background: rgba(88, 87, 82, 1.00);
         padding-top: 10px;
+        background: rgba(88, 87, 82, 1.00) url(data:image/png;base64,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);
 
         .ui-panel-inner {
           padding: 0;  
           height: 100%;
 
           .user {
-            height: 50px;
+            height: 55px;
             padding: 0;
             padding: 2px;
 
             .avatar {
               float: left;
               margin-top: 2px;
+              margin-left: 5px;
               display: inline-block;
               width: 40px;
               height: 40px;
@@ -36,7 +37,7 @@ html {
               float: left;
 
               display: inline-block;
-              width: 200px;
+              width: 195px;
               margin-left: 10px;
               vertical-align: middle;
               font-size: 18px;
@@ -92,12 +93,14 @@ html {
               }
             }
             .active {
-              background-color: rgba(68, 67, 62, 1.00);
-              border: 1px solid rgba(255, 255, 255, 0.2);
+              background-color: rgba(28, 27, 22, 0.1);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+              border-left: 1px solid rgba(255, 255, 255, 0.15);
 
-              @include text-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
               @include border-radius(3px);
-              @include box-shadow(inset 1px 1px 5px rgba(0, 0, 0, 0.3));
+              @include text-shadow(1px 1px 4px rgba(0, 0, 0, 0.5));
+              @include box-shadow(inset 1px 1px 5px rgba(0, 0, 0, 0.4));
 
               a {
                 color: rgba(218, 220, 224, 1.00);
@@ -141,7 +144,7 @@ html {
               left: 15px;
 
               overflow: hidden;
-              border: 2px solid rgba(235, 235, 235, 1.00);
+              border: 3px solid rgba(235, 235, 235, 1.00);
               background-color: #fff;
 
               -webkit-animation: shining 2s infinite ease-in-out;
@@ -159,77 +162,15 @@ html {
         }
       }
       .ui-panel-wrapper {
+        background-color: rgba(233, 234, 237, 1);
         #main_content {
           padding: 0;
-          margin-top: 20px;
-
-
-          $gridsWidth: 320px;
-
-          $gridsMarginLeft: 5px;
-          $gridsMarginRight: 5px;
-          $gridsMarginTop: 5px;
-          $gridsMarginBottom: 5px;
-
-          $maxColumns: 4;
-          $activeWidth: 10px;
-          #pictures {
-            background-color: pink;
-            padding: 0;
-            .column {
-              display: inline-block;
-              &.size-1of1 { width: 100%; }
-              &.size-1of2 { width: 50%; }
-              &.size-1of3 { width: 33.3333%; }
-              &.size-1of4 { width: 25%; }
-            }
-
-            .picture {
-              display: inline-block;
-              border: 1px solid red;
-              width: $gridsWidth;
-              margin: $gridsMarginTop $gridsMarginRight $gridsMarginBottom $gridsMarginLeft;
-              padding: 10px;
-              // margin: 0 auto 20px auto;
-              // position: relative;
-              // width: 240px;
-
-              // background-color: rgba(255, 255, 255, 1.00);
-              // overflow: hidden;
-
-              // border: 1px solid rgba(175, 175, 175, 1.00);
-
-              // @include border-radius(3px);
-              // @include box-shadow(0 0 3px 5px rgba(0, 0, 0, 0.1), 0 2px 1px 0 rgba(0, 0, 0, 0.175));
-            }
-          }
-
-          @for $i from 1 through $maxColumns {
-            @media screen and (min-width: $i * ($gridsWidth + $gridsMarginLeft + $gridsMarginRight) + $activeWidth) and (max-width: ($i + 1) * ($gridsWidth + $gridsMarginLeft + $gridsMarginRight) - 1 + $activeWidth) {
-              #pictures[data-columns] {
-                width: ($gridsWidth + $gridsMarginLeft + $gridsMarginRight) * $i;
-                &::before {
-                  content: $i + ' .column.size-1of' + $i;
-                }
-              }
-            }
-          }
-          // $maxColumns: 4;
-          // $gridsWidth: 340px;
-          // @for $i from 1 through $maxColumns {
-          //     @media only screen and (min-width : $gridsWidth * $i) {
-          //         #pictures {
-          //             width: ($gridsWidth + 1) * $i;
-          //         }
-
-          //     }
-          // }
+          margin-top: 10px;
         }
       }
     }
   }
 }
-
 
 .ui-body-loading {
   .ui-icon-loading {
@@ -237,26 +178,12 @@ html {
   }
 }
 
-
-
-// #pictures {
-//         width: 800px;
-//         padding: 0;
-//     }
-// #pictures[data-columns]::before {
-//     content: '2 .column.size-1of2';
-// }
-
 @include keyframes(shining) {
-    0% { @include box-shadow(0 0 5px 3px rgba(0, 0, 0, 0.0), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   10% { @include box-shadow(0 0 5px 3px rgba(0, 0, 0, 0.1), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   20% { @include box-shadow(0 0 5px 3px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   30% { @include box-shadow(0 0 5px 3px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   40% { @include box-shadow(0 0 5px 4px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   50% { @include box-shadow(0 0 6px 4px rgba(0, 0, 0, 0.5), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   60% { @include box-shadow(0 0 5px 4px rgba(0, 0, 0, 0.4), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   70% { @include box-shadow(0 0 5px 3px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   80% { @include box-shadow(0 0 5px 3px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-   90% { @include box-shadow(0 0 5px 3px rgba(0, 0, 0, 0.1), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
-  100% { @include box-shadow(0 0 5px 3px rgba(0, 0, 0, 0.0), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
+  @for $i from 0 through 10 {
+    @if $i > 5 {
+      #{$i * 10%} { @include box-shadow(0 0 (10 - $i) * 2px (10 - $i) * 1px rgba(0, 0, 0, (10 - $i) * 0.14), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
+    } @else {
+      #{$i * 10%} { @include box-shadow(0 0 $i * 2px $i * 1px rgba(0, 0, 0, $i * 0.14), inset 2px 2px 5px rgba(0, 0, 0, 0.6)); }
+    }
+  }
 }
