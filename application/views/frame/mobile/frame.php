@@ -39,11 +39,11 @@
 
       <div id="header" data-role="header" data-position="fixed" onclick="$.mobile.silentScroll(0)">  
         <div class='padding'>
-          <a href="#left_panel"><div class='avatar'><img src='https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/10298268_869517886394888_9031627202240670647_o.jpg' /></div></a>
+          <!-- <a href="#left_panel"><div class='avatar'><img src='https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/10298268_869517886394888_9031627202240670647_o.jpg' /></div></a>
 
           <span class="title"><?php echo isset ($title) ? $title:''; ?></span>
 
-          <a href="#right_menu"><div class='icon-cog2'></div></a>
+          <a href="#right_menu"><div class='icon-cog2'></div></a> -->
         </div>
       </div>
 
