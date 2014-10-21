@@ -22,6 +22,11 @@ $(function () {
   $.mobile.loading ('hide');
 
 
+salvattore['init']();
+
+  // window.ss.init ();
+// console.info (window.salvattore);
+
 // var lastScrollPosition;
 // $(window).scroll ( function() {
 //   var scrollPosition = $(this).scrollTop();

@@ -43,3 +43,13 @@ html {
     }
   }
 }
+
+*.clearfix {
+  *zoom: 1;
+    &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+    clear: both;
+    }
+}

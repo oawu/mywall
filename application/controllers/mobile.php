@@ -18,6 +18,7 @@ class Mobile extends Mobile_controller {
          // ->add_javascript ('http://demos.jquerymobile.com/1.4.4/_assets/js/index.js')
          // ->add_javascript ('http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js')
          // ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'headroom_v0.7.0', 'headroom.min.js')))
+         ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'salvattore_v1.0.5', 'salvattore.js')))
          // ->add_javascript ('https://raw.githubusercontent.com/WickyNilliams/headroom.js/v0.7.0/dist/headroom.min.js')
          ->load_view ();
   }

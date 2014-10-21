@@ -48,12 +48,37 @@
       </div>
 
       <div id='main_content' data-role="main" class="ui-content">
-        <div id='pictures'>
+        <div id='pictures' data-columns >
 
 
 
+          <div class='picture'>s
+          </div>
           <div class='picture'>
-
+            ddsa<br/>
+            ddsa<br/>
+          </div>
+          <div class='picture'>s
+          </div>
+          <div class='picture'>
+            d
+          </div>
+          <div class='picture'>s
+          </div>
+          <div class='picture'>
+            d
+          </div>
+          <div class='picture'>s
+          </div>
+          <div class='picture'>
+            d
+          </div>
+          <div class='picture'>s
+          </div>
+          <div class='picture'>
+            d
+          </div>
+<!-- 
             <div class='img imgLiquid'>
               <img src='http://front-pic.style.fashionguide.com.tw/uploads/promo/picture/874/big_promo_picture_544081788f601.jpg' />
             </div>
@@ -80,41 +105,8 @@
                 <span class='icon-star6'></span>
               </div>
               <div class='col-md-6 timeago' data-time="2014-10-16 23:16:12">das</div>
-            </div>
+            </div> -->
 
-          </div>
-
-          <div class='picture'>
-
-            <div class='img imgLiquid'>
-              <img src='http://front-pic.style.fashionguide.com.tw/uploads/share/picture/1119712/thumb_middle_share_picture_543f8a06aec3d.jpg' />
-            </div>
-
-            <div class='user'>
-              <div class='avatar'>
-                <img src='http://front-pic.style.fashionguide.com.tw/uploads/user/avatar/ef/8f/thumb_small_user_avatar_5407419ebbcc8.jpg' />
-              </div>
-              <div class='name'>
-                Yui 小郁
-              </div>
-            </div>
-
-            <div class='content'>
-              歐風Fashion Image 「褲子UNIQLO /鞋子Fairlday」
-            </div>
-
-            <div class='info row'>
-              <div class='col-md-6 stars'>
-                <span class='icon-star8'></span>
-                <span class='icon-star8'></span>
-                <span class='icon-star7'></span>
-                <span class='icon-star6'></span>
-                <span class='icon-star6'></span>
-              </div>
-              <div class='col-md-6 timeago' data-time="2014-10-16 23:16:12">das</div>
-            </div>
-
-          </div>
 
 
 
