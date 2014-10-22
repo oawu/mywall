@@ -379,7 +379,7 @@ self.next_element_column_index = function next_element_column_index(grid, fragme
   ;
   for (i = 0; i < m; i++) {
     child = children[i];
-    currentRowCount = child.children.length + fragments[i].children.length;
+    currentRowCount = child.children.length + (fragments.length && fragments[i].children ? fragments[i].children.length : 0);
   if(lowestRowCount === 0) {
     lowestRowCount = currentRowCount;
   }

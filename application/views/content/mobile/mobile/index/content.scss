@@ -102,6 +102,7 @@ html {
 
                 .content {
                   padding: 10px 10px;
+                  @include overflow-break;
                 }
 
                 .info {

@@ -12,3 +12,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@mixin overflow-break () {
+  overflow: hidden;
+  word-wrap: break-word; 
+  word-break: normal; 
+}

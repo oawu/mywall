@@ -1,20 +1,26 @@
 
           <div class='picture'>
             <div class='image imgLiquid'>
-              <img src='http://front-pic.style.fashionguide.com.tw/uploads/promo/picture/874/big_promo_picture_544081788f601.jpg' />
+              <img src='<?php echo $picture->file_name->url ('640xW');?>' />
             </div>
 
             <div class='user clearfix'>
               <div class='avatar'>
-                <img src='http://front-pic.style.fashionguide.com.tw/uploads/promo/picture/874/big_promo_picture_544081788f601.jpg' />
+                <img src='<?php echo $picture->user->avatar->url ('50x50');?>' />
               </div>
-              <div class='name'>吳政賢</div>
-              <div class='timeago' data-time="2014-10-16 23:16:12"></div>
+              <div class='name'><?php echo $picture->user->name;?></div>
+              <div class='timeago' data-time="<?php echo $picture->created_at;?>"></div>
             </div>
 
-            <div class='content'>dsadasdasd</div>
+            <div class='content'><?php echo $picture->text;?></div>
             <div class='info clearfix'>
-              <div class='tags'>#aaaa, #ffff, #ddd</div>
+              <div class='tags'>
+                <?php
+                  foreach ($picture->tags as $tag) {
+                    echo $tag->name;
+                  }
+                ?>
+              </div>
               <div class='stars'>
                 <span class='icon-star8'></span>
                 <span class='icon-star8'></span>

@@ -110,69 +110,72 @@ html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture 
 /* line 103, content.scss */
 html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .content {
   padding: 10px 10px;
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: normal;
 }
-/* line 107, content.scss */
+/* line 108, content.scss */
 html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info {
   margin: 0 10px;
   padding: 5px;
   border-top: 1px solid #c9c9c9;
 }
-/* line 112, content.scss */
+/* line 113, content.scss */
 html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .tags, html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .stars {
   font-size: 10px;
 }
-/* line 116, content.scss */
+/* line 117, content.scss */
 html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .tags {
   float: left;
   width: 68%;
 }
-/* line 121, content.scss */
+/* line 122, content.scss */
 html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .stars {
   width: 32%;
   float: right;
   text-align: right;
 }
-/* line 126, content.scss */
+/* line 127, content.scss */
 html body #main_page .ui-panel-wrapper #main_content #pictures .column .picture .info .stars span[class*="icon-"] {
   color: #efad00;
   text-shadow: 0 0 8px rgba(83, 90, 128, 0.175);
 }
 @media screen and (min-width: 345px) and (max-width: 684px) {
-  /* line 138, content.scss */
+  /* line 139, content.scss */
   html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns] {
     width: 340px;
   }
-  /* line 140, content.scss */
+  /* line 141, content.scss */
   html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns]::before {
     content: "1 .column.size-1of1";
   }
 }
 @media screen and (min-width: 685px) and (max-width: 1024px) {
-  /* line 138, content.scss */
+  /* line 139, content.scss */
   html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns] {
     width: 680px;
   }
-  /* line 140, content.scss */
+  /* line 141, content.scss */
   html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns]::before {
     content: "2 .column.size-1of2";
   }
 }
 @media screen and (min-width: 1025px) and (max-width: 1364px) {
-  /* line 138, content.scss */
+  /* line 139, content.scss */
   html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns] {
     width: 1020px;
   }
-  /* line 140, content.scss */
+  /* line 141, content.scss */
   html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns]::before {
     content: "3 .column.size-1of3";
   }
 }
 @media screen and (min-width: 1365px) and (max-width: 1704px) {
-  /* line 138, content.scss */
+  /* line 139, content.scss */
   html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns] {
     width: 1360px;
   }
-  /* line 140, content.scss */
+  /* line 141, content.scss */
   html body #main_page .ui-panel-wrapper #main_content #pictures[data-columns]::before {
     content: "4 .column.size-1of4";
   }
