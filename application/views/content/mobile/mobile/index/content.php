@@ -1,4 +1,4 @@
-<div id='pictures' data-columns >
+<div id='pictures' data-columns data-next_id='0'>
 
 
 
