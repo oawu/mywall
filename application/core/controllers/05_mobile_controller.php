@@ -45,6 +45,7 @@ class Mobile_controller extends Oa_controller {
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'jquery-timeago_v1.3.1', 'locales', 'jquery.timeago.zh-TW.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'masonry_v3.1.2', 'masonry.pkgd.min.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'imagesloaded_v3.1.8', 'imagesloaded.pkgd.min.js')))
+                ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'underscore_v1.7.0', 'underscore-min.js')))
          ;
   }
   private function _add_footer () {
