@@ -1,4 +1,5 @@
 $(function() {
+
   var masonry = new Masonry ('#pictures', { itemSelector: '.picture', columnWidth: 1, transitionDuration: '0.3s', visibleStyle: { opacity: 1, transform: 'none' }});
 
   var setPictureFeature = function ($obj) {
@@ -29,6 +30,9 @@ $(function() {
             $obj.appendTo ($pictures);
             setPictureFeature ($obj.hide ()); 
           };
+          if (result.next_id < 0) {
+            $('#loading').remove ();
+          }
           $pictures.data ('next_id', result.next_id);
         }
       })
@@ -37,8 +41,10 @@ $(function() {
     }
   }
 
+
+  var loading_height = $('#loading').height ();
   $(window).scroll (function () {
-    if (!$('.ui-panel-dismiss-open').length && (($(document).height() - $(window).height () - $(window).scrollTop ()) < 100)) {
+    if (!$('.ui-panel-dismiss-open').length && (($(document).height() - $(window).height () - $(window).scrollTop ()) < loading_height * 2)) {
       loadPictures ();
     }
   }).scroll ();

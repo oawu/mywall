@@ -14,7 +14,7 @@ class Mobile_controller extends Oa_controller {
          ->set_frame_path ('frame', 'mobile')
          ->set_content_path ('content', 'mobile')
          ->set_public_path ('public')
-         ->set_title ('MyWall')
+         ->set_title ('<cg>M</cg><icg>Y</icg><cg>W</cg><icg>ALL</icg>')
          ->add_meta (array ('name' => 'viewport', "content" => "width=device-width, initial-scale=1"))
          
          ->_add_css ()

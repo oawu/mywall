@@ -3,7 +3,7 @@
   <head>
     <!-- <link rel="shortcut icon" href="<?php echo isset ($favicon) ? $favicon:'';?>" /> -->
     <?php echo isset ($meta) ? $meta:''; ?>
-    <title data-ori="<?php echo isset ($title) ? $title:''; ?>"><?php echo isset ($title) ? $title:''; ?></title>
+    <title><?php echo isset ($title) ? strip_tags ($title) : ''; ?></title>
 
     <?php echo isset ($css) ? $css:''; ?>
     <?php echo isset ($javascript) ? $javascript:''; ?>
@@ -33,6 +33,20 @@
           <!-- <li><a data-ajax="false" href="#"><span class='icon-account-circle'></span> 個人資訊</a></li>   -->
           <li><a data-ajax="false" href="#"><span class='icon-camera'></span> 上傳照片</a></li>  
           <li><a datxa-ajax="false" href="#"><span class='icon-group'></span> 我的群組</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
+          <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
           <li><a datxa-ajax="false" href="#"><span class='icon-info3'></span> 關於MyWall</a></li>  
         </ul>  
       </div>

@@ -5,7 +5,7 @@ html {
     #main_page {
       .ui-panel-wrapper {
         #main_content {
-          $gridsWidth: 320px;
+          $gridsWidth: 300px;
           $gridsMarginLeft: 10px;
           $gridsMarginRight: 10px;
           $gridsMarginTop: 10px;
@@ -57,10 +57,10 @@ html {
 
                 .avatar {
                   position: absolute;
-                  top: -20px;
-                  left: 15px;
-                  width: 40px;
-                  height: 40px;
+                  top: -25px;
+                  left: 10px;
+                  width: 45px;
+                  height: 45px;
 
                   overflow: hidden;
                   border: 2px solid rgba(235, 235, 235, 1.00);
@@ -71,7 +71,7 @@ html {
                 }
 
                 .info, .timeago {
-                  @include overflow-docx3;
+                  @include overflow-docx3();
                 }
 
                 .name {
@@ -80,6 +80,7 @@ html {
                   margin-left: 60px;
                   height: 100%;
                   float: left;
+                  text-align: left;
                 }
 
                 .timeago {
@@ -96,6 +97,8 @@ html {
 
               .content {
                 padding: 10px 10px;
+                text-align: left;
+
                 @include overflow-break;
               }
 
@@ -110,11 +113,12 @@ html {
                 
                 .tags {
                   float: left;
-                  width: 68%;
+                  width: 65%;
+                  text-align: left;
                 }
                 
                 .stars {
-                  width: 32%;
+                  width: 35%;
                   float: right;
                   text-align: right;
 
@@ -124,6 +128,48 @@ html {
                   }
                 }
               }
+            }
+          }
+
+          #loading {
+            margin: 20px auto;
+            position: relative;
+            display: inline-block;
+
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            font-size: 13px;
+
+            background-color: rgba(155, 155, 155, 1);
+            color: rgba(250, 250, 250, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            
+            @include border-radius(50%);
+            @include text-shadow();
+
+            &:before,
+            &:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(155, 155, 155, 0.5);
+
+              @include opacity(0);
+              @include border-radius(50%);
+            }
+            
+            &:before {
+              @include scale(1);
+              @include animation (pulse 2s infinite linear);
+            }
+            
+            &:after {
+              @include animation (pulse 2s 1s infinite linear);
             }
           }
 
@@ -137,5 +183,20 @@ html {
         }
       }
     }
+  }
+}
+
+@include keyframes(pulse) {
+  0% {
+    @include scale(0.6);
+    @include opacity(0);
+  }
+  33% {
+    @include scale(1);
+    @include opacity(1);
+  }
+  100% {
+    @include scale(1.4);
+    @include opacity(0);
   }
 }

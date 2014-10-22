@@ -3,13 +3,35 @@ $.mobile.loading ('show', { theme: 'loading' });
 $(function () {
   $.mobile.loading ('hide');
   $('#main_page').css ({'min-height': $(window).height ()});
+  // $('.ui-page-active').css ({'height': $(window).height ()});
   
   $('#main_page .ui-panel-wrapper').on ('swiperight', function () {
     $('#left_panel').panel ('open');
   });
 
   $('.avatar, .imgLiquid').imgLiquid ({verticalAlign: "center"});
+  // $(document).delegate(".ui-panel-dismiss-open", "scrollstart", false);
 
+
+// $(document).bind('touchmove', function(e) {
+//   e.preventDefault();
+// });
+  function stopScroll(e) {
+    console.info (e);
+    e.preventDefault();
+  }  
+  // $("#left_panel").on("panelopen", function (event, ui) { 
+    // $('#left_panel .ui-panel-inner').css ({'height': $(window).height ()});
+      //setting overflow : hidden and binding "touchmove" with event which returns false
+      // $(window).css("overflow", "hidden").on("touchmove", stopScroll);
+      // $(window).addClass ('xactive');
+  // });
+
+  // $("#left_panel").on("panelclose", function (event, ui) {
+      // $('.ui-page-active').css ({'height': 'auto'});
+      //remove the overflow: hidden property. Also, remove the "touchmove" event. 
+      // $(window).css("overflow", "auto").off("touchmove");
+  // });
 
 
   // window.ss.init ();
