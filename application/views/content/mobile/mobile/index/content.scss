@@ -17,117 +17,110 @@ html {
             padding: 0;
             margin: 0 auto;
 
-            .column {
+            .picture {
+              position: relative;
               display: inline-block;
-              overflow: visible;
+              border: 1px solid red;
+              width: $gridsWidth;
+              margin: $gridsMarginTop $gridsMarginRight $gridsMarginBottom $gridsMarginLeft;
+              padding: 0;
+              background-color: #fff;
+              overflow: hidden;
 
-              &.size-1of1 { width: 100%; }
-              &.size-1of2 { width: 50%; }
-              &.size-1of3 { width: 33.3333%; }
-              &.size-1of4 { width: 25%; }
+              border: 1px solid rgba(205, 205, 205, 1.00);
 
-              .picture {
+              @include border-radius(2px);
+              @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.175));
+              
+              .image {
                 position: relative;
-                display: inline-block;
-                border: 1px solid red;
-                width: $gridsWidth;
-                margin: $gridsMarginTop $gridsMarginRight $gridsMarginBottom $gridsMarginLeft;
-                padding: 0;
-                background-color: #fff;
+                display: block;
+
                 overflow: hidden;
+                width: 100%;
+                height: 200px;
+                margin: 0 auto;
+                border-bottom: 1px solid rgba(205, 205, 205, 1.00);
 
-                border: 1px solid rgba(205, 205, 205, 1.00);
+                @include border-radius(0);
+                @include box-shadow(0 0 2px 1px rgba(0, 0, 0, 0.175));
+                img {
+                  width: $gridsWidth - 2;
+                }
+              }
 
-                @include border-radius(2px);
-                @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, 0.175));
-                
-                .image {
-                  position: relative;
-                  display: block;
+              .user {
+                position: relative;
+                display: block;
+                height: 24px;
+                line-height: 24px;
+
+                .avatar {
+                  position: absolute;
+                  top: -20px;
+                  left: 15px;
+                  width: 40px;
+                  height: 40px;
 
                   overflow: hidden;
-                  width: 100%;
-                  height: 200px;
-                  margin: 0 auto;
-                  border-bottom: 1px solid rgba(205, 205, 205, 1.00);
+                  border: 2px solid rgba(235, 235, 235, 1.00);
+                  background-color: #fff;
 
-                  @include border-radius(0);
-                  @include box-shadow(0 0 2px 1px rgba(0, 0, 0, 0.175));
+                  @include border-radius(50%);
+                  @include box-shadow(0 0 5px 2px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6));
                 }
 
-                .user {
-                  position: relative;
-                  display: block;
-                  height: 24px;
-                  line-height: 24px;
-
-                  .avatar {
-                    position: absolute;
-                    top: -20px;
-                    left: 15px;
-                    width: 40px;
-                    height: 40px;
-
-                    overflow: hidden;
-                    border: 2px solid rgba(235, 235, 235, 1.00);
-                    background-color: #fff;
-
-                    @include border-radius(50%);
-                    @include box-shadow(0 0 5px 2px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(0, 0, 0, 0.6));
-                  }
-
-                  .info, .timeago {
-                    @include overflow-docx3;
-                  }
-
-                  .name {
-                    width: 130px;
-                    display: inline-block;
-                    margin-left: 60px;
-                    height: 100%;
-                    float: left;
-                  }
-
-                  .timeago {
-                    text-align: right;
-                    width: 80px;
-                    display: inline-block;
-                    height: 100%;
-                    float: right;
-                    margin-right: 5px;
-                    font-size: 10px;
-                    color: #555;
-                  }
+                .info, .timeago {
+                  @include overflow-docx3;
                 }
 
-                .content {
-                  padding: 10px 10px;
-                  @include overflow-break;
+                .name {
+                  width: 130px;
+                  display: inline-block;
+                  margin-left: 60px;
+                  height: 100%;
+                  float: left;
                 }
 
-                .info {
-                  margin: 0 10px;
-                  padding: 5px;
-                  border-top: 1px solid rgba(201, 201, 201, 1);
-                  
-                  .tags, .stars {
-                    font-size: 10px;
-                  }
-                  
-                  .tags {
-                    float: left;
-                    width: 68%;
-                  }
-                  
-                  .stars {
-                    width: 32%;
-                    float: right;
-                    text-align: right;
+                .timeago {
+                  text-align: right;
+                  width: 80px;
+                  display: inline-block;
+                  height: 100%;
+                  float: right;
+                  margin-right: 5px;
+                  font-size: 10px;
+                  color: #555;
+                }
+              }
 
-                    span[class*="icon-"] {
-                      color: rgba(239, 173, 0, 1.0000);
-                      @include text-shadow(0 0 8px rgba(83, 90, 128, 0.175));
-                    }
+              .content {
+                padding: 10px 10px;
+                @include overflow-break;
+              }
+
+              .info {
+                margin: 0 10px;
+                padding: 5px;
+                border-top: 1px solid rgba(201, 201, 201, 1);
+                
+                .tags, .stars {
+                  font-size: 10px;
+                }
+                
+                .tags {
+                  float: left;
+                  width: 68%;
+                }
+                
+                .stars {
+                  width: 32%;
+                  float: right;
+                  text-align: right;
+
+                  span[class*="icon-"] {
+                    color: rgba(239, 173, 0, 1.0000);
+                    @include text-shadow(0 0 8px rgba(83, 90, 128, 0.175));
                   }
                 }
               }
@@ -136,11 +129,8 @@ html {
 
           @for $i from 1 through $maxColumns {
             @media screen and (min-width: $i * ($gridsWidth + $gridsMarginLeft + $gridsMarginRight) + $activeWidth) and (max-width: ($i + 1) * ($gridsWidth + $gridsMarginLeft + $gridsMarginRight) - 1 + $activeWidth) {
-              #pictures[data-columns] {
+              #pictures {
                 width: ($gridsWidth + $gridsMarginLeft + $gridsMarginRight) * $i;
-                &::before {
-                  content: $i + ' .column.size-1of' + $i;
-                }
               }
             }
           }

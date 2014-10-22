@@ -1,1 +1,1 @@
-<div id='pictures' data-columns data-next_id='0'></div>
+<div id='pictures' data-next_id='0'></div>

@@ -43,6 +43,7 @@ class Mobile_controller extends Oa_controller {
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'imgLiquid_v0.9.944', 'imgLiquid-min.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'jquery-timeago_v1.3.1', 'jquery.timeago.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'jquery-timeago_v1.3.1', 'locales', 'jquery.timeago.zh-TW.js')))
+                ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS . 'masonry_v3.1.2', 'masonry.pkgd.min.js')))
                 ->add_javascript (base_url (utilitySameLevelPath (REL_PATH_JS, 'imagesloaded_v3.1.8', 'imagesloaded.pkgd.min.js')))
          ;
   }

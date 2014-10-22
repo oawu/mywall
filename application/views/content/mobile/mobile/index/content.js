@@ -1,19 +1,14 @@
 $(function() {
-  salvattore['init']();
-  var columns = document.querySelector ('#pictures');
-  
-  var setPictureFeature = function ($obj) {
-    $obj.hide ();
+  var masonry = new Masonry ('#pictures', { itemSelector: '.picture', columnWidth: 1, transitionDuration: '0.3s', visibleStyle: { opacity: 1, transform: 'none' }});
 
-    var pin = document.createElement ('article');
-    salvattore['append_elements'](columns, [$obj[0]]);
-    
+  var setPictureFeature = function ($obj) {
     $obj.imagesLoaded (function () {
-      $obj.find ('.image').css ({'height': $obj.find ('.image img').css ('height')}).imgLiquid ({verticalAlign: "top"});
+      $obj.find ('.image').css ({'height': $obj.show ().find ('.image img').css ('height')}).imgLiquid ({verticalAlign: "top"});
       $obj.find ('.avatar').imgLiquid ({verticalAlign: "top"});
       $obj.find ('.timeago').timeago ();
+      masonry.appended ($obj.get (0)); 
     });
-    return $obj.show ();
+    return $obj;
   }
 
   var loadPictures = function () {
@@ -31,15 +26,8 @@ $(function() {
         if (result.status && result.contents) {
           for (var i = 0; i < result.contents.length; i++) {
             $obj = $(result.contents[i]);
-            setPictureFeature ($obj); 
-
-            // var pin = document.createElement ('article');
-            
-            // salvattore['append_elements'](columns, [pin]);
-            // pin.outerHTML = $obj[0].outerHTML;
-
-            // $obj.appendTo ($pictures);
-            // setPictureFeature ($obj.hide ()); 
+            $obj.appendTo ($pictures);
+            setPictureFeature ($obj.hide ()); 
           };
           $pictures.data ('next_id', result.next_id);
         }
