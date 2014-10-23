@@ -6,7 +6,6 @@
     <title data-ori="<?php echo isset ($title) ? $title:''; ?>"><?php echo isset ($title) ? $title:''; ?></title>
 
     <?php echo isset ($css) ? $css:''; ?>
-    <?php echo isset ($javascript) ? $javascript:''; ?>
 
   </head>
   <body lang="zh-tw">
@@ -24,5 +23,6 @@
       <?php echo (isset ($footer) && ($footer !== '')) ? $footer:'';?>
     </div>
     <div id="fb-root"></div>
+    <?php echo isset ($javascript) ? $javascript:''; ?>
   </body>
 </html>

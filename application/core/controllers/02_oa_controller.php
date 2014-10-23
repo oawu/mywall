@@ -143,6 +143,9 @@ class Oa_controller extends Root_controller {
              ->add_javascript (base_url (utilitySameLevelPath (implode (DIRECTORY_SEPARATOR, array_merge (array (APPPATH), $this->get_views_path (), $this->get_frame_path (), array ('frame.js'))))))
              ->add_javascript (base_url (utilitySameLevelPath (implode (DIRECTORY_SEPARATOR, array_merge (array (APPPATH), $this->get_views_path (), $this->get_content_path (), array ($this->get_class (), $this->get_method (), 'content.js'))))));
         
+        if  (is_readable (utilitySameLevelPath (FCPATH . ($react = implode (DIRECTORY_SEPARATOR, array_merge (array (APPPATH), $this->get_views_path (), $this->get_content_path (), array ($this->get_class (), $this->get_method (), 'react.js')))))))
+          $this->add_javascript (base_url ($react));
+          
         $frame_data = array ();
         $frame_data = array_merge ($frame_data, $this->load_components ());
         $frame_data['title']   = $this->get_title ();
