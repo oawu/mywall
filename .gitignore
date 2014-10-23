@@ -17,3 +17,4 @@ upload/*
 !upload/index.html
 
 compass/.sass-cache/*
+application/views/.module-cache/*
